@@ -21,7 +21,11 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->integer('user_id')->default(1);
-            $table->enum('type', ['master_admin', 'admin', 'user', 'employee'])->default('user');
+            $table->enum('type', ['master_admin', 'manufacturer', 'user', 'designer'])->default('user');
+             $table->string('gender');
+            $table->string('avatar');
+            $table->string('remarks');
+            $table->string('password');
             $table->boolean('is_active')->default(true);
             $table->rememberToken();
             $table->timestamps();

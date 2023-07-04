@@ -143,7 +143,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="d-flex flex-center flex-column flex-column-fluid px-lg-10 pb-15 pb-lg-20">
                 
 <!--begin::Form-->
-<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="/metronic8/demo1/../demo1/index.html" action="#">
+<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"  action="{{route('login')}}" method="POST">
+    @csrf
     <!--begin::Heading-->
     <div class="text-center mb-11">
         <!--begin::Title-->
@@ -151,6 +152,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             Sign In
         </h1>
         <!--end::Title-->
+
 
         <!--begin::Subtitle-->
         <div class="text-gray-500 fw-semibold fs-6">
@@ -222,18 +224,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!--begin::Submit button-->
     <div class="d-grid mb-10">
-        <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
-            
+        <input type="submit"  class="btn btn-primary" value="Sign in">
+           
 <!--begin::Indicator label-->
 <span class="indicator-label">
     Sign In</span>
+    
 <!--end::Indicator label-->
 
 <!--begin::Indicator progress-->
 <span class="indicator-progress">
     Please wait...    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
 </span>
-<!--end::Indicator progress-->        </button>
+<!--end::Indicator progress-->    
+    
     </div>
     <!--end::Submit button-->
 

@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bank_details', function (Blueprint $table) {
+        Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('account_no');
-            $table->string('bank_name');
-            $table->string('branch_name');
-            $table->string('ifsc_code');
+            $table->string('name');
+            $table->string('icon');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank_details');
+        Schema::dropIfExists('product_categories');
     }
 };

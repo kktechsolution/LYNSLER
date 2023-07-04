@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bank_details', function (Blueprint $table) {
+        Schema::create('user_addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('account_no');
-            $table->string('bank_name');
-            $table->string('branch_name');
-            $table->string('ifsc_code');
+            $table->string('address_line_1');
+            $table->string('address_line_2')->nullable();
+            $table->string('address_line_3')->nullable();
+            $table->string('pincode');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank_details');
+        Schema::dropIfExists('user_addresses');
     }
 };

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CatlogController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\Controller::class, 'demo'])->name('demo');
+Route::resource('/catlogs', CatlogController::class);
 

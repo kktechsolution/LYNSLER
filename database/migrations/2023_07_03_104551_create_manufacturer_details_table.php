@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('manufacturer_details', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->integer('percentage')->nullable();
             $table->string('adhar_no')->nullable();
             $table->string('adhar_pic')->nullable();

@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bank_details', function (Blueprint $table) {
+        Schema::create('ecommerce_order_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('account_no');
-            $table->string('bank_name');
-            $table->string('branch_name');
-            $table->string('ifsc_code');
+            $table->foreignId('order_id')->nullable()->constrained('orders')->onDelete('set null');
+            $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('set null');
+            $table->integer('quantity');
+            $table->decimal('amount');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank_details');
+        Schema::dropIfExists('ecommerce_order_details');
     }
 };

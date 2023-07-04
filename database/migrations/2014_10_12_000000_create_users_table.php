@@ -25,7 +25,6 @@ return new class extends Migration
              $table->string('gender');
             $table->string('avatar');
             $table->string('remarks');
-            $table->string('password');
             $table->boolean('is_active')->default(true);
             $table->rememberToken();
             $table->timestamps();

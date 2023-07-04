@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bank_details', function (Blueprint $table) {
+        Schema::create('catlogs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('account_no');
-            $table->string('bank_name');
-            $table->string('branch_name');
-            $table->string('ifsc_code');
+            $table->foreignId('catlog_category_id')->constrained('catlog_categories')->onDelete('cascade');
+            $table->string('name');
+            $table->string('description');
+            $table->string('img1')->nullable();
+            $table->string('img2')->nullable();
+            $table->string('img3')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank_details');
+        Schema::dropIfExists('catlogs');
     }
 };

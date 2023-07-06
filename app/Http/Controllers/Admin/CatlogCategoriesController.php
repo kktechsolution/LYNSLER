@@ -114,11 +114,11 @@ class CatlogCategoriesController extends Controller
             return redirect()->back();
         }
         $catlog_category = CatlogCategory::find($id);
-        if (empty($category)) {
+        if (empty($catlog_category)) {
             return redirect()->back();
         }
 
-        return view('admin.edit_category', ['catlog_category' => $catlog_category]);
+        return view('admin.edit_catlog_category', ['catlog_category' => $catlog_category]);
     }
 
     /**

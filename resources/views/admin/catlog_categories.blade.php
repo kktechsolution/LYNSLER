@@ -637,7 +637,7 @@ background-image: url('../../../assets/media/svg/files/blank-image-dark.svg');
         <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
             <a href="view.html">
                                                 <div class="symbol-label">
-                        <img src="../../../assets/media/avatars/300-6.jpg" alt="Emma Smith" class="w-100" />
+                        <img src="{{$category->icon}}" alt="Emma Smith" class="w-100" />
                     </div>
                                         </a>
         </div>
@@ -660,7 +660,7 @@ background-image: url('../../../assets/media/svg/files/blank-image-dark.svg');
 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
 <!--begin::Menu item-->
 <div class="menu-item px-3">
-<a href="view.html" class="menu-link px-3">
+<a href={{route('catlog_categories.edit',$category->id)}} class="menu-link px-3">
 Edit
 </a>
 </div>

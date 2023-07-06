@@ -24,3 +24,6 @@ Route::get('/', [App\Http\Controllers\Controller::class, 'demo'])->name('demo');
 Route::resource('/catlog_categories', CatlogCategoriesController::class);
 Route::resource('/catlogs', CatlogController::class);
 
+
+
+

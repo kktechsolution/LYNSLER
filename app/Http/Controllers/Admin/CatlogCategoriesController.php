@@ -134,7 +134,7 @@ class CatlogCategoriesController extends Controller
             return redirect()->back();
         }
         $validated = $request->validate([
-            'name' => 'required||unique:catlog_categories,name,' . $id,
+            'name' => 'nullable||unique:catlog_categories,name,' . $id,
             'icon' => 'nullable',
         ]);
 
@@ -151,7 +151,7 @@ class CatlogCategoriesController extends Controller
             $filename = time() . '.' . $extension;
             $file->move('catlog_categories_icon/', $filename);
             File::delete('catlog_categories_icon/' . $catlog_category->getRawOriginal('icon'));
-            $input['icon'] =  $filename;
+            $validated['icon'] =  $filename;
         }
 
         $catlog_category->update($validated);

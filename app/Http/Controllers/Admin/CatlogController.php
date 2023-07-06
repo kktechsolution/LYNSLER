@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Catlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class CatlogController extends Controller
 {
@@ -36,8 +37,7 @@ class CatlogController extends Controller
         }
 
         $catlogs = $catlogs->paginate(3);
-        return $catlogs;
-        // return view('admin.admin_list', ['catlogs' => $catlogs]);
+        // return view('admin.catlogs', ['catlogs' => $catlogs]);
     }
 
     /**
@@ -47,7 +47,11 @@ class CatlogController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+
+        return view('admin.add_catlog');
     }
 
     /**
@@ -58,7 +62,49 @@ class CatlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'name' => 'required',
+            'description' => 'requried',
+            'catlog_category_id' => 'requried',
+            'img1' => 'requried',
+            'img2' => 'requried',
+            'img3' => 'requried',
+
+        ]);
+        if ($request->hasfile('img1')) {
+            $file = $request->file('img1');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('catlog_images/', $filename);
+            $input['img1'] =  $filename;
+        }
+
+        if ($request->hasfile('img2')) {
+            $file = $request->file('img2');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('catlog_images/', $filename);
+            $input['img2'] =  $filename;
+        }
+
+        if ($request->hasfile('img3')) {
+            $file = $request->file('img3');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('catlog_images/', $filename);
+            $input['img3'] =  $filename;
+        }
+
+        $input['user_id'] =  Auth::user()->id;
+
+
+        Catlog::create($validated);
+
+
+        return redirect()->route('catlogs.index')->with('success', 'Catlog  added successfully.');
     }
 
     /**
@@ -69,7 +115,16 @@ class CatlogController extends Controller
      */
     public function show($id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $catlog = Catlog::find($id);
+        if (empty($catlog)) {
+            return redirect()->back();
+        }
+        $catlog->Designer;
+
+        return view('admin.show_catlog', ['catlog' => $catlog]);
     }
 
     /**
@@ -92,7 +147,58 @@ class CatlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'name' => 'nullable',
+            'description' => 'nullable',
+            'catlog_category_id' => 'nullable',
+            'img1' => 'nullable',
+            'img2' => 'nullable',
+            'is_active' => 'nullable',
+            'is_approved' => 'nullable',
+
+        ]);
+
+        $catlog = Catlog::find($id);
+        if (empty($catlog)) {
+            return redirect()->back();
+        }
+
+        if ($request->hasfile('img1')) {
+            $file = $request->file('img1');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('catlog_images/', $filename);
+            File::delete('catlog_images/' . $catlog->getRawOriginal('img1'));
+            $input['img1'] =  $filename;
+        }
+
+        if ($request->hasfile('img2')) {
+            $file = $request->file('img2');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('catlog_images/', $filename);
+            File::delete('catlog_images/' . $catlog->getRawOriginal('img2'));
+            $input['img2'] =  $filename;
+        }
+
+        if ($request->hasfile('img3')) {
+            $file = $request->file('img3');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('catlog_images/', $filename);
+            File::delete('catlog_images/' . $catlog->getRawOriginal('img3'));
+            $input['img3'] =  $filename;
+        }
+
+
+
+        $catlog->update($input);
+
+
+        return redirect()->route('catlogs.index')->with('success', 'Catlog  updated successfully.');
     }
 
     /**

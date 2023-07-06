@@ -36,7 +36,6 @@ class CatlogCategoriesController extends Controller
         }
 
         $catlog_categories = $catlog_categories->paginate(3);
-        return $catlog_categories;
         return view('admin.catlog_categories', ['catlog_categories' => $catlog_categories]);
     }
     /**
@@ -64,9 +63,10 @@ class CatlogCategoriesController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
+        // dd($request->all());
         $validated = $request->validate([
-            'name' => 'required|unique:categories',
-            'icon' => 'requried',
+            'name' => 'required|unique:catlog_categories',
+            'icon' => 'required',
 
         ]);
         if ($request->hasfile('icon')) {
@@ -74,7 +74,8 @@ class CatlogCategoriesController extends Controller
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename = time() . '.' . $extension;
             $file->move('catlog_categories_icon/', $filename);
-            $input['icon'] =  $filename;
+            $validated['icon'] =  $filename;
+            // dd($filename);
         }
         CatlogCategory::create($validated);
 

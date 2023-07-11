@@ -37,8 +37,8 @@ class CatlogController extends Controller
             $catlogs = Catlog::orderBy($sortField, $sortDirection);
         }
 
-        $catlogs = $catlogs->paginate(3);
-        // return view('admin.catlogs', ['catlogs' => $catlogs]);
+        $catlogs = $catlogs->with(['Designer'])->paginate(3);
+        return view('admin.catlogs', ['catlogs' => $catlogs]);
     }
 
     /**

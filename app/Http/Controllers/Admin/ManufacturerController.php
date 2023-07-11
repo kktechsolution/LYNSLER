@@ -101,7 +101,16 @@ class ManufacturerController extends Controller
      */
     public function show($id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $user = User::find($id);
+        if (empty($user)) {
+            return redirect()->back();
+        }
+        $user;
+
+        return view('admin.show_catlog', ['catlog' => $catlog]);
     }
 
     /**

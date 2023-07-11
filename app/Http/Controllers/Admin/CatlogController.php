@@ -101,7 +101,7 @@ class CatlogController extends Controller
             $validated['img3'] =  $filename;
         }
 
-        $input['user_id'] =  Auth::user()->id;
+        $validated['user_id'] =  Auth::user()->id;
 
 
         Catlog::create($validated);

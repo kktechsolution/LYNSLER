@@ -68,39 +68,26 @@ class ManufacturerController extends Controller
             'name' => 'required',
             'email' => 'requried',
             'phone' => 'requried',
-            'img1' => 'requried',
-            'img2' => 'requried',
-            'img3' => 'requried',
+            'password' => 'requried',
+            'gender' => 'requried',
+            'avatar' => 'requried',
 
         ]);
-        if ($request->hasfile('img1')) {
-            $file = $request->file('img1');
+        if ($request->hasfile('avatar')) {
+            $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename = time() . '.' . $extension;
-            $file->move('catlog_images/', $filename);
-            $validated['img1'] =  $filename;
+            $file->move('avatar/', $filename);
+            $validated['avatar'] =  $filename;
         }
 
-        if ($request->hasfile('img2')) {
-            $file = $request->file('img2');
-            $extension = $file->getClientOriginalExtension(); // getting image extension
-            $filename = time() . '.' . $extension;
-            $file->move('catlog_images/', $filename);
-            $validated['img2'] =  $filename;
-        }
-
-        if ($request->hasfile('img3')) {
-            $file = $request->file('img3');
-            $extension = $file->getClientOriginalExtension(); // getting image extension
-            $filename = time() . '.' . $extension;
-            $file->move('catlog_images/', $filename);
-            $validated['img3'] =  $filename;
-        }
-
-        $input['user_id'] =  Auth::user()->id;
 
 
-        Catlog::create($validated);
+        $validated['user_id'] =  Auth::user()->id;
+        $validated['type'] =  "manufacturer";
+
+
+        User::create($validated);
 
 
         return redirect()->route('catlogs.index')->with('success', 'Catlog  added successfully.');

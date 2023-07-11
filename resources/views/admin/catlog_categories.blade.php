@@ -257,9 +257,9 @@ Catalog Category List
 <!--end::Export-->
 
 <!--begin::Add user-->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_user">
+<a href={{route('catlog_categories.create')}} type="button" class="btn btn-primary" >
 <i class="ki-duotone ki-plus fs-2"></i>        Create
-</button>
+</a>
 <!--end::Add user-->
 </div>
 <!--end::Toolbar-->
@@ -667,11 +667,17 @@ Edit
 <!--end::Menu item-->
 
 <!--begin::Menu item-->
-<div class="menu-item px-3">
-<a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">
-Delete
-</a>
-</div>
+{{-- <form action="{{route('catlog_categories.destroy',$category->id)}}" method="POST">
+    @csrf
+    @method('DELETE')
+    <div class="menu-item px-3">
+    
+            <input type="submit" value="delete" class="menu-link px-3">
+       
+        </div>
+</form> --}}
+
+
 <!--end::Menu item-->
 </div>
 <!--end::Menu-->
@@ -692,6 +698,14 @@ Delete
 <!--end::Card-->        </div>
 <!--end::Content container-->
 </div>
+@foreach ($catlog_categories as $catlog_category)
+    <!-- Display user information -->
+
+@endforeach
+
+{{ $catlog_categories->links('admin.custom_pagination') }}
+
+
 <!--end::Content-->					
     </div>
     <!--end::Content wrapper-->

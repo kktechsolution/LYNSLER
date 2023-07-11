@@ -566,7 +566,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <span class="path3"></span>
                                                 <span class="path4"></span></i>
                                         </span>
-                                        <span class="menu-title">Dashboards</span>
+                                        <span class="menu-title">Catagorys</span>
                                         <span class="menu-arrow"></span></span>
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
@@ -574,20 +574,20 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link active" href="index.html">
+                                            <a class="menu-link active" href= {{route('catlog_categories.index')}}>
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span></span>
-                                                <span class="menu-title">Default</span></a>
+                                                <span class="menu-title">Catagorys List</span></a>
                                             <!--end:Menu link-->
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="dashboards/ecommerce.html">
+                                            <a class="menu-link" href= {{route('catlog_categories.create')}}>
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span></span>
-                                                <span class="menu-title">eCommerce</span></a>
+                                                <span class="menu-title">Add Catagorys</span></a>
                                             <!--end:Menu link-->
                                         </div>
                                         <!--end:Menu item-->

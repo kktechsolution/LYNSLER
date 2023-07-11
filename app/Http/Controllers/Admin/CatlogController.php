@@ -38,7 +38,7 @@ class CatlogController extends Controller
         }
 
         $catlogs = $catlogs->paginate(3);
-        // return view('admin.catlogs', ['catlogs' => $catlogs]);
+        return view('admin.catlogs', ['catlogs' => $catlogs]);
     }
 
     /**

@@ -206,7 +206,7 @@ class CatlogController extends Controller
 
 
 
-        $catlog->update($input);
+        $catlog->update($validated);
 
 
         return redirect()->route('catlogs.index')->with('success', 'Catlog  updated successfully.');

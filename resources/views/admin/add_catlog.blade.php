@@ -291,8 +291,11 @@
     <!--end::Card header-->
 </div>
 <!--end::General options-->
-<label>Catlog Category </label>
-<select class="form-select mb-2" name="catlog_category_id">
+<label style="
+font-size: 13px;
+margin-left: 34px;
+">Catlog Category </label>
+<select class="form-select mb-2" name="catlog_category_id" style="margin-left: 31px;width: 798px;">
     <option value="">---Select---</option>
     @foreach ($catlog_categories as $categories)
     <option value="{{$categories->id}}">{{$categories->name}}</option>

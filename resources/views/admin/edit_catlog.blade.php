@@ -328,7 +328,9 @@ margin-left: 34px;
                     <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
                     <!--begin::Info-->
                     <div class="ms-4">
-                        <img src="{{$catlog->img1}}">
+                        <img src="{{$catlog->img1}}" style="
+                        height: 40px;
+                    ">
                         <input type="file" name="img1" accept=".png, .jpg, .jpeg" required>
                         
                         @error('img1')
@@ -352,7 +354,9 @@ margin-left: 34px;
                     <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
                     <!--begin::Info-->
                     <div class="ms-4">
-                        <img src="{{$catlog->img2}}">
+                        <img src="{{$catlog->img2}}" style="
+                        height: 40px;
+                    ">
                         <input type="file" name="img2" accept=".png, .jpg, .jpeg" required>
                         @error('img2')
                         <div class="text-muted fs-7">
@@ -377,7 +381,9 @@ margin-left: 34px;
                     <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
                     <!--begin::Info-->
                     <div class="ms-4">
-                        <img src="{{$catlog->img3}}">
+                        <img src="{{$catlog->img3}}" style="
+                        height: 40px;
+                    ">
                         <input type="file" name="img3" accept=".png, .jpg, .jpeg" required>
                         @error('img3')
                         <div class="text-muted fs-7">

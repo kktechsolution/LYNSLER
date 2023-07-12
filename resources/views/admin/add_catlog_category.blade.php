@@ -214,10 +214,11 @@
                         <!--end::Preview existing avatar-->
 
             <!--begin::Label-->
-            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Input Icon">
                 <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
                 <!--begin::Inputs-->
-                <input type="file" name="icon" accept=".png, .jpg, .jpeg" />
+                <input type="file" name="icon" accept=".png, .jpg, .jpeg" name="icon"  required />
+            
                 <input type="hidden" name="avatar_remove" />
                 <!--end::Inputs-->
             </label>
@@ -236,7 +237,10 @@
         <!--end::Image input-->
 
         <!--begin::Description-->
-        <div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+        @error('icon')
+                <div class="text-muted fs-7">
+                   {{$message}}</div>
+                @enderror
         <!--end::Description-->
     </div>
     <!--end::Card body-->
@@ -277,11 +281,14 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="text" name="name" class="form-control mb-2" placeholder="Category name" value="" />
+                        <input type="text" name="name" class="form-control mb-2" placeholder="Category name" value=""  required/>
             <!--end::Input-->
-
+            @error('name')
+            <div class="text-muted fs-7">
+               {{$message}}</div>
+            @enderror
             <!--begin::Description-->
-            <div class="text-muted fs-7">A category name is required and recommended to be unique.</div>
+           
             <!--end::Description-->
         </div>
 

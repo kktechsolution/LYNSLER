@@ -105,8 +105,9 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container  container-xxl ">
             <!--begin::Form-->
-<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row" action="{{route('catlogs.store')}}" method="POST" enctype="multipart/form-data">
+<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row" action="{{route('catlogs.update',$catlog->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
     <!--begin::Aside column-->
     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
         <!--begin::Thumbnail settings-->
@@ -136,8 +137,8 @@
                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
                     <option value=""></option>
 
-                    <option value="1" >Active</option>
-                    <option value="0">Inactive</option>
+                    <option value="1" {{  $catlog->is_active == true ? 'selected' : '' }} >Active</option>
+                    <option value="0" {{  $catlog->is_active == false ? 'selected' : '' }}>Inactive</option>
                    
                 </select>
                 <!--end::Select2-->
@@ -179,8 +180,8 @@
         <!--begin::Select2-->
         <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
             <option value=""></option>
-            <option value="1" >Active</option>
-            <option value="0">Inactive</option>
+            <option value="1"  {{  $catlog->is_approve == true ? 'selected' : '' }} >Approve</option>
+            <option value="0"  {{  $catlog->is_approve == false ? 'selected' : '' }}>Disapprove</option>
            
         </select>
         <!--end::Select2-->
@@ -249,7 +250,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="text" name="name" class="form-control mb-2" placeholder="Catlog name" value="" required>
+                        <input type="text" name="name" class="form-control mb-2" placeholder="Catlog name" value="{{$catlog -> name }}" required>
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -271,7 +272,7 @@
             
             <div class="ql-toolbar ql-snow">
               
-                <textarea style="height: 147px;width: 775px; resize: none;" name="description" required> </textarea>
+                <textarea style="height: 147px;width: 775px; resize: none;" name="description" required>{{$catlog -> description}} </textarea>
                     
                    
                     @error('description')
@@ -291,11 +292,14 @@
     <!--end::Card header-->
 </div>
 <!--end::General options-->
-<label>Catlog Category </label>
-<select class="form-select mb-2" name="catlog_category_id">
+<label style="
+font-size: 13px;
+margin-left: 34px;
+">Catlog Category </label>
+<select class="form-select mb-2" name="catlog_category_id" style="margin-left: 31px;width: 798px;">
     <option value="">---Select---</option>
     @foreach ($catlog_categories as $categories)
-    <option value="{{$categories->id}}">{{$categories->name}}</option>
+    <option value="{{$categories->id}}" {{ $categories->id == $catlog->catlog_category_id ? 'selected' : '' }}>{{$categories->name}}</option>
         
     @endforeach
     
@@ -324,7 +328,9 @@
                     <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
                     <!--begin::Info-->
                     <div class="ms-4">
+                        <img src="{{$catlog->img1}}">
                         <input type="file" name="img1" accept=".png, .jpg, .jpeg" required>
+                        
                         @error('img1')
                         <div class="text-muted fs-7">
                             {{$message}}</div>
@@ -346,6 +352,7 @@
                     <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
                     <!--begin::Info-->
                     <div class="ms-4">
+                        <img src="{{$catlog->img2}}">
                         <input type="file" name="img2" accept=".png, .jpg, .jpeg" required>
                         @error('img2')
                         <div class="text-muted fs-7">
@@ -370,6 +377,7 @@
                     <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
                     <!--begin::Info-->
                     <div class="ms-4">
+                        <img src="{{$catlog->img3}}">
                         <input type="file" name="img3" accept=".png, .jpg, .jpeg" required>
                         @error('img3')
                         <div class="text-muted fs-7">

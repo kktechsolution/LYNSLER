@@ -69,11 +69,11 @@ class CatlogController extends Controller
         }
         $validated = $request->validate([
             'name' => 'required',
-            'description' => 'requried',
-            'catlog_category_id' => 'requried',
-            'img1' => 'requried',
-            'img2' => 'requried',
-            'img3' => 'requried',
+            'description' => 'required',
+            'catlog_category_id' => 'required',
+            'img1' => 'required',
+            'img2' => 'required',
+            'img3' => 'required',
 
         ]);
         if ($request->hasfile('img1')) {
@@ -147,7 +147,7 @@ class CatlogController extends Controller
         $catlog->Designer;
         $catlog_categories = CatlogCategory::all();
 
-        return view('admin.edit_catlog', ['catlog_categories' => $catlog_categories]);
+        return view('admin.edit_catlog', ['catlog'=>$catlog,'catlog_categories' => $catlog_categories]);
     }
 
     /**
@@ -202,11 +202,12 @@ class CatlogController extends Controller
             $file->move('catlog_images/', $filename);
             File::delete('catlog_images/' . $catlog->getRawOriginal('img3'));
             $validated['img3'] =  $filename;
+            
         }
 
+// dd($validated);
 
-
-        $catlog->update($input);
+        $catlog->update($validated);
 
 
         return redirect()->route('catlogs.index')->with('success', 'Catlog  updated successfully.');

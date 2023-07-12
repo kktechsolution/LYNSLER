@@ -698,10 +698,7 @@ Edit
 <!--end::Card-->        </div>
 <!--end::Content container-->
 </div>
-@foreach ($catlog_categories as $catlog_category)
-    <!-- Display user information -->
 
-@endforeach
 
 {{ $catlog_categories->links('admin.custom_pagination') }}
 

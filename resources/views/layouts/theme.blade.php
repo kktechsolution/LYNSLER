@@ -504,7 +504,44 @@ License: For each use you must have a valid license purchased only from above li
             <!--end::Header-->
             <!--begin::Wrapper-->
             <div class="app-wrapper  flex-column flex-row-fluid " id="kt_app_wrapper">
+                @if (session('error'))
+                
+                <div class="alert alert-dismissible bg-danger d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+                    <!--begin::Icon-->
+                    <i class="ki-duotone ki-message-text-2 fs-2hx text-light me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>                    <!--end::Icon-->
 
+                    <!--begin::Content-->
+                    <div class="d-flex flex-column text-light pe-0 pe-sm-10">
+                        <h4 class="mb-2 text-light">Error</h4>
+                        <span>{{session('error')}}</span>
+                    </div>
+                    <!--end::Content-->
+
+                    <!--begin::Close-->
+                    <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+                        <i class="ki-duotone ki-cross fs-2x text-light"><span class="path1"></span><span class="path2"></span></i>                    </button>
+                    <!--end::Close-->
+                </div>
+                @endif
+                @if (session('success'))
+                
+                <div class="alert alert-dismissible bg-success d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+                    <!--begin::Icon-->
+                    <i class="ki-duotone ki-pencil fs-2hx text-light me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
+
+                    <!--begin::Content-->
+                    <div class="d-flex flex-column text-light pe-0 pe-sm-10">
+                        <h4 class="mb-2 text-light">Success</h4>
+                        <span>{{session('success')}}.</span>
+                    </div>
+                    <!--end::Content-->
+
+                    <!--begin::Close-->
+                    <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+                        <i class="ki-duotone ki-cross fs-2x text-light"><span class="path1"></span><span class="path2"></span></i>                    </button>
+                    <!--end::Close-->
+                </div>
+                @endif
                 <!--begin::Sidebar-->
                 <div id="kt_app_sidebar" class="app-sidebar  flex-column " data-kt-drawer="true"
                     data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}"
@@ -566,7 +603,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <span class="path3"></span>
                                                 <span class="path4"></span></i>
                                         </span>
-                                        <span class="menu-title">Catagorys</span>
+                                        <span class="menu-title">Catlog Categories</span>
                                         <span class="menu-arrow"></span></span>
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
@@ -577,7 +614,7 @@ License: For each use you must have a valid license purchased only from above li
                                             <a class="menu-link active" href= {{route('catlog_categories.index')}}>
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span></span>
-                                                <span class="menu-title">Catagorys List</span></a>
+                                                <span class="menu-title">Catlog Categories List</span></a>
                                             <!--end:Menu link-->
                                         </div>
                                         <!--end:Menu item-->
@@ -587,7 +624,7 @@ License: For each use you must have a valid license purchased only from above li
                                             <a class="menu-link" href= {{route('catlog_categories.create')}}>
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span></span>
-                                                <span class="menu-title">Add Catagorys</span></a>
+                                                <span class="menu-title">Add Catlog Categories</span></a>
                                             <!--end:Menu link-->
                                         </div>
                                         <!--end:Menu item-->
@@ -597,7 +634,7 @@ License: For each use you must have a valid license purchased only from above li
                                             <a class="menu-link" href="dashboards/projects.html">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span></span>
-                                                <span class="menu-title">Projects</span></a>
+                                                <span class="menu-title">Catlog Categories Edit</span></a>
                                             <!--end:Menu link-->
                                         </div>
                                         <!--end:Menu item-->

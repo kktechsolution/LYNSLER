@@ -215,10 +215,14 @@
                         <!--end::Preview existing avatar-->
 
             <!--begin::Label-->
-            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Input Icon">
                 <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
                 <!--begin::Inputs-->
-                <input type="file" name="icon" accept=".png, .jpg, .jpeg" />
+                <input type="file" name="icon" accept=".png, .jpg, .jpeg" required />
+                @error('icon')
+                <div class="text-muted fs-7">
+                   {{$message}}</div>
+                @enderror
                 <input type="hidden" name="avatar_remove" />
                 <img src="{{$catlog_category->icon}}" class="image-input-wrapper w-150px h-150px" style=" margin-bottom: -467px; margin-left: -157px;">
                 <!--end::Inputs-->
@@ -279,11 +283,14 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="text" name="name" class="form-control mb-2" placeholder="Category name" value="{{$catlog_category->name}}" />
+                        <input type="text" name="name" class="form-control mb-2" placeholder="Category name" value="{{$catlog_category->name}}" required />
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">A category name is required and recommended to be unique.</div>
+            @error('name')
+            <div class="text-muted fs-7">
+               {{$message}}</div>
+            @enderror
             <!--end::Description-->
         </div>
 

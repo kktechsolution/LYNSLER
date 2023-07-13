@@ -26,7 +26,7 @@ class ManufacturerController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        $users = User::wherte('type','manufacturer')->orderBy('name');
+        $users = User::where('type','manufacturer')->orderBy('name');
         // Default sorting
         // Check if request has a sort parameter
         if ($request->has('sort')) {

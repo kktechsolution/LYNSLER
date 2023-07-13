@@ -52,4 +52,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function manufacturer_details()
+    {
+        return $this->hasOne(ManufacturerDetail::class,'user_id');
+    }
+
+    public function designer_details()
+    {
+        return $this->hasOne(DesignerDetail::class,'user_id');
+    }
 }

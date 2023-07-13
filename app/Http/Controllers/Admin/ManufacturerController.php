@@ -117,6 +117,8 @@ class ManufacturerController extends Controller
             return redirect()->back();
         }
 
+        $user->manufacturer_details;
+
         return view('admin.show_manufacturer', ['user' => $user]);
     }
 

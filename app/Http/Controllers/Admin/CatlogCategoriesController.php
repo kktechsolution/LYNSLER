@@ -35,7 +35,7 @@ class CatlogCategoriesController extends Controller
             $catlog_categories = CatlogCategory::orderBy($sortField, $sortDirection);
         }
 
-        $catlog_categories = CatlogCategory::paginate(5);
+        $catlog_categories = $catlog_categories->paginate(5);
         return view('admin.catlog_categories', ['catlog_categories' => $catlog_categories]);
     }
     /**

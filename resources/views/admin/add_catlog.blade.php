@@ -118,7 +118,7 @@
             <div class="card-header">
                 <!--begin::Card title-->
                 <div class="card-title">
-                    <h2>Status</h2>
+                    <h2> Active Status</h2>
                 </div>
                 <!--end::Card title-->
 
@@ -133,12 +133,11 @@
             <!--begin::Card body-->
             <div class="card-body pt-0">
                 <!--begin::Select2-->
-                <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
-                    <option value=""></option>
-
+                <select class="form-select mb-2" name="is_active"  data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                    <option value="">---Select---</option>
                     <option value="1" >Active</option>
                     <option value="0">Inactive</option>
-
+        
                 </select>
                 <!--end::Select2-->
 
@@ -161,8 +160,8 @@
     <!--begin::Card header-->
     <div class="card-header">
         <!--begin::Card title-->
-        <div class="card-title">
-            <h2>Status</h2>
+        <div class="card-title ">
+            <h2> Approve Status</h2>
         </div>
         <!--end::Card title-->
 
@@ -177,10 +176,10 @@
     <!--begin::Card body-->
     <div class="card-body pt-0">
         <!--begin::Select2-->
-        <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
-            <option value=""></option>
-            <option value="1" >Active</option>
-            <option value="0">Inactive</option>
+        <select class="form-select  mb-2" name="is_approved"  pl data-hide-search="true" data-placeholder="Select " id="kt_ecommerce_add_product_status_select">
+            <option value="">---Select---</option>
+            <option value="1" >Approve</option>
+            <option value="0">Disapprove</option>
 
         </select>
         <!--end::Select2-->

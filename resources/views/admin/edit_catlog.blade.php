@@ -119,7 +119,7 @@
             <div class="card-header">
                 <!--begin::Card title-->
                 <div class="card-title">
-                    <h2>Status</h2>
+                    <h2> Active Status</h2>
                 </div>
                 <!--end::Card title-->
                 
@@ -134,7 +134,7 @@
             <!--begin::Card body-->
             <div class="card-body pt-0">
                 <!--begin::Select2-->
-                <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                <select class="form-select mb-2" name="is_active" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
                     <option value=""></option>
 
                     <option value="1" {{  $catlog->is_active == true ? 'selected' : '' }} >Active</option>
@@ -163,7 +163,7 @@
     <div class="card-header">
         <!--begin::Card title-->
         <div class="card-title">
-            <h2>Status</h2>
+            <h2> Approval Status</h2>
         </div>
         <!--end::Card title-->
         
@@ -178,23 +178,18 @@
     <!--begin::Card body-->
     <div class="card-body pt-0">
         <!--begin::Select2-->
-        <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+        <select class="form-select mb-2" name="is_approved" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
             <option value=""></option>
-            <option value="1"  {{  $catlog->is_approve == true ? 'selected' : '' }} >Approve</option>
-            <option value="0"  {{  $catlog->is_approve == false ? 'selected' : '' }}>Disapprove</option>
+            <option value="1"  {{  $catlog->is_approved == true ? 'selected' : '' }} >Approve</option>
+            <option value="0"  {{  $catlog->is_approved == false ? 'selected' : '' }}>Disapprove</option>
            
         </select>
         <!--end::Select2-->
 
-        <!--begin::Description-->
-        <div class="text-muted fs-7">Set the catlog status.</div>
-        <!--end::Description-->
+        <!--begin::Description-->        <!--end::Description-->
 
         <!--begin::Datepicker-->
-        <div class="d-none mt-10">
-            <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>
-            <input class="form-control flatpickr-input" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date &amp; time" type="text" readonly="readonly">
-        </div>
+       
         <!--end::Datepicker-->
     </div>
     <!--end::Card body-->
@@ -250,7 +245,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="text" name="name" class="form-control mb-2" placeholder="Catlog name" value="{{$catlog -> name }}" required>
+                        <input type="text" name="name" class="form-control mb-2" placeholder="Catlog name" value="{{$catlog -> name }}" >
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -272,7 +267,7 @@
             
             <div class="ql-toolbar ql-snow">
               
-                <textarea style="height: 147px;width: 775px; resize: none;" name="description" required>{{$catlog -> description}} </textarea>
+                <textarea style="height: 147px;width: 775px; resize: none;" name="description" >{{$catlog -> description}} </textarea>
                     
                    
                     @error('description')
@@ -331,7 +326,7 @@ margin-left: 34px;
                         <img src="{{$catlog->img1}}" style="
                         height: 40px;
                     ">
-                        <input type="file" name="img1" accept=".png, .jpg, .jpeg" required>
+                        <input type="file" name="img1" accept=".png, .jpg, .jpeg" >
                         
                         @error('img1')
                         <div class="text-muted fs-7">
@@ -357,7 +352,7 @@ margin-left: 34px;
                         <img src="{{$catlog->img2}}" style="
                         height: 40px;
                     ">
-                        <input type="file" name="img2" accept=".png, .jpg, .jpeg" required>
+                        <input type="file" name="img2" accept=".png, .jpg, .jpeg" >
                         @error('img2')
                         <div class="text-muted fs-7">
                             {{$message}}</div>
@@ -384,7 +379,7 @@ margin-left: 34px;
                         <img src="{{$catlog->img3}}" style="
                         height: 40px;
                     ">
-                        <input type="file" name="img3" accept=".png, .jpg, .jpeg" required>
+                        <input type="file" name="img3" accept=".png, .jpg, .jpeg" >
                         @error('img3')
                         <div class="text-muted fs-7">
                             {{$message}}</div>

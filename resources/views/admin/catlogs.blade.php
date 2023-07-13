@@ -20,7 +20,7 @@
 <div  class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
 <!--begin::Title-->
 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-Catalog Category List
+Catlog List
 </h1>
 <!--end::Title-->
 
@@ -30,7 +30,7 @@ Catalog Category List
                 <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
                                         <a href="../../../index.html" class="text-muted text-hover-primary">
-                    Catalog                            </a>
+                    Catlog                            </a>
                                 </li>
                     <!--end::Item-->
                         <!--begin::Item-->
@@ -41,7 +41,7 @@ Catalog Category List
                             
                 <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                                        Catalog Category List                                            </li>
+                                        Catlog List                                            </li>
                     <!--end::Item-->
                         <!--begin::Item-->
       
@@ -86,15 +86,7 @@ Catalog Category List
 <!--end::Label-->
 
 <!--begin::Input-->
-<div>
-    <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_648c12889fa96" data-allow-clear="true">
-        <option></option>
-        <option value="1">Approved</option>
-        <option value="2">Pending</option>
-        <option value="2">In Process</option>
-        <option value="2">Rejected</option>
-    </select>
-</div>
+
 <!--end::Input-->
 </div>
 <!--end::Input group-->
@@ -196,13 +188,7 @@ Catalog Category List
     <div class="card-toolbar flex-row-fluid justify-content-end gap-5" data-select2-id="select2-data-122-3o0w">
         <div class="w-100 mw-150px">
             <!--begin::Select2-->
-            <select class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Status" data-kt-ecommerce-product-filter="status" data-select2-id="select2-data-10-5vsu" tabindex="-1" aria-hidden="true" data-kt-initialized="1">
-                <option data-select2-id="select2-data-12-v23i"></option>
-                <option value="all" data-select2-id="select2-data-124-dqxx">All</option>
-                <option value="published" data-select2-id="select2-data-125-09gp">Published</option>
-                <option value="scheduled" data-select2-id="select2-data-126-upww">Scheduled</option>
-                <option value="inactive" data-select2-id="select2-data-127-xe25">Inactive</option>
-            </select><span class="select2 select2-container select2-container--bootstrap5 select2-container--below" dir="ltr" data-select2-id="select2-data-11-09z6" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single form-select form-select-solid" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-8hat-container" aria-controls="select2-8hat-container"><span class="select2-selection__rendered" id="select2-8hat-container" role="textbox" aria-readonly="true" title="Status"><span class="select2-selection__placeholder">Status</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+          
             <!--end::Select2-->
         </div>
 
@@ -231,59 +217,12 @@ Catalog Category List
             <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                 <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input" value="1">
             </div>
-        </th><th class="min-w-200px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 256.375px;">Product</th><th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 129.5px;">SKU</th><th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">Qty</th><th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending" style="width: 129.5px;">Price</th><th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Rating: activate to sort column ascending" style="width: 129.5px;">Rating</th><th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 129.5px;">Status</th><th class="text-end min-w-70px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 131.913px;">Actions</th></tr>
+        </th><th class="min-w-200px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 256.375px;">Catlog </th><th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 129.5px;">Description</th><th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">Catlog Categories</th><th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 129.5px;"> Active Status</th><th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 129.5px;"> Approval Status</th><th class="text-end min-w-70px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 131.913px;">Actions</th></tr>
 </thead>
 <tbody class="fw-semibold text-gray-600">
                 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+         @foreach($catlogs as $catlog)       
         <tr class="odd">
             <td>
                 <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -293,42 +232,42 @@ Catalog Category List
             <td>
                 <div class="d-flex align-items-center">
                     <!--begin::Thumbnail-->
-                    <a href="edit-product.html" class="symbol symbol-50px">
-                        <span class="symbol-label" style="background-image:url(../../../assets/media/stock/ecommerce/1.gif);"></span>
-                    </a>
+                  
                     <!--end::Thumbnail-->
 
                     <div class="ms-5">
                         <!--begin::Title-->
-                        <a href="edit-product.html" class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-product-filter="product_name">Product 1</a>
+                        <a href="{{route('catlogs.show',$catlog->id)}}" class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-product-filter="product_name">{{$catlog->name}}</a>
                         <!--end::Title-->
                     </div>
                 </div>
             </td>
             <td class="text-end pe-0">
+                <span class="fw-bold">{{$catlog->description}}</span>
+            </td>
+            <td class="text-end pe-0">
                 <span class="fw-bold">01260008</span>
             </td>
-                            <td class="text-end pe-0" data-order="12">
-                                        <span class="fw-bold ms-3">12</span>
-                                </td>
-            <td class="text-end pe-0">171.00</td>
-                            <td class="text-end pe-0" data-order="rating-5">
-                <div class="rating justify-content-end">
-                                                <div class="rating-label checked">
-                            <i class="ki-duotone ki-star fs-6"></i>                            </div>
-                                                <div class="rating-label checked">
-                            <i class="ki-duotone ki-star fs-6"></i>                            </div>
-                                                <div class="rating-label checked">
-                            <i class="ki-duotone ki-star fs-6"></i>                            </div>
-                                                <div class="rating-label checked">
-                            <i class="ki-duotone ki-star fs-6"></i>                            </div>
-                                                <div class="rating-label checked">
-                            <i class="ki-duotone ki-star fs-6"></i>                            </div>
-                                        </div>
-            </td>
+                          
+                         
                             <td class="text-end pe-0" data-order="Scheduled">
                 <!--begin::Badges-->                    
-                <div class="badge badge-light-primary">Scheduled</div>
+                <div class="badge badge-light-primary">@if($catlog->is_active == 0)
+                    Inactive
+                    @else
+                        Active
+                    @endif</div>
+                <!--end::Badges-->
+            </td>
+            <td class="text-end pe-0" data-order="Scheduled">
+                <!--begin::Badges-->                    
+                <div class="badge badge-light-primary">
+                    @if($catlog->is_approved == 0)
+                    DisApproved
+                    @else
+                        Approved
+                    @endif
+                </div>
                 <!--end::Badges-->
             </td>
             <td class="text-end">
@@ -339,18 +278,14 @@ Catalog Category List
 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
 <!--begin::Menu item-->
 <div class="menu-item px-3">
-    <a href="edit-product.html" class="menu-link px-3">
+    <a href={{route('catlogs.edit',$catlog->id)}} class="menu-link px-3">
         Edit
     </a>
 </div>
 <!--end::Menu item-->
 
 <!--begin::Menu item-->
-<div class="menu-item px-3">
-    <a href="#" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">
-        Delete
-    </a>
-</div>
+
 <!--end::Menu item-->
 </div>
 <!--end::Menu-->
@@ -364,7 +299,9 @@ Catalog Category List
 </div>
 <!--end::Menu-->
             </td>
-        </tr></tbody>
+        </tr>
+    @endforeach
+    </tbody>
 </table></div><div class="row"><div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"><div class="dataTables_length" id="kt_ecommerce_products_table_length"><label><select name="kt_ecommerce_products_table_length" aria-controls="kt_ecommerce_products_table" class="form-select form-select-sm form-select-solid"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label></div></div><div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"><div class="dataTables_paginate paging_simple_numbers" id="kt_ecommerce_products_table_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="kt_ecommerce_products_table_previous"><a href="#" aria-controls="kt_ecommerce_products_table" data-dt-idx="0" tabindex="0" class="page-link"><i class="previous"></i></a></li><li class="paginate_button page-item active"><a href="#" aria-controls="kt_ecommerce_products_table" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_ecommerce_products_table" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_ecommerce_products_table" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_ecommerce_products_table" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_ecommerce_products_table" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item next" id="kt_ecommerce_products_table_next"><a href="#" aria-controls="kt_ecommerce_products_table" data-dt-idx="6" tabindex="0" class="page-link"><i class="next"></i></a></li></ul></div></div></div></div>
 <!--end::Table-->    </div>
 <!--end::Card body-->

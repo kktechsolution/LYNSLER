@@ -36,7 +36,7 @@ class CustomerController extends Controller
         }
 
         $users = $users->paginate(3);
-        return view('admin.users', ['users' => $users]);
+        return view('admin.customers', ['users' => $users]);
     }
 
     /**
@@ -50,7 +50,7 @@ class CustomerController extends Controller
             return redirect()->back();
         }
 
-        return view('admin.add_user');
+        return view('admin.add_customer');
     }
 
     /**

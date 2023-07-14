@@ -22,7 +22,7 @@
 <div  class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
     <!--begin::Title-->
     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-       Manufacture Form
+       Designer Form
             </h1>
     <!--end::Title-->
 
@@ -31,8 +31,8 @@
         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    <a href={{route('manufacturers.index')}} class="text-muted text-hover-primary">
-                                                        Manufacturers                            </a>
+                                                    <a href={{route('designers.index')}} class="text-muted text-hover-primary">
+                                                       Designer                           </a>
                                             </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
@@ -43,7 +43,7 @@
                                         
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    Add Manufacturers                                           </li>
+                                                    Add Designer                                          </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
                   
@@ -180,7 +180,7 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container  container-xxl ">
             <!--begin::Form-->
-<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('manufacturers.store')}}" method="POST" enctype="multipart/form-data">
+<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('designers.store')}}" method="POST" enctype="multipart/form-data">
     <!--begin::Aside column-->
     @csrf
     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -358,13 +358,52 @@
     <!--begin::Card header-->
     <div class="card-header">
         <div class="card-title">
-            <h2>Manufactures Details</h2>
+            <h2>Designer Details</h2>
         </div>
     </div>
     <!--end::Card header-->
 
     <!--begin::Card body-->
     <div class="card-body pt-0">
+        <div class="mb-10 fv-row fv-plugins-icon-container">
+            <!--begin::Label-->
+            <label class="required form-label">Title Tag</label>
+            <!--end::Label-->
+
+            <!--begin::Input-->
+                        <input type="text" name="product_name" class="form-control mb-2" placeholder="Title" value="">
+            <!--end::Input-->
+
+            <!--begin::Description-->
+            <div class="text-muted fs-7">A  .</div>
+            <!--end::Description-->
+        <div class="fv-plugins-message-container invalid-feedback"></div></div>
+        <div class="mb-10 fv-row fv-plugins-icon-container">
+            <!--begin::Label-->
+            
+            <!--end::Label-->
+
+            <!--begin::Input-->
+                       <div class="mb-10 fv-row fv-plugins-icon-container">
+            <!--begin::Label-->
+            <label class="required form-label">Description</label>
+            <!--end::Label-->
+
+            <!--begin::Input-->
+            <textarea style="height: 147px;width: 775px; resize: none;" name="description" required> </textarea>
+
+            <!--end::Input-->
+
+            <!--begin::Description-->
+            <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
+            <!--end::Description-->
+        <div class="fv-plugins-message-container invalid-feedback"></div></div>
+            <!--end::Input-->
+
+            <!--begin::Description-->
+   
+            <!--end::Description-->
+        <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <div class="mb-10 fv-row fv-plugins-icon-container">
             <!--begin::Label-->
             <label class="required form-label">Adhar Number</label>

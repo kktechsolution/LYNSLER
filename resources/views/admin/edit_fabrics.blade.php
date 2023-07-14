@@ -22,7 +22,7 @@
 <div  class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
     <!--begin::Title-->
     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-       Manufacture Form
+       Fabric Form
             </h1>
     <!--end::Title-->
 
@@ -31,8 +31,8 @@
         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    <a href="" class="text-muted text-hover-primary">
-                                                        Manufacturers                            </a>
+                                                    <a href={{route('fabrics.index')}} class="text-muted text-hover-primary">
+                                                        Fabric                          </a>
                                             </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
@@ -43,7 +43,7 @@
                                         
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    Add Manufacturers                                           </li>
+                                                    Add Fabric                                           </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
                   
@@ -180,8 +180,10 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container  container-xxl ">
             <!--begin::Form-->
-<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row" data-kt-redirect="products.html">
+<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('fabrics.update',$fabrics->id)}}" method="POST" enctype="multipart/form-data">
     <!--begin::Aside column-->
+    @csrf
+    @method('PUT')
     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
         <!--begin::Thumbnail settings-->
 <div class="card card-flush py-4">
@@ -189,7 +191,7 @@
     <div class="card-header">
         <!--begin::Card title-->
         <div class="card-title">
-            <h2>Addhar Photo</h2>
+            <h2>Fabric Photo</h2>
         </div>
         <!--end::Card title-->
     </div>
@@ -219,7 +221,7 @@
             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change Photo">
                 <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
                 <!--begin::Inputs-->
-                <input type="file" name="avatar" accept=".png, .jpg, .jpeg" required />
+                <input type="file" name="avatar" accept=".png, .jpg, .jpeg"  />
                 <input type="hidden" name="avatar_remove" />
                 <!--end::Inputs-->
             </label>
@@ -294,11 +296,11 @@
         <!--begin::Input group-->
         <div class="mb-10 fv-row">
             <!--begin::Label-->
-            <label class="required form-label">Percentage</label>
+            <label class="required form-label">Name</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input type="number" name="sku" class="form-control mb-2"  value="" required />
+            <input type="text" name="sku" class="form-control mb-2"  value=""  />
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -311,15 +313,15 @@
         <!--begin::Input group-->
         <div class="mb-10 fv-row">
             <!--begin::Label-->
-            <label class="required form-label">Addhar Number </label>
+            <label class="required form-label">Description </label>
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input type="text" name="sku" class="form-control mb-2" placeholder="Addhar Number" value=""required />
+            <textarea style="height: 147px;width: 775px; resize: none;" name="description" > </textarea>
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">Enter your addhar number <address></address>.</div>
+            <div class="text-muted fs-7">Enter your Description <address></address>.</div>
             <!--end::Description-->
         </div>
         <!--end::Input group-->
@@ -327,37 +329,22 @@
         <!--begin::Input group-->
         <div class="mb-10 fv-row">
             <!--begin::Label-->
-            <label class="required form-label">Latitude </label>
+            <label class="required form-label">Price</label>
             <!--end::Label-->
 
             <!--begin::Input-->
             <div class="d-flex gap-3">
-                <input type="text" name="shelf" class="form-control mb-2"  value="" required />
+                <input type="text" name="shelf" class="form-control mb-2"  value=""  />
                 
             </div>
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">Enter latitude </div>
+            <div class="text-muted fs-7">Enter Price </div>
             <!--end::Description-->
         </div>
         <!--end::Input group-->
-        <div class="mb-10 fv-row">
-            <!--begin::Label-->
-            <label class="required form-label"> Longitude </label>
-            <!--end::Label-->
-
-            <!--begin::Input-->
-            <div class="d-flex gap-3">
-                <input type="text" name="shelf" class="form-control mb-2"  value="" required />
-                
-            </div>
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Enter  longitude </div>
-            <!--end::Description-->
-        </div>
+       
         <!--begin::Input group-->
            
             <!--end::Input group-->

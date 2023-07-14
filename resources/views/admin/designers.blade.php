@@ -11,7 +11,7 @@
 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
 <!--begin::Title-->
 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-Manufacture
+Designer
     </h1>
 <!--end::Title-->
 
@@ -21,7 +21,7 @@ Manufacture
                     <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
                                             <a href="../../../index.html" class="text-muted text-hover-primary">
-                        Manufacture                            </a>
+                        Designer                          </a>
                                     </li>
                         <!--end::Item-->
                             <!--begin::Item-->
@@ -32,7 +32,7 @@ Manufacture
                                 
                     <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
-                                           Manufacturers List                                        </li>
+                                           Designers List                                        </li>
                         <!--end::Item-->
                             <!--begin::Item-->
             
@@ -85,7 +85,7 @@ Manufacture
   
 
     <!--begin::Add product-->
-    <a href={{route('manufacturers.create')}} class="btn btn-primary">
+    <a href={{route('designers.create')}} class="btn btn-primary">
         Create
     </a>
     <!--end::Add product-->
@@ -110,57 +110,7 @@ Manufacture
         </div>
     </th><th class="min-w-200px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 256.375px;">Avatar</th><th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 129.5px;">Name</th><th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">Email</th><th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending" style="width: 129.5px;">Phone Number</th><th class="text-end min-w-70px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 131.913px;">Actions</th></tr>
 </thead>
-<tbody class="fw-semibold text-gray-600">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+<tbody class="fw-semibold text-gray-600">        
     <tr class="odd">
         <td>
             <div class="form-check form-check-sm form-check-custom form-check-solid">

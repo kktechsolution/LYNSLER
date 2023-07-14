@@ -11,7 +11,7 @@
 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
 <!--begin::Title-->
 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-Manufacture
+Customers
     </h1>
 <!--end::Title-->
 
@@ -21,7 +21,7 @@ Manufacture
                     <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
                                             <a href="../../../index.html" class="text-muted text-hover-primary">
-                        Manufacture                            </a>
+                        Customers                          </a>
                                     </li>
                         <!--end::Item-->
                             <!--begin::Item-->
@@ -32,7 +32,7 @@ Manufacture
                                 
                     <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
-                                           Manufacturers List                                        </li>
+                                           Customers List                                        </li>
                         <!--end::Item-->
                             <!--begin::Item-->
             
@@ -85,7 +85,7 @@ Manufacture
   
 
     <!--begin::Add product-->
-    <a href={{route('manufacturers.create')}} class="btn btn-primary">
+    <a href={{route('customers.create')}} class="btn btn-primary">
         Create
     </a>
     <!--end::Add product-->

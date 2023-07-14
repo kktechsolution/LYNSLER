@@ -19,7 +19,9 @@ class FabricController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        $fabrics = Fabric::all();
+       
+        
+       $fabrics =Fabric::orderBy('name');
         // Default sorting
         // Check if request has a sort parameter
         if ($request->has('sort')) {

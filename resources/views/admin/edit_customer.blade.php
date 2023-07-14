@@ -22,7 +22,7 @@
 <div  class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
     <!--begin::Title-->
     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-       Manufacture Form
+       Customers Form
             </h1>
     <!--end::Title-->
 
@@ -31,8 +31,8 @@
         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    <a href={{route('manufacturers.index')}} class="text-muted text-hover-primary">
-                                                        Manufacturers                            </a>
+                                                    <a href={{route('customers.index')}} class="text-muted text-hover-primary">
+                                                        Customers                            </a>
                                             </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
@@ -43,7 +43,7 @@
                                         
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    Add Manufacturers                                           </li>
+                                                    Add Customers                                           </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
                   
@@ -180,7 +180,7 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container  container-xxl ">
             <!--begin::Form-->
-<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('manufacturers.store')}}" method="POST" enctype="multipart/form-data">
+<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('customers.store')}}" method="POST" enctype="multipart/form-data">
     <!--begin::Aside column-->
     @csrf
     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -354,160 +354,11 @@
 </div>
 <!--end::General options-->
 <!--begin::Media-->
-<div class="card card-flush py-4">
-    <!--begin::Card header-->
-    <div class="card-header">
-        <div class="card-title">
-            <h2>Manufactures Details</h2>
-        </div>
-    </div>
-    <!--end::Card header-->
 
-    <!--begin::Card body-->
-    <div class="card-body pt-0">
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">Adhar Number</label>
-            <!--end::Label-->
-
-            <!--begin::Input-->
-                        <input type="text" name="product_name" class="form-control mb-2" placeholder="Adhar Number" value="">
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-        <!--begin::Input group-->
-        <div class="fv-row mb-2">
-            <!--begin::Dropzone-->
-            <label class="required form-label">Adhar Photo</label>
-            <div class="dropzone dz-clickable" id="kt_ecommerce_add_product_media">
-                <!--begin::Message-->
-                <div class="dz-message needsclick">
-                    <!--begin::Icon-->
-                    <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
-                    <!--begin::Info-->
-                    <div class="ms-4">
-                        <input type="file" name="img1" accept=".png, .jpg, .jpeg" required>
-                        <span class="fs-7 fw-semibold text-gray-400">Upload  Adhar Photo</span>
-                    </div>
-                    <!--end::Info-->
-                </div>
-            </div>
-            <!--end::Dropzone-->
-        </div>
-        <!--end::Input group-->
-
-        <!--begin::Description-->
-        <div class="text-muted fs-7">Set the product media gallery.</div>
-        <br>
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">Percentage</label>
-            <!--end::Label-->
-
-            <!--begin::Input-->
-                        <input type="number" name="product_name" class="form-control mb-2" placeholder="Percentage" value="">
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-        <!--end::Description-->
-    </div>
-    
-    <!--end::Card header-->
-</div>
 <!--end::Media-->
 
 <!--begin::Pricing-->
-<div class="card card-flush py-4">
-    <!--begin::Card header-->
-    <div class="card-header">
-        <div class="card-title">
-            <h2>Bank Details</h2>
-        </div>
-    </div>
-    <!--end::Card header-->
 
-    <!--begin::Card body-->
-    <div class="card-body pt-0">
-        <!--begin::Input group-->
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">Account Number</label>
-            <!--end::Label-->
-
-            <!--begin::Input-->
-            <input type="text" name="price" class="form-control mb-2" placeholder="" value="">
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Account Number</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-        <!--end::Input group-->
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">Bank Name</label>
-            <!--end::Label-->
-
-            <!--begin::Input-->
-            <input type="text" name="price" class="form-control mb-2" placeholder="" value="">
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Bank Name</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">Branch Name</label>
-            <!--end::Label-->
-
-            <!--begin::Input-->
-            <input type="text" name="price" class="form-control mb-2" placeholder="" value="">
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Bank Name</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-        <!--begin::Input group-->
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">IFSC Code</label>
-            <!--end::Label-->
-
-            <!--begin::Input-->
-            <input type="text" name="price" class="form-control mb-2" placeholder="" value="">
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Bank Name</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-            <!--begin::Label-->
-            
-        <!--end::Input group-->
-
-        <!--begin::Input group-->
-        
-        <!--end::Input group-->
-
-        <!--begin::Input group-->
-       
-        <!--end::Input group-->
-
-        <!--begin::Tax-->
-        
-        <!--end:Tax-->
-    </div>
-    <!--end::Card header-->
-</div>
 <!--end::Pricing-->
                 </div>
             </div>

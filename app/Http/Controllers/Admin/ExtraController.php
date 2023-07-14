@@ -25,7 +25,8 @@ class ExtraController extends Controller
        if (Auth::user()->type != 'master_admin') {
            return redirect()->back();
        }
-       $extras = Extra::all();
+     
+       $extras = Extra::orderBy('name');
        // Default sorting
        // Check if request has a sort parameter
        if ($request->has('sort')) {

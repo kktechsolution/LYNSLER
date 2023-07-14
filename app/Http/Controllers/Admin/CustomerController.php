@@ -25,7 +25,7 @@ class CustomerController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        $users = User::wherte('type','user')->orderBy('name');
+        $users = User::where('type','user')->orderBy('name');
         // Default sorting
         // Check if request has a sort parameter
         if ($request->has('sort')) {

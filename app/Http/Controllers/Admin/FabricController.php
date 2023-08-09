@@ -19,8 +19,8 @@ class FabricController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-       
-        
+
+
        $fabrics =Fabric::orderBy('name');
         // Default sorting
         // Check if request has a sort parameter
@@ -32,6 +32,7 @@ class FabricController extends Controller
         }
 
         $fabrics = $fabrics->paginate(3);
+        // dd($fabrics);
         return view('admin.fabrics', ['fabrics' => $fabrics]);
     }
 
@@ -58,7 +59,31 @@ class FabricController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'icon_image' => 'required',
+            'price' => 'required',
+
+
+        ]);
+        if ($request->hasfile('icon_image')) {
+            $file = $request->file('icon_image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('fabric_images/', $filename);
+            $validated['icon_image'] =  $filename;
+        }
+
+
+
+        Fabric::create($validated);
+
+
+        return redirect()->route('fabrics.index')->with('success', 'Fabric  added successfully.');
     }
 
     /**

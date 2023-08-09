@@ -593,7 +593,7 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu"
                                 data-kt-menu="true" data-kt-menu-expand="false">
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -641,7 +641,8 @@ License: For each use you must have a valid license purchased only from above li
                                     </div>
                                     <!--end:Menu sub-->
                                 </div>
-                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                                {{-- 2nd --}}
+                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -652,7 +653,8 @@ License: For each use you must have a valid license purchased only from above li
                                                 <span class="path4"></span></i>
                                         </span>
                                         <span class="menu-title">Catlog </span>
-                                        <span class="menu-arrow"></span></span>
+                                        <span class="menu-arrow"></span>
+                                    </span>
                                         
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
@@ -687,6 +689,12 @@ License: For each use you must have a valid license purchased only from above li
                                         
                                         <!--end:Menu item-->
                                     </div>
+                                    
+                                    <!--end:Menu sub-->
+                                </div>
+
+                                {{-- 3rd --}}
+                                <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <i class="ki-duotone ki-element-11 fs-2">
@@ -730,7 +738,10 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         
                                         <!--end:Menu item-->
-                                    </div>
+                                    </div> 
+                                </div>
+                                {{-- 4 --}}
+                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <i class="ki-duotone ki-element-11 fs-2">
@@ -775,6 +786,9 @@ License: For each use you must have a valid license purchased only from above li
                                         
                                         <!--end:Menu item-->
                                     </div>
+                                </div>
+                                {{-- 5 --}}
+                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <i class="ki-duotone ki-element-11 fs-2">
@@ -820,8 +834,10 @@ License: For each use you must have a valid license purchased only from above li
                                         
                                         <!--end:Menu item-->
                                     </div>
-                                    
-                                    <!--end:Menu sub-->
+                                </div>
+
+                                {{-- 6 --}}
+                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <i class="ki-duotone ki-element-11 fs-2">
@@ -866,8 +882,10 @@ License: For each use you must have a valid license purchased only from above li
                                         
                                         <!--end:Menu item-->
                                     </div>
-
                                 </div>
+
+
+                                {{-- finish --}}
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
                                 <div class="menu-item pt-5">

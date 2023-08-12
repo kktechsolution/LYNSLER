@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -12,9 +14,26 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+        public function index(Request $request)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+
+
+       $products =product::orderBy('name');
+        // Default sorting
+        // Check if request has a sort parameter
+        if ($request->has('sort')) {
+            $sortField = $request->get('sort');
+            $sortDirection = $request->get('direction', 'asc');
+
+            $products = Product::orderBy($sortField, $sortDirection);
+        }
+
+        $products = $products->paginate(3);
+        // dd($catlogs);
+        return view('admin.products', ['products' => $products]);
     }
 
     /**

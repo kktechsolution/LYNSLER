@@ -17,7 +17,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            Catalog Category Form
+                            Manufacturing Cost Form
                         </h1>
                         <!--end::Title-->
 
@@ -27,7 +27,7 @@
                             <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
                                 <a href="../../../index.html" class="text-muted text-hover-primary">
-                                    Catalog </a>
+                                    Manufacture Cost </a>
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
@@ -50,7 +50,7 @@
                         <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page title-->
-                    
+
                 </div>
                 <!--end::Toolbar container-->
             </div>
@@ -58,7 +58,7 @@
 
             <!--begin::Content-->
             <div id="kt_app_content" class="app-content  flex-column-fluid ">
-
+                
 
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container  container-xxl ">
@@ -68,6 +68,89 @@
                         data-kt-redirect="products.html">
                         <!--begin::Aside column-->
                         <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+                            <!--begin::Thumbnail settings-->
+                            <div class="card card-flush py-4">
+            <!--begin::Card header-->
+            <div class="card-header">
+                <!--begin::Card title-->
+                <div class="card-title">
+                    <h2> Active Status</h2>
+                </div>
+                <!--end::Card title-->
+
+                <!--begin::Card toolbar-->
+                <div class="card-toolbar">
+                    <div class="rounded-circle bg-success w-15px h-15px" id="kt_ecommerce_add_product_status"></div>
+                </div>
+                <!--begin::Card toolbar-->
+            </div>
+            <!--end::Card header-->
+
+            <!--begin::Card body-->
+            <div class="card-body pt-0">
+                <!--begin::Select2-->
+                <select class="form-select mb-2" name="is_active" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                    <option value="">---Select---</option>
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+        
+                </select>
+                <!--end::Select2-->
+
+                <!--begin::Description-->
+                <div class="text-muted fs-7">Set the catlog status.</div>
+                <!--end::Description-->
+
+                <!--begin::Datepicker-->
+                <div class="d-none mt-10">
+                    <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>
+                    <input class="form-control flatpickr-input" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date &amp; time" type="text" readonly="readonly">
+                </div>
+                <!--end::Datepicker-->
+            </div>
+
+            <div class="card-header">
+                <!--begin::Card title-->
+                <div class="card-title">
+                    <h2> Stock Status</h2>
+                </div>
+                <!--end::Card title-->
+
+                <!--begin::Card toolbar-->
+                <div class="card-toolbar">
+                    <div class="rounded-circle bg-success w-15px h-15px" id="kt_ecommerce_add_product_status"></div>
+                </div>
+                <!--begin::Card toolbar-->
+            </div>
+            <!--end::Card header-->
+
+            <!--begin::Card body-->
+            <div class="card-body pt-0">
+                <!--begin::Select2-->
+                <select class="form-select mb-2" name="is_active" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                    <option value="">---Select---</option>
+                    <option value="1">InStock</option>
+                    <option value="0">OutOfStock</option>
+        
+                </select>
+                <!--end::Select2-->
+
+                <!--begin::Description-->
+                <div class="text-muted fs-7">Set the catlog status.</div>
+                <!--end::Description-->
+
+                <!--begin::Datepicker-->
+                <div class="d-none mt-10">
+                    <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>
+                    <input class="form-control flatpickr-input" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date &amp; time" type="text" readonly="readonly">
+                </div>
+                
+                <!--end::Datepicker-->
+            </div>
+            
+            <!--end::Card body-->
+        </div>
+        <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                             <!--begin::Thumbnail settings-->
                             <div class="card card-flush py-4">
                                 <!--begin::Card header-->
@@ -95,23 +178,18 @@
                                     </style>
                                     <!--end::Image input placeholder-->
 
-                                    <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
-                                        data-kt-image-input="true">
+                                    <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
                                         <!--begin::Preview existing avatar-->
                                         <div class="image-input-wrapper w-150px h-150px"></div>
                                         <!--end::Preview existing avatar-->
 
                                         <!--begin::Label-->
-                                        <label
-                                            class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                            data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Input Icon">
-                                            <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span
-                                                    class="path2"></span></i>
+                                        <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Input Icon" data-bs-original-title="Input Icon" data-kt-initialized="1">
+                                            <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
                                             <!--begin::Inputs-->
-                                            <input type="file" name="icon" accept=".png, .jpg, .jpeg" name="icon"
-                                                required />
+                                            <input type="file" name="icon" accept=".png, .jpg, .jpeg" required="">
 
-                                            <input type="hidden" name="avatar_remove" />
+                                            <input type="hidden" name="avatar_remove">
                                             <!--end::Inputs-->
                                         </label>
                                         <!--end::Label-->
@@ -121,16 +199,30 @@
                                     <!--end::Image input-->
 
                                     <!--begin::Description-->
-                                    @error('icon')
-                                        <div class="text-muted fs-7">
-                                            {{ $message }}</div>
-                                    @enderror
-                                    <!--end::Description-->
+                                                                        <!--end::Description-->
                                 </div>
                                 <!--end::Card body-->
                             </div>
                             <!--end::Thumbnail settings-->
 
+                            <!--end::Status-->
+
+                            <!--begin::Category & tags-->
+
+                            <!--end::Category & tags-->
+                            <!--begin::Weekly sales-->
+
+                            <!--end::Weekly sales-->
+                            <!--begin::Template settings-->
+
+                            <!--end::Template settings-->
+                        </div>
+        
+                            <!--end::Thumbnail settings-->
+ {{-- @error('icon')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror --}}
                             <!--end::Status-->
 
                             <!--begin::Category & tags-->
@@ -152,7 +244,7 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Category</h2>
+                                        <h2>Manufacturing Cost</h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->
@@ -160,16 +252,31 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
                                     <!--begin::Input group-->
-                                    <div class="mb-10 fv-row">
+                                    <div class="mb-10 fv-row fv-plugins-icon-container">
                                         <!--begin::Label-->
-                                        <label class="required form-label">Category Name</label>
+                                        <label class="required form-label">Style Number</label>
                                         <!--end::Label-->
 
                                         <!--begin::Input-->
-                                        <input type="text" name="name" class="form-control mb-2"
-                                            placeholder="Category name" value="" required />
+                                        <input type="number" name="style_no" class="form-control mb-2"
+                                            placeholder="Style Number" value="">
                                         <!--end::Input-->
-                                        @error('name')
+
+                                        <!--begin::Description-->
+                                        
+                                        <!--end::Description-->
+                                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    </div>
+                                    <div class="mb-10 fv-row">
+                                        <!--begin::Label-->
+                                        <label class="required form-label">Style Name</label>
+                                        <!--end::Label-->
+
+                                        <!--begin::Input-->
+                                        <input type="text" name="style_name" class="form-control mb-2"
+                                            placeholder="Stle name" value="" required />
+                                        <!--end::Input-->
+                                        @error('style_name')
                                             <div class="text-muted fs-7">
                                                 {{ $message }}</div>
                                         @enderror
@@ -180,7 +287,36 @@
 
                                     @csrf
                                     <!--end::Input group-->
+                                    <div class="mb-10 fv-row fv-plugins-icon-container">
+                                        <!--begin::Label-->
+                                        <label class="required form-label">manufacturing costs</label>
+                                        <!--end::Label-->
 
+                                        <!--begin::Input-->
+                                        <input type="number" name="manufacuturing_cost" class="form-control mb-2"
+                                            placeholder="manufacturing cost" value="">
+                                        <!--end::Input-->
+
+                                        <!--begin::Description-->
+                                        
+                                        <!--end::Description-->
+                                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    </div>
+                                    
+                                    
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+            <!--begin::Label-->
+            
+            <!--end::Label-->
+
+            <!--begin::Input-->
+           
+            <!--end::Input-->
+
+            <!--begin::Description-->
+           
+            <!--end::Description-->
+        <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                     <!--begin::Input group-->
 
                                     <!--end::Input group-->
@@ -188,6 +324,15 @@
                                 <!--end::Card header-->
                             </div>
                             <!--end::General options-->
+                            <div class="card card-flush py-4">
+    <!--begin::Card header-->
+    
+    <!--end::Card header-->
+
+    <!--begin::Card body-->
+   
+    <!--end::Card header-->
+</div>
                             <!--begin::Meta options-->
 
                             <!--end::Meta options-->

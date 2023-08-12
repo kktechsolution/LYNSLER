@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DesignerController;
 use App\Http\Controllers\Admin\ExtraController;
 use App\Http\Controllers\Admin\FabricController;
+
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ManufacturerController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/manufacturecost', function () {
+    return view('admin.manufacturing_costs');
+});
 
 
 Auth::routes();
@@ -33,6 +38,8 @@ Route::resource('/extras', ExtraController::class);
 Route::resource('/manufacturers', ManufacturerController::class);
 Route::resource('/designers', DesignerController::class);
 Route::resource('/customers', CustomerController::class);
+
+Route::resource('/products', ProductController::class);
 
 
 

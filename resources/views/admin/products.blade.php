@@ -18,7 +18,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            Catlog List
+                            Product List
                         </h1>
                         <!--end::Title-->
 
@@ -28,7 +28,7 @@
                             <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
                                 <a href="../../../index.html" class="text-muted text-hover-primary">
-                                    Catlog </a>
+                                    Product </a>
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
@@ -39,7 +39,7 @@
 
                             <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
-                                Catlog List </li>
+                                Product List </li>
                             <!--end::Item-->
                             <!--begin::Item-->
 
@@ -89,7 +89,7 @@
                                 </div>
 
                                 <!--begin::Add product-->
-                                <a href={{route('catlogs.create')}} type="button" class="btn btn-primary">
+                                <a href={{route('products.create')}} type="button" class="btn btn-primary">
 
                                     Create
                                 </a>
@@ -109,26 +109,23 @@
                                         <thead>
                                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                                 <th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" aria-label="
-            
-                
-            
-        " style="width: 29.9px;">
+ " style="width: 29.9px;">
                                                     <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input" value="1">
                                                     </div>
                                                 </th>
-                                                <th class="min-w-200px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 256.375px;">Catlog </th>
+                                                <th class="min-w-200px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 256.375px;">Product </th>
                                                 <th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 129.5px;">Description</th>
-                                                <th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">Catlog Categories</th>
+                                                <th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">Product Categories</th>
                                                 <th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 129.5px;"> Active Status</th>
-                                                <th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 129.5px;"> Approval Status</th>
+                                                <th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 129.5px;"> Stock Status</th>
                                                 <th class="text-end min-w-70px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 131.913px;">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody class="fw-semibold text-gray-600">
 
 
-                                            @foreach($catlogs as $catlog)
+                                            @foreach($products as $product)
                                             <tr class="odd">
                                                 <td>
                                                     <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -143,13 +140,13 @@
 
                                                         <div class="ms-5">
                                                             <!--begin::Title-->
-                                                            <a href="{{route('catlogs.show',$catlog->id)}}" class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-product-filter="product_name">{{$catlog->name}}</a>
+                                                            <a href="{{route('products.show',$product->id)}}" class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-product-filter="product_name">{{$product->name}}</a>
                                                             <!--end::Title-->
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="text-end pe-0">
-                                                    <span class="fw-bold">{{$catlog->description}}</span>
+                                                    <span class="fw-bold">{{$product->description}}</span>
                                                 </td>
                                                 <td class="text-end pe-0">
                                                     <span class="fw-bold">01260008</span>
@@ -158,7 +155,7 @@
 
                                                 <td class="text-end pe-0" data-order="Scheduled">
                                                     <!--begin::Badges-->
-                                                    <div class="badge badge-light-primary">@if($catlog->is_active == 0)
+                                                    <div class="badge badge-light-primary">@if($product->is_active == 0)
                                                         Inactive
                                                         @else
                                                         Active
@@ -168,7 +165,7 @@
                                                 <td class="text-end pe-0" data-order="Scheduled">
                                                     <!--begin::Badges-->
                                                     <div class="badge badge-light-primary">
-                                                        @if($catlog->is_approved == 0)
+                                                        @if($product->is_approved == 0)
                                                         DisApproved
                                                         @else
                                                         Approved
@@ -184,7 +181,7 @@
                                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
                                                         <!--begin::Menu item-->
                                                         <div class="menu-item px-3">
-                                                            <a href={{route('catlogs.edit',$catlog->id)}} class="menu-link px-3">
+                                                            <a href={{route('products.edit',$product->id)}} class="menu-link px-3">
                                                                 Edit
                                                             </a>
                                                         </div>
@@ -215,7 +212,7 @@
 
                                 </div>
                                 <div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
-                                    {{ $catlogs->links('admin.custom_pagination') }}
+                                    {{ $products->links('admin.custom_pagination') }}
                                 </div>
                             </div>
                         </div>

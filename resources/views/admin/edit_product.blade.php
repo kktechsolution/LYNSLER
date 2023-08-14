@@ -38,7 +38,7 @@
 
                             <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
-                                Create </li>
+                                Edit Product </li>
                             <!--end::Item-->
                             <!--begin::Item-->
 
@@ -244,7 +244,7 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Product</h2>
+                                        <h2> Edit Product</h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->

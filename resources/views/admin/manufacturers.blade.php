@@ -73,11 +73,7 @@
                 <!--begin::Card title-->
                 <div class="card-title">
                     <!--begin::Search-->
-                    <div class="d-flex align-items-center position-relative my-1">
-                        <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4"><span class="path1"></span><span
-                                class="path2"></span></i> <input type="text" data-kt-ecommerce-product-filter="search"
-                            class="form-control form-control-solid w-250px ps-12" placeholder="Search Product">
-                    </div>
+                    
                     <!--end::Search-->
                 </div>
                 <!--end::Card title-->
@@ -106,18 +102,7 @@
                             id="kt_ecommerce_products_table">
                             <thead>
                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1"
-                                        aria-label="
-
-
-
-    " style="width: 29.9px;">
-                                        <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                            <input class="form-check-input" type="checkbox" data-kt-check="true"
-                                                data-kt-check-target="#kt_ecommerce_products_table .form-check-input"
-                                                value="1">
-                                        </div>
-                                    </th>
+                                   
                                     <th class="min-w-200px sorting" tabindex="0"
                                         aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
                                         aria-label="Product: activate to sort column ascending" style="width: 256.375px;">
@@ -142,11 +127,7 @@
                                 @foreach ($manufacturers as $manufacture)
 
                                 <tr class="odd">
-                                    <td>
-                                        <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="1">
-                                        </div>
-                                    </td>
+                                    
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <!--begin::Thumbnail-->
@@ -213,31 +194,11 @@
                     <div
                         class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
                         <div class="dataTables_paginate paging_simple_numbers" id="kt_ecommerce_products_table_paginate">
-                            <ul class="pagination">
-                                <li class="paginate_button page-item previous disabled"
-                                    id="kt_ecommerce_products_table_previous"><a href="#"
-                                        aria-controls="kt_ecommerce_products_table" data-dt-idx="0" tabindex="0"
-                                        class="page-link"><i class="previous"></i></a></li>
-                                <li class="paginate_button page-item active"><a href="#"
-                                        aria-controls="kt_ecommerce_products_table" data-dt-idx="1" tabindex="0"
-                                        class="page-link">1</a></li>
-                                <li class="paginate_button page-item "><a href="#"
-                                        aria-controls="kt_ecommerce_products_table" data-dt-idx="2" tabindex="0"
-                                        class="page-link">2</a></li>
-                                <li class="paginate_button page-item "><a href="#"
-                                        aria-controls="kt_ecommerce_products_table" data-dt-idx="3" tabindex="0"
-                                        class="page-link">3</a></li>
-                                <li class="paginate_button page-item "><a href="#"
-                                        aria-controls="kt_ecommerce_products_table" data-dt-idx="4" tabindex="0"
-                                        class="page-link">4</a></li>
-                                <li class="paginate_button page-item "><a href="#"
-                                        aria-controls="kt_ecommerce_products_table" data-dt-idx="5" tabindex="0"
-                                        class="page-link">5</a></li>
-                                <li class="paginate_button page-item next" id="kt_ecommerce_products_table_next"><a
-                                        href="#" aria-controls="kt_ecommerce_products_table" data-dt-idx="6"
-                                        tabindex="0" class="page-link"><i class="next"></i></a></li>
-                            </ul>
+                           
                         </div>
+                        <div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
+                                    {{ $manufacturers->links('admin.custom_pagination') }}
+                                </div>
                     </div>
                 </div>
             </div>
@@ -245,6 +206,7 @@
         </div>
         <!--end::Card body-->
     </div>
-    {{ $manufacturers->links('admin.custom_pagination') }}
+   
     <!--end::Products--> </div>
+    </div>
 @endsection

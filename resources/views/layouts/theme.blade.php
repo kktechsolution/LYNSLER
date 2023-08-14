@@ -4302,9 +4302,7 @@ License: For each use you must have a valid license purchased only from above li
                             class="app-container  container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3 ">
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
-                                <span class="text-muted fw-semibold me-1">2023&copy;</span>
-                                <a href="https://keenthemes.com/" target="_blank"
-                                    class="text-gray-800 text-hover-primary">Keenthemes</a>
+                                
                             </div>
                             <!--end::Copyright-->
 

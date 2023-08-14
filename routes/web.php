@@ -26,6 +26,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/manufacturecost', function () {
     return view('admin.manufacturing_costs');
 });
+Route::get('/custom', function () {
+    return view('admin.edit_customer');
+});
+Route::get('/design', function () {
+    return view('admin.edit_designer');
+});
+Route::get('/edit', function () {
+    return view('admin.edit_product');
+});
 
 
 Auth::routes();

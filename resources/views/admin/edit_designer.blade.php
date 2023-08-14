@@ -43,7 +43,7 @@
                                         
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    Add Designer                                          </li>
+                                                    Edit Designer                                          </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
                   
@@ -285,7 +285,7 @@
     <!--begin::Card header-->
     <div class="card-header">
         <div class="card-title">
-            <h2>Registration</h2>
+            <h2>Edit Designer</h2>
         </div>
     </div>
     <!--end::Card header-->

@@ -73,9 +73,7 @@
                             <!--begin::Card title-->
                             <div class="card-title">
                                 <!--begin::Search-->
-                                <div class="d-flex align-items-center position-relative my-1">
-                                    <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4"><span class="path1"></span><span class="path2"></span></i> <input type="text" data-kt-ecommerce-product-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Search Product">
-                                </div>
+                               
                                 <!--end::Search-->
                             </div>
                             <!--end::Card title-->
@@ -108,12 +106,7 @@
                                     <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer" id="kt_ecommerce_products_table">
                                         <thead>
                                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                                <th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" aria-label="
- " style="width: 29.9px;">
-                                                    <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                                        <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input" value="1">
-                                                    </div>
-                                                </th>
+                                                
                                                 <th class="min-w-200px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 256.375px;">Product </th>
                                                 <th class="text-end min-w-100px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 129.5px;">Description</th>
                                                 <th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">Product Categories</th>
@@ -127,11 +120,7 @@
 
                                             @foreach($products as $product)
                                             <tr class="odd">
-                                                <td>
-                                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="checkbox" value="1">
-                                                    </div>
-                                                </td>
+                                               
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <!--begin::Thumbnail-->

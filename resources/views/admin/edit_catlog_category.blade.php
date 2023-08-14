@@ -27,7 +27,7 @@
                             <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
                                 <a href="../../../index.html" class="text-muted text-hover-primary">
-                                    Catalog </a>
+                                    Catalog Category </a>
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
@@ -38,7 +38,7 @@
 
                             <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
-                                Create </li>
+                                Edit Catalog Category </li>
                             <!--end::Item-->
                             <!--begin::Item-->
 
@@ -156,7 +156,7 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Category</h2>
+                                        <h2> Edit Category</h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->

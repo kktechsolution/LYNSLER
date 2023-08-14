@@ -43,7 +43,7 @@
                                         
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                   Add Catlog                                        </li>
+                                                   Edit Catlog                                        </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
                     
@@ -231,7 +231,7 @@
     <!--begin::Card header-->
     <div class="card-header">
         <div class="card-title">
-            <h2>Catlog</h2>
+            <h2> Edit Catlog</h2>
         </div>
     </div>
     <!--end::Card header-->

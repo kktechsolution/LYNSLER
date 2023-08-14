@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 Author: Keenthemes
-Product Name: Metronic 
+Product Name: Metronic
 Product Version: 8.1.8
 Purchase: https://1.envato.market/EA4JP
 Website: http://www.keenthemes.com
@@ -20,30 +20,28 @@ License: For each use you must have a valid license purchased only from above li
 <!-- /Added by HTTrack -->
 
 <head>
-    <title>Metronic - The World's #1 Selling Bootstrap Admin Template by Keenthemes</title>
+    <title>Lynsler - Admin Panel</title>
     <meta charset="utf-8" />
     <meta name="description" content="
-            The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, 
-            Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. 
-            Grab your copy now and get life-time updates for free.
+
         " />
     <meta name="keywords" content="
-            metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, 
-            Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, 
-            free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, 
+            metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js,
+            Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates,
+            free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button,
             bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon
         " />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="
-            Metronic - Bootstrap Admin Template, HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails, 
+            Metronic - Bootstrap Admin Template, HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails,
             Spring Boot, Blazor, Django, Express.js, Node.js, Flask Admin Dashboard Theme & Template
         " />
     <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="Keenthemes | Metronic" />
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-    <link rel="shortcut icon" href="{{ asset('theme/assets/media/logos/favicon.ico')}}" />
+    <link rel="shortcut icon" href="{{ asset('theme/assets/media/logos/lynser.png')}}" />
 
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
@@ -161,7 +159,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Mobile logo-->
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="index.html" class="d-lg-none">
-                            <img alt="Logo" src="{{ asset('theme/assets/media/logos/default-small.svg')}}" class="h-30px" />
+                            <img alt="Logo" src="{{ asset('theme/assets/media/logos/lynser.png')}}" class="h-30px" />
                         </a>
                     </div>
                     <!--end::Mobile logo-->
@@ -172,8 +170,8 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Menu wrapper-->
                         <div class="
-        app-header-menu 
-        app-header-mobile-drawer 
+        app-header-menu
+        app-header-mobile-drawer
         align-items-stretch
     " data-kt-drawer="true" data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}"
                             data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="end"
@@ -182,28 +180,28 @@ License: For each use you must have a valid license purchased only from above li
                             data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}">
                             <!--begin::Menu-->
                             <div class="
-            menu 
-            menu-rounded  
-            menu-column 
-            menu-lg-row 
-            my-5 
-            my-lg-0 
-            align-items-stretch 
+            menu
+            menu-rounded
+            menu-column
+            menu-lg-row
+            my-5
+            my-lg-0
+            align-items-stretch
             fw-semibold
             px-2 px-lg-0
         " id="kt_app_header_menu" data-kt-menu="true">
                                 <!--begin:Menu item-->
-                              
-                               
+
+
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                              
+
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                           
+
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                               
+
                                 <!--end:Menu item-->
                             </div>
                             <!--end::Menu-->
@@ -213,27 +211,27 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Navbar-->
                         <div class="app-navbar flex-shrink-0">
                             <!--begin::Search-->
-                          
+
                             <!--end::Search-->
 
                             <!--begin::Activities-->
-                            
+
                             <!--end::Activities-->
 
                             <!--begin::Notifications-->
-                       
+
                             <!--end::Notifications-->
 
                             <!--begin::Chat-->
-                         
+
                             <!--end::Chat-->
 
                             <!--begin::My apps links-->
-                           
+
                             <!--end::My apps links-->
 
                             <!--begin::Theme mode-->
-                           
+
                             <!--end::Theme mode-->
 
                             <!--begin::User menu-->
@@ -285,29 +283,34 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
 
                                     <!--begin::Menu item-->
-                                    
+
                                     <!--end::Menu item-->
 
                                     <!--begin::Menu item-->
-                                    
+
                                     <!--end::Menu item-->
 
                                     <!--begin::Menu item-->
-                                
+
                                     <!--end::Menu item-->
 
                                     <!--begin::Menu separator-->
                                     <div class="separator my-2"></div>
                                     <!--end::Menu separator-->
 
-                                
+
 
 
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <a href="authentication/layouts/corporate/sign-in.html" class="menu-link px-5">
-                                            Sign Out
-                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>
@@ -337,7 +340,7 @@ License: For each use you must have a valid license purchased only from above li
             <!--begin::Wrapper-->
             <div class="app-wrapper  flex-column flex-row-fluid " id="kt_app_wrapper">
                 @if (session('error'))
-                
+
                 <div class="alert alert-dismissible bg-danger d-flex flex-column flex-sm-row w-100 p-5 mb-10">
                     <!--begin::Icon-->
                     <i class="ki-duotone ki-message-text-2 fs-2hx text-light me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>                    <!--end::Icon-->
@@ -356,7 +359,7 @@ License: For each use you must have a valid license purchased only from above li
                 </div>
                 @endif
                 @if (session('success'))
-                
+
                 <div class="alert alert-dismissible bg-success d-flex flex-column flex-sm-row w-100 p-5 mb-10">
                     <!--begin::Icon-->
                     <i class="ki-duotone ki-pencil fs-2hx text-light me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
@@ -383,21 +386,21 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Logo-->
                     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
                         <!--begin::Logo image-->
-                        <a href="index.html">
+                        <a href="{{route('catlogs.index')}}">
                             <img alt="Logo" src="{{ asset('theme/assets/media/logos/lynser.png')}}"
                                 class="app-sidebar-logo-default" style="
     margin-left: -44px;
     height: 173px;
 " />
 
-                            <img alt="Logo" src="{{ asset('theme/assets/media/logos/default-small.svg')}}"
+                            <img alt="Logo" src="{{ asset('theme/assets/media/logos/lynser.png')}}"
                                 class="h-20px app-sidebar-logo-minimize" />
                         </a>
                         <!--end::Logo image-->
 
                         <!--begin::Sidebar toggle-->
                         <!--begin::Minimized sidebar setup:
-            if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_state"] === "on") { 
+            if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_state"] === "on") {
                 1. "src/js/layout/sidebar.js" adds "sidebar_minimize_state" cookie value to save the sidebar minimize state.
                 2. Set data-kt-app-sidebar-minimize="on" attribute for body tag.
                 3. Set data-kt-toggle-state="active" attribute to the toggle element with "kt_app_sidebar_toggle" id.
@@ -440,7 +443,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </span>
                                         <span class="menu-title">Catlog Categories</span>
                                         <span class="menu-arrow"></span></span>
-                                        
+
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
@@ -465,13 +468,13 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                      
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu sub-->
@@ -490,7 +493,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-title">Catlog </span>
                                         <span class="menu-arrow"></span>
                                     </span>
-                                        
+
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
@@ -515,16 +518,16 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                      
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                     </div>
-                                    
+
                                     <!--end:Menu sub-->
                                 </div>
 
@@ -540,7 +543,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </span>
                                         <span class="menu-title">Fabrics </span>
                                         <span class="menu-arrow"></span></span>
-                                        
+
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
@@ -565,15 +568,15 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                      
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
-                                    </div> 
+                                    </div>
                                 </div>
                                 {{-- 4 --}}
                                 <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
@@ -587,7 +590,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </span>
                                         <span class="menu-title">Customers </span>
                                         <span class="menu-arrow"></span></span>
-                                        
+
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
@@ -612,13 +615,13 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                      
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                     </div>
                                 </div>
@@ -634,7 +637,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </span>
                                         <span class="menu-title">Designer </span>
                                         <span class="menu-arrow"></span></span>
-                                        
+
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
@@ -657,16 +660,16 @@ License: For each use you must have a valid license purchased only from above li
                                                 <span class="menu-title">Add designers </span></a>
                                             <!--end:Menu link-->
                                         </div>
-                                        
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                      
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                     </div>
                                 </div>
@@ -683,7 +686,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </span>
                                         <span class="menu-title">Manufacturers </span>
                                         <span class="menu-arrow"></span></span>
-                                        
+
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
@@ -708,20 +711,20 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                     
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                      
+
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        
+
                                         <!--end:Menu item-->
                                     </div>
                                 </div>
 
 
                                 {{-- finish --}}
-                                
+
                                 <!--end:Menu item-->
                             </div>
                             <!--end::Menu-->
@@ -733,7 +736,7 @@ License: For each use you must have a valid license purchased only from above li
 
 
                     <!--end::sidebar menu-->
-                  
+
                 </div>
                 <!--end::Sidebar-->
 
@@ -1744,7 +1747,7 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin::Item-->
                                                     <li class="nav-item mb-3 me-3 me-lg-6">
                                                         <!--begin::Link-->
-                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2 
+                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2
                         active" id="kt_stats_widget_16_tab_link_1" data-bs-toggle="pill"
                                                             href="#kt_stats_widget_16_tab_1">
                                                             <!--begin::Icon-->
@@ -1774,7 +1777,7 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin::Item-->
                                                     <li class="nav-item mb-3 me-3 me-lg-6">
                                                         <!--begin::Link-->
-                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2 
+                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2
                         " id="kt_stats_widget_16_tab_link_2" data-bs-toggle="pill" href="#kt_stats_widget_16_tab_2">
                                                             <!--begin::Icon-->
                                                             <div class="nav-icon mb-3">
@@ -1800,7 +1803,7 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin::Item-->
                                                     <li class="nav-item mb-3 me-3 me-lg-6">
                                                         <!--begin::Link-->
-                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2 
+                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2
                         " id="kt_stats_widget_16_tab_link_3" data-bs-toggle="pill" href="#kt_stats_widget_16_tab_3">
                                                             <!--begin::Icon-->
                                                             <div class="nav-icon mb-3">
@@ -1826,7 +1829,7 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin::Item-->
                                                     <li class="nav-item mb-3 me-3 me-lg-6">
                                                         <!--begin::Link-->
-                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2 
+                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2
                         " id="kt_stats_widget_16_tab_link_4" data-bs-toggle="pill" href="#kt_stats_widget_16_tab_4">
                                                             <!--begin::Icon-->
                                                             <div class="nav-icon mb-3">
@@ -1853,7 +1856,7 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin::Item-->
                                                     <li class="nav-item mb-3 me-3 me-lg-6">
                                                         <!--begin::Link-->
-                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2 
+                                                        <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2
                         " id="kt_stats_widget_16_tab_link_5" data-bs-toggle="pill" href="#kt_stats_widget_16_tab_5">
                                                             <!--begin::Icon-->
                                                             <div class="nav-icon mb-3">
@@ -4836,7 +4839,7 @@ License: For each use you must have a valid license purchased only from above li
     <!--end::App layout builder-->
 
     <!--begin::App settings toggle-->
-    
+
     <!--end::App settings toggle-->
     <!--begin::Drawers-->
     <!--begin::Activities drawer-->
@@ -6356,8 +6359,8 @@ License: For each use you must have a valid license purchased only from above li
     <!--end::Chat drawer-->
     <!--end::Drawers-->
     {{-- <!--begin::Engage-->                hello here --}}
-    
-   
+
+
     <!--end::Engage-->
 
     <!--begin::Engage modals-->
@@ -6444,7 +6447,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Tab item-->
                                     <li class="nav-item px-2">
                                         <!--begin::Tab link-->
-                                        <a class="nav-link btn btn-active-light btn-color-gray-600 btn-active-color-gray-800 fs-5 fw-bold 
+                                        <a class="nav-link btn btn-active-light btn-color-gray-600 btn-active-color-gray-800 fs-5 fw-bold
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_demos">
 
                                             Layouts </a>
@@ -6454,7 +6457,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Tab item-->
                                     <li class="nav-item px-2">
                                         <!--begin::Tab link-->
-                                        <a class="nav-link btn btn-active-light btn-color-gray-600 btn-active-color-gray-800 fs-5 fw-bold 
+                                        <a class="nav-link btn btn-active-light btn-color-gray-600 btn-active-color-gray-800 fs-5 fw-bold
 						active" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_dashboards">
 
                                             Dashboards </a>
@@ -6464,7 +6467,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Tab item-->
                                     <li class="nav-item px-2">
                                         <!--begin::Tab link-->
-                                        <a class="nav-link btn btn-active-light btn-color-gray-600 btn-active-color-gray-800 fs-5 fw-bold 
+                                        <a class="nav-link btn btn-active-light btn-color-gray-600 btn-active-color-gray-800 fs-5 fw-bold
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_pages">
 
                                             Pages </a>
@@ -6474,7 +6477,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Tab item-->
                                     <li class="nav-item px-2">
                                         <!--begin::Tab link-->
-                                        <a class="nav-link btn btn-active-light btn-color-gray-600 btn-active-color-gray-800 fs-5 fw-bold 
+                                        <a class="nav-link btn btn-active-light btn-color-gray-600 btn-active-color-gray-800 fs-5 fw-bold
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_apps">
 
                                             Apps </a>
@@ -8574,7 +8577,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Tab item-->
                                                 <li class="nav-item p-0 m-0">
                                                     <!--begin::Tab link-->
-                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4 
+                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4
 						active" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_pages_authentication">
 
                                                         Authentication </a>
@@ -8584,7 +8587,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Tab item-->
                                                 <li class="nav-item p-0 m-0">
                                                     <!--begin::Tab link-->
-                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4 
+                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_pages_general">
 
                                                         General </a>
@@ -8594,7 +8597,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Tab item-->
                                                 <li class="nav-item p-0 m-0">
                                                     <!--begin::Tab link-->
-                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4 
+                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_pages_account">
 
                                                         Account </a>
@@ -8604,7 +8607,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Tab item-->
                                                 <li class="nav-item p-0 m-0">
                                                     <!--begin::Tab link-->
-                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4 
+                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_pages_modals">
 
                                                         Modals </a>
@@ -8614,7 +8617,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Tab item-->
                                                 <li class="nav-item p-0 m-0">
                                                     <!--begin::Tab link-->
-                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4 
+                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_pages_wizards">
 
                                                         Wizards </a>
@@ -8624,7 +8627,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Tab item-->
                                                 <li class="nav-item p-0 m-0">
                                                     <!--begin::Tab link-->
-                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4 
+                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_pages_search">
 
                                                         Search </a>
@@ -8634,7 +8637,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Tab item-->
                                                 <li class="nav-item p-0 m-0">
                                                     <!--begin::Tab link-->
-                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4 
+                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_pages_widgets">
 
                                                         Widgets </a>
@@ -8644,7 +8647,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Tab item-->
                                                 <li class="nav-item p-0 m-0">
                                                     <!--begin::Tab link-->
-                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4 
+                                                    <a class="nav-link text-muted text-active-primary pt-0 pb-4
 						" data-bs-toggle="tab" href="#kt_app_engage_prebuilts_tab_pages_email-templates">
 
                                                         Email Templates </a>

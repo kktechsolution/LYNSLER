@@ -105,7 +105,13 @@ class FabricController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+
+        $fabric = Fabric::find($id);
+
+        return view('admin.edit_fabrics',['fabrics' => $fabric]);
     }
 
     /**

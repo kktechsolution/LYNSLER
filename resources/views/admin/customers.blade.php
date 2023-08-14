@@ -104,9 +104,9 @@
                         <thead>
                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                 <th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" aria-label="
-        
-            
-        
+
+
+
     " style="width: 29.9px;">
                                     <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input" value="1">
@@ -120,6 +120,8 @@
                             </tr>
                         </thead>
                         <tbody class="fw-semibold text-gray-600">
+                            @foreach ($users as $user)
+
                             <tr class="odd">
                                 <td>
                                     <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -130,7 +132,7 @@
                                     <div class="d-flex align-items-center">
                                         <!--begin::Thumbnail-->
                                         <a href="edit-product.html" class="symbol symbol-50px">
-                                            <span class="symbol-label" style="background-image:url(../../../assets/media/stock/ecommerce/1.gif);"></span>
+                                            <span class="symbol-label" style="background-image:url({{$user->avatar}});"></span>
                                         </a>
                                         <!--end::Thumbnail-->
 
@@ -138,12 +140,12 @@
                                     </div>
                                 </td>
                                 <td class="text-end pe-0">
-                                    <span class="fw-bold">Hasnainali</span>
+                                    <span class="fw-bold">{{$user->name}}</span>
                                 </td>
                                 <td class="text-end pe-0" data-order="12">
-                                    <span class="fw-bold ms-3">has@gmail.com</span>
+                                    <span class="fw-bold ms-3">{{$user->email}}</span>
                                 </td>
-                                <td class="text-end pe-0">929636373</td>
+                                <td class="text-end pe-0">{{$user->phone}}</td>
 
                                 <td class="text-end">
                                     <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
@@ -153,7 +155,7 @@
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-3">
-                                            <a href="edit-product.html" class="menu-link px-3">
+                                            <a href="{{route('customers.edit',$user->id)}}" class="menu-link px-3">
                                                 Edit
                                             </a>
                                         </div>
@@ -175,6 +177,8 @@
                 <!--end::Menu-->
                 </td>
                 </tr>
+                @endforeach
+
                 </tbody>
                 </table>
             </div>

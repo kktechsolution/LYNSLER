@@ -108,9 +108,9 @@
                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                     <th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1"
                                         aria-label="
-        
-            
-        
+
+
+
     " style="width: 29.9px;">
                                         <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                             <input class="form-check-input" type="checkbox" data-kt-check="true"
@@ -139,6 +139,8 @@
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
+                                @foreach ($manufacturers as $manufacture)
+
                                 <tr class="odd">
                                     <td>
                                         <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -150,7 +152,7 @@
                                             <!--begin::Thumbnail-->
                                             <a href="edit-product.html" class="symbol symbol-50px">
                                                 <span class="symbol-label"
-                                                    style="background-image:url(../../../assets/media/stock/ecommerce/1.gif);"></span>
+                                                    style="background-image:url({{$manufacture->avatar}});"></span>
                                             </a>
                                             <!--end::Thumbnail-->
 
@@ -158,12 +160,12 @@
                                         </div>
                                     </td>
                                     <td class="text-end pe-0">
-                                        <span class="fw-bold">Hasnainali</span>
+                                        <span class="fw-bold">{{$manufacture->name}}</span>
                                     </td>
                                     <td class="text-end pe-0" data-order="12">
-                                        <span class="fw-bold ms-3">has@gmail.com</span>
+                                        <span class="fw-bold ms-3">{{$manufacture->email}}</span>
                                     </td>
-                                    <td class="text-end pe-0">929636373</td>
+                                    <td class="text-end pe-0">{{$manufacture->phone}}</td>
 
                                     <td class="text-end">
                                         <a href="#"
@@ -176,7 +178,7 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="edit-product.html" class="menu-link px-3">
+                                                <a href="{{route('manufacturers.edit',$manufacture->id)}}" class="menu-link px-3">
                                                     Edit
                                                 </a>
                                             </div>
@@ -198,13 +200,15 @@
                     <!--end::Menu-->
                     </td>
                     </tr>
+                    @endforeach
+
                     </tbody>
                     </table>
                 </div>
                 <div class="row">
                     <div
                         class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start">
-                       
+
                     </div>
                     <div
                         class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
@@ -241,6 +245,6 @@
         </div>
         <!--end::Card body-->
     </div>
-    {{ $products->links('admin.custom_pagination') }}
+    {{ $manufacturers->links('admin.custom_pagination') }}
     <!--end::Products--> </div>
 @endsection

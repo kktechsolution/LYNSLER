@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BankDetail;
 use App\Models\ManufacturerDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -67,14 +68,17 @@ class ManufacturerController extends Controller
         }
         $validated = $request->validate([
             'name' => 'required',
-            'email' => 'requried',
-            'phone' => 'requried',
-            'password' => 'requried',
-            'gender' => 'requried',
-            'avatar' => 'requried',
+            'email' => 'required',
+            'phone' => 'required',
+            'password' => 'required',
+            'avatar' => 'required',
             'percentage' => 'nullable',
             'adhar_no' => 'nullable',
             'adhar_pic' => 'nullable',
+            'account_no' => 'nullable',
+            'bank_name' => 'nullable',
+            'branch_name' => 'nullable',
+            'ifsc_code' => 'nullable',
 
         ]);
         if ($request->hasfile('avatar')) {
@@ -85,17 +89,28 @@ class ManufacturerController extends Controller
             $validated['avatar'] =  $filename;
         }
 
+        if ($request->hasfile('adhar_pic')) {
+            $file = $request->file('adhar_pic');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('adhar_pic/', $filename);
+            $validated['adhar_pic'] =  $filename;
+        }
+
 
 
         $validated['user_id'] =  Auth::user()->id;
         $validated['password'] =  bcrypt($request->password);
         $validated['type'] =  "manufacturer";
+        $validated['gender'] =  'male';
+        $validated['remarks'] =  'Added By Admin';
 
 
         $user = User::create($validated);
         $validated['user_id'] =  $user->id;
 
         ManufacturerDetail::create($validated);
+        BankDetail::create($validated);
 
 
         return redirect()->route('manufacturers.index')->with('success', 'Manufacturer  added successfully.');

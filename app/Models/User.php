@@ -30,6 +30,7 @@ class User extends Authenticatable
         'phone',
         'user_id',
         'gender',
+        'password',
         'type',
         'avatar',
         'remarks',
@@ -62,4 +63,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(DesignerDetail::class,'user_id');
     }
+
+    public function getAvatarAttribute($value)
+      {
+          return env('APP_URL') . '/avatar/' . $value;
+      }
 }

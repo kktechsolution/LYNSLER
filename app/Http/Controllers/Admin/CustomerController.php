@@ -61,7 +61,41 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'password' => 'required',
+            'avatar' => 'required',
+
+
+        ]);
+        if ($request->hasfile('avatar')) {
+            $file = $request->file('avatar');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('avatar/', $filename);
+            $validated['avatar'] =  $filename;
+        }
+
+
+
+
+
+        $validated['user_id'] =  Auth::user()->id;
+        $validated['password'] =  bcrypt($request->password);
+        $validated['type'] =  "user";
+        $validated['gender'] =  'male';
+        $validated['remarks'] =  'Added By Admin';
+
+
+        $user = User::create($validated);
+
+
+        return redirect()->route('customers.index')->with('success', 'User added successfully.');
     }
 
     /**

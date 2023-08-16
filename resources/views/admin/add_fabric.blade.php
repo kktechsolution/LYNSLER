@@ -224,6 +224,10 @@
                 <input type="hidden" name="avatar_remove" />
                 <!--end::Inputs-->
             </label>
+             @error('icon_image')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
             <!--end::Label-->
 
             <!--begin::Cancel-->
@@ -239,7 +243,7 @@
         <!--end::Image input-->
 
         <!--begin::Description-->
-        <div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+
         <!--end::Description-->
     </div>
     <!--end::Card body-->
@@ -303,7 +307,10 @@
             <!--end::Input-->
 
             <!--begin::Description-->
-
+ @error('name')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
 
             <!--end::Description-->
         </div>
@@ -321,6 +328,10 @@
 
             <!--begin::Description-->
             <div class="text-muted fs-7">Enter your Description <address></address>.</div>
+             @error('description')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
             <!--end::Description-->
         </div>
         <!--end::Input group-->
@@ -336,10 +347,14 @@
                 <input type="text" name="price" class="form-control mb-2"  value="" required />
 
             </div>
+             @error('price')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">Enter Price </div>
+            
             <!--end::Description-->
         </div>
         <!--end::Input group-->

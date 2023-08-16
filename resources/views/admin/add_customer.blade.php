@@ -222,6 +222,11 @@
                 <!--begin::Inputs-->
                 <input type="file" name="avatar" accept=".png, .jpg, .jpeg" required />
                 <input type="hidden" name="avatar_remove" />
+                 @error('avatar')
+                        <div class="text-muted fs-7">
+                            {{$message}}</div>
+
+                        @enderror
                 <!--end::Inputs-->
             </label>
             <!--end::Label-->
@@ -305,6 +310,11 @@
             <!--begin::Description-->
             <div class="text-muted fs-7">A name is required.</div>
             <!--end::Description-->
+             @error('name')
+                        <div class="text-muted fs-7">
+                            {{$message}}</div>
+
+                        @enderror
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--end::Input group-->
 
@@ -317,9 +327,15 @@
             <!--begin::Input-->
                         <input type="email" name="email" class="form-control mb-2" placeholder="Email" value="">
             <!--end::Input-->
+            
 
             <!--begin::Description-->
             <div class="text-muted fs-7">Email.</div>
+             @error('email')
+                        <div class="text-muted fs-7">
+                            {{$message}}</div>
+
+                        @enderror
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <div class="mb-10 fv-row fv-plugins-icon-container">
@@ -333,6 +349,11 @@
 
             <!--begin::Description-->
             <div class="text-muted fs-7">phone.</div>
+             @error('phone')
+                        <div class="text-muted fs-7">
+                            {{$message}}</div>
+
+                        @enderror
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--end::Input group-->
@@ -347,6 +368,11 @@
 
             <!--begin::Description-->
             <div class="text-muted fs-7">Password.</div>
+             @error('password')
+                        <div class="text-muted fs-7">
+                            {{$message}}</div>
+
+                        @enderror
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
     </div>

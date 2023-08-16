@@ -333,7 +333,7 @@
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">Email.</div>
+            <div class="text-muted fs-7">Phone Number.</div>
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--end::Input group-->

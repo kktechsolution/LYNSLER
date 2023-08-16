@@ -335,8 +335,10 @@
                                             <!--end::Editor-->
 
                                             <!--begin::Description-->
-                                            <div class="text-muted fs-7">Set a description to the product for better
-                                                visibility.</div>
+                                           @error('sort_description')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
                                             <!--end::Description-->
                                         </div>
                                         <!--end::Input group-->
@@ -358,8 +360,10 @@
                                             <!--end::Editor-->
 
                                             <!--begin::Description-->
-                                            <div class="text-muted fs-7">Set a description to the catlog for better
-                                                visibility.</div>
+                                             @error('description')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
                                             <!--end::Description-->
                                         </div>
                                         <!--end::Input group-->
@@ -375,7 +379,10 @@
                                         <!--end::Input-->
 
                                         <!--begin::Description-->
-                                        <div class="text-muted fs-7">Price</div>
+                                         @error('price')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
                                         <!--end::Description-->
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
@@ -410,10 +417,14 @@
                                                 <!--begin::Info-->
                                                 <div class="ms-4">
                                                     <h3 class="fs-5 fw-bold text-gray-900 mb-1">click to upload.</h3>
-                                                    <input type="file" name="multi_images" accept=".png, .jpg, .jpeg"
+                                                    <input type="file" name="image" accept=".png, .jpg, .jpeg"
                                                         required="" multiple="multiple">
                                                     <span class="fs-7 fw-semibold text-gray-400">Upload up to 10
                                                         files</span>
+                                                         @error('image')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
                                                 </div>
                                                 <!--end::Info-->
                                             </div>
@@ -423,7 +434,11 @@
                                     <!--end::Input group-->
 
                                     <!--begin::Description-->
-                                    <div class="text-muted fs-7">Set the product media gallery.</div>
+                                   
+                                     @error('image')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
                                     <!--end::Description-->
                                 </div>
                                 <!--end::Card header-->

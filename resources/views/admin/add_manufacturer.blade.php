@@ -373,7 +373,10 @@
             <!--begin::Input-->
                         <input type="text" name="adhar_no" class="form-control mb-2" placeholder="Adhar Number" value="">
             <!--end::Input-->
-
+ @error('adhar_no')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
             <!--begin::Description-->
             <div class="text-muted fs-7"></div>
             <!--end::Description-->
@@ -394,13 +397,17 @@
                     </div>
                     <!--end::Info-->
                 </div>
+                 @error('adhar_pic')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
             </div>
             <!--end::Dropzone-->
         </div>
         <!--end::Input group-->
 
         <!--begin::Description-->
-        <div class="text-muted fs-7">Set the product media gallery.</div>
+      
         <br>
         <div class="mb-10 fv-row fv-plugins-icon-container">
             <!--begin::Label-->
@@ -410,9 +417,12 @@
             <!--begin::Input-->
                         <input type="number" name="percentage" class="form-control mb-2" placeholder="Percentage" value="">
             <!--end::Input-->
-
+ @error('percentage')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
             <!--begin::Description-->
-            <div class="text-muted fs-7">]</div>
+        
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--end::Description-->

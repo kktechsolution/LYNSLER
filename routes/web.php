@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\FabricController;
 
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ManufacturerController;
+use App\Http\Controllers\Admin\ProductCategoriesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +48,7 @@ Route::resource('/extras', ExtraController::class);
 Route::resource('/manufacturers', ManufacturerController::class);
 Route::resource('/designers', DesignerController::class);
 Route::resource('/customers', CustomerController::class);
-
+Route::resource('/product_categories', ProductCategoriesController::class);
 Route::resource('/products', ProductController::class);
 
 

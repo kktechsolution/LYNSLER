@@ -117,7 +117,15 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $user = User::find($id);
+        if (empty($user)) {
+            return redirect()->back();
+        }
+
+        return view('admin.edit_customer', ['user' => $user]);
     }
 
     /**

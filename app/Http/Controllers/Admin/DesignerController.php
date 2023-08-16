@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BankDetail;
+use App\Models\DesignerDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +63,58 @@ class DesignerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'name' => 'required',
+            'title_tag' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'password' => 'required',
+            'avatar' => 'required',
+            'percentage' => 'nullable',
+            'adhar_no' => 'nullable',
+            'adhar_pic' => 'nullable',
+            'account_no' => 'nullable',
+            'bank_name' => 'nullable',
+            'branch_name' => 'nullable',
+            'ifsc_code' => 'nullable',
+
+        ]);
+        if ($request->hasfile('avatar')) {
+            $file = $request->file('avatar');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('avatar/', $filename);
+            $validated['avatar'] =  $filename;
+        }
+
+        if ($request->hasfile('adhar_pic')) {
+            $file = $request->file('adhar_pic');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('adhar_pic/', $filename);
+            $validated['adhar_pic'] =  $filename;
+        }
+
+
+
+        $validated['user_id'] =  Auth::user()->id;
+        $validated['password'] =  bcrypt($request->password);
+        $validated['type'] =  "designer";
+        $validated['gender'] =  'male';
+        $validated['remarks'] =  'Added By Admin';
+
+
+        $user = User::create($validated);
+        $validated['user_id'] =  $user->id;
+
+        DesignerDetail::create($validated);
+        BankDetail::create($validated);
+
+
+        return redirect()->route('designers.index')->with('success', 'Designer  added successfully.');
     }
 
     /**
@@ -83,7 +136,16 @@ class DesignerController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $user = User::find($id);
+        if (empty($user)) {
+            return redirect()->back();
+        }
+        $user->designer_details;
+
+        return view('admin.edit_designer', ['user' => $user]);
     }
 
     /**

@@ -7,16 +7,16 @@
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                 <!--begin::Content wrapper-->
                 <div class="d-flex flex-column flex-column-fluid">
-                                            
+
 <!--begin::Toolbar-->
-<div id="kt_app_toolbar" class="app-toolbar  py-3 py-lg-6 " 
-     
+<div id="kt_app_toolbar" class="app-toolbar  py-3 py-lg-6 "
+
          >
 
             <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container  container-xxl d-flex flex-stack ">
-            
-    
+
+
 
 <!--begin::Page title-->
 <div  class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
@@ -26,7 +26,7 @@
             </h1>
     <!--end::Title-->
 
-            
+
         <!--begin::Breadcrumb-->
         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                             <!--begin::Item-->
@@ -40,19 +40,19 @@
                         <span class="bullet bg-gray-400 w-5px h-2px"></span>
                     </li>
                     <!--end::Item-->
-                                        
+
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
                                                     Add Designer                                          </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
-                  
+
                     <!--end::Item-->
-                                        
+
                             <!--begin::Item-->
-                              
+
                                 <!--end::Item-->
-                                        
+
                     </ul>
         <!--end::Breadcrumb-->
     </div>
@@ -62,10 +62,10 @@
             <!--begin::Filter menu-->
         <div class="m-0">
             <!--begin::Menu toggle-->
-         
+
             <!--end::Menu toggle-->
-            
-            
+
+
 
 <!--begin::Menu 1-->
 <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_648c1282b30b5">
@@ -107,25 +107,25 @@
 
             <!--begin::Options-->
             <div class="d-flex">
-                <!--begin::Options-->    
+                <!--begin::Options-->
                 <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
                     <input class="form-check-input" type="checkbox" value="1"/>
                     <span class="form-check-label">
                         Author
                     </span>
                 </label>
-                <!--end::Options-->    
+                <!--end::Options-->
 
-                <!--begin::Options-->    
+                <!--begin::Options-->
                 <label class="form-check form-check-sm form-check-custom form-check-solid">
                     <input class="form-check-input" type="checkbox" value="2" checked="checked"/>
                     <span class="form-check-label">
                         Customer
                     </span>
                 </label>
-                <!--end::Options-->    
-            </div>        
-            <!--end::Options-->    
+                <!--end::Options-->
+            </div>
+            <!--end::Options-->
         </div>
         <!--end::Input group-->
 
@@ -158,31 +158,32 @@
 </div>
 <!--end::Menu 1-->        </div>
         <!--end::Filter menu-->
-    
-    
+
+
     <!--begin::Secondary button-->
         <!--end::Secondary button-->
-    
+
     <!--begin::Primary button-->
-         
+
         <!--end::Primary button-->
 </div>
 <!--end::Actions-->
         </div>
         <!--end::Toolbar container-->
     </div>
-<!--end::Toolbar-->                                        
-                    
+<!--end::Toolbar-->
+
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content  flex-column-fluid " >
-    
-           
+
+
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container  container-xxl ">
             <!--begin::Form-->
 <form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('designers.store')}}" method="POST" enctype="multipart/form-data">
     <!--begin::Aside column-->
     @csrf
+
     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
         <!--begin::Thumbnail settings-->
 <div class="card card-flush py-4">
@@ -207,10 +208,10 @@
 
                 [data-bs-theme="dark"] .image-input-placeholder {
                     background-image: url('../../../assets/media/svg/files/blank-image-dark.svg');
-                }                
+                }
             </style>
             <!--end::Image input placeholder-->
-                
+
         <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
             <!--begin::Preview existing avatar-->
                             <div class="image-input-wrapper w-150px h-150px"></div>
@@ -246,9 +247,9 @@
 </div>
 <!--end::Thumbnail settings-->
         <!--begin::Status-->
-    
+
 <!--end::Status-->
-        
+
 <!--begin::Category & tags-->
 
 <!--end::Category & tags-->
@@ -265,11 +266,11 @@
         <!--begin:::Tabs-->
 <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
     <!--begin:::Tab item-->
-    
+
     <!--end:::Tab item-->
 
     <!--begin:::Tab item-->
-    
+
     <!--end:::Tab item-->
 
     </ul>
@@ -279,7 +280,7 @@
             <!--begin::Tab pane-->
             <div class="tab-pane fade show active" id="kt_ecommerce_add_product_general" role="tab-panel">
                 <div class="d-flex flex-column gap-7 gap-lg-10">
-                    
+
 <!--begin::General options-->
 <div class="card card-flush py-4">
     <!--begin::Card header-->
@@ -299,7 +300,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="text" name="product_name" class="form-control mb-2" placeholder="Name" value="">
+                        <input type="text" name="name" class="form-control mb-2" placeholder="Name" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -315,7 +316,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="email" name="product_name" class="form-control mb-2" placeholder="Email" value="">
+                        <input type="email" name="email" class="form-control mb-2" placeholder="Email" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -328,7 +329,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="number" name="product_name" class="form-control mb-2" placeholder="Phone Number" value="">
+                        <input type="number" name="phone" class="form-control mb-2" placeholder="Phone Number" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -342,7 +343,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="password" name="product_name" class="form-control mb-2" placeholder="Password" value="">
+                        <input type="password" name="password" class="form-control mb-2" placeholder="Password" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -371,7 +372,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="text" name="product_name" class="form-control mb-2" placeholder="Title" value="">
+                        <input type="text" name="title_tag" class="form-control mb-2" placeholder="Title" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -380,7 +381,7 @@
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <div class="mb-10 fv-row fv-plugins-icon-container">
             <!--begin::Label-->
-            
+
             <!--end::Label-->
 
             <!--begin::Input-->
@@ -401,7 +402,7 @@
             <!--end::Input-->
 
             <!--begin::Description-->
-   
+
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <div class="mb-10 fv-row fv-plugins-icon-container">
@@ -410,7 +411,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="text" name="product_name" class="form-control mb-2" placeholder="Adhar Number" value="">
+                        <input type="text" name="adhar_no" class="form-control mb-2" placeholder="Adhar Number" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -428,7 +429,7 @@
                     <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
                     <!--begin::Info-->
                     <div class="ms-4">
-                        <input type="file" name="img1" accept=".png, .jpg, .jpeg" required>
+                        <input type="file" name="adhar_pic" accept=".png, .jpg, .jpeg" required>
                         <span class="fs-7 fw-semibold text-gray-400">Upload  Adhar Photo</span>
                     </div>
                     <!--end::Info-->
@@ -447,7 +448,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="number" name="product_name" class="form-control mb-2" placeholder="Percentage" value="">
+                        <input type="number" name="percentage" class="form-control mb-2" placeholder="Percentage" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -456,7 +457,7 @@
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--end::Description-->
     </div>
-    
+
     <!--end::Card header-->
 </div>
 <!--end::Media-->
@@ -480,7 +481,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input type="text" name="price" class="form-control mb-2" placeholder="" value="">
+            <input type="text" name="account_no" class="form-control mb-2" placeholder="" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -494,7 +495,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input type="text" name="price" class="form-control mb-2" placeholder="" value="">
+            <input type="text" name="bank_name" class="form-control mb-2" placeholder="" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -508,7 +509,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input type="text" name="price" class="form-control mb-2" placeholder="" value="">
+            <input type="text" name="branch_name" class="form-control mb-2" placeholder="" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -522,7 +523,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input type="text" name="price" class="form-control mb-2" placeholder="" value="">
+            <input type="text" name="ifsc_code" class="form-control mb-2" placeholder="" value="">
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -530,19 +531,19 @@
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
             <!--begin::Label-->
-            
+
         <!--end::Input group-->
 
         <!--begin::Input group-->
-        
+
         <!--end::Input group-->
 
         <!--begin::Input group-->
-       
+
         <!--end::Input group-->
 
         <!--begin::Tax-->
-        
+
         <!--end:Tax-->
     </div>
     <!--end::Card header-->
@@ -555,7 +556,7 @@
             <!--begin::Tab pane-->
             <div class="tab-pane fade" id="kt_ecommerce_add_product_advanced" role="tab-panel">
                 <div class="d-flex flex-column gap-7 gap-lg-10">
-                    
+
 <!--begin::Inventory-->
 <div class="card card-flush py-4">
     <!--begin::Card header-->
@@ -845,19 +846,19 @@
             </div>
             <!--end::Tab pane-->
 
-                    
+
             <!--end::Tab pane-->
 
             <!--begin::Tab pane-->
             <div class="tab-pane fade" id="kt_ecommerce_add_product_advanced" role="tab-panel">
                 <div class="d-flex flex-column gap-7 gap-lg-10">
-                    
+
 <!--begin::Inventory-->
 
     <!--end::Inventory-->
 
     <!--begin::Variations-->
-    
+
 <!--end::Variations-->
 
 <!--begin::Shipping-->
@@ -894,23 +895,23 @@
 <!--end::Form-->        </div>
         <!--end::Content container-->
     </div>
-<!--end::Content-->					
+<!--end::Content-->
                 </div>
                 <!--end::Content wrapper-->
 
-                                    
+
 <!--begin::Footer-->
                            </div>
             <!--end:::Main-->
 
-            
+
                     </div>
         <!--end::Wrapper-->
 
-        
 
-                        
-          
+
+
+
 @endsection
 
 

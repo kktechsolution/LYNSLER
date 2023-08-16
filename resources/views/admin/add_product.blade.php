@@ -58,7 +58,7 @@
 
             <!--begin::Content-->
             <div id="kt_app_content" class="app-content  flex-column-fluid ">
-                
+
 
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container  container-xxl ">
@@ -69,156 +69,173 @@
                         <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                             <!--begin::Thumbnail settings-->
                             <div class="card card-flush py-4">
-            <!--begin::Card header-->
-            <div class="card-header">
-                <!--begin::Card title-->
-                <div class="card-title">
-                    <h2> Active Status</h2>
-                </div>
-                <!--end::Card title-->
-
-                <!--begin::Card toolbar-->
-                <div class="card-toolbar">
-                    <div class="rounded-circle bg-success w-15px h-15px" id="kt_ecommerce_add_product_status"></div>
-                </div>
-                <!--begin::Card toolbar-->
-            </div>
-            <!--end::Card header-->
-
-            <!--begin::Card body-->
-            <div class="card-body pt-0">
-                <!--begin::Select2-->
-                <select class="form-select mb-2" name="is_active" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
-                    <option value="">---Select---</option>
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
-        
-                </select>
-                <!--end::Select2-->
-
-                <!--begin::Description-->
-                <div class="text-muted fs-7">Set the catlog status.</div>
-                <!--end::Description-->
-
-                <!--begin::Datepicker-->
-                <div class="d-none mt-10">
-                    <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>
-                    <input class="form-control flatpickr-input" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date &amp; time" type="text" readonly="readonly">
-                </div>
-                <!--end::Datepicker-->
-            </div>
-
-            <div class="card-header">
-                <!--begin::Card title-->
-                <div class="card-title">
-                    <h2> Stock Status</h2>
-                </div>
-                <!--end::Card title-->
-
-                <!--begin::Card toolbar-->
-                <div class="card-toolbar">
-                    <div class="rounded-circle bg-success w-15px h-15px" id="kt_ecommerce_add_product_status"></div>
-                </div>
-                <!--begin::Card toolbar-->
-            </div>
-            <!--end::Card header-->
-
-            <!--begin::Card body-->
-            <div class="card-body pt-0">
-                <!--begin::Select2-->
-                <select class="form-select mb-2" name="is_active" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
-                    <option value="">---Select---</option>
-                    <option value="1">InStock</option>
-                    <option value="0">OutOfStock</option>
-        
-                </select>
-                <!--end::Select2-->
-
-                <!--begin::Description-->
-                <div class="text-muted fs-7">Set the catlog status.</div>
-                <!--end::Description-->
-
-                <!--begin::Datepicker-->
-                <div class="d-none mt-10">
-                    <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>
-                    <input class="form-control flatpickr-input" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date &amp; time" type="text" readonly="readonly">
-                </div>
-                
-                <!--end::Datepicker-->
-            </div>
-            
-            <!--end::Card body-->
-        </div>
-        <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
-                            <!--begin::Thumbnail settings-->
-                            <div class="card card-flush py-4">
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        <h2>Icon</h2>
+                                        <h2> Active Status</h2>
                                     </div>
                                     <!--end::Card title-->
+
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <div class="rounded-circle bg-success w-15px h-15px"
+                                            id="kt_ecommerce_add_product_status"></div>
+                                    </div>
+                                    <!--begin::Card toolbar-->
                                 </div>
                                 <!--end::Card header-->
 
                                 <!--begin::Card body-->
-                                <div class="card-body text-center pt-0">
-                                    <!--begin::Image input-->
-                                    <!--begin::Image input placeholder-->
-                                    <style>
-                                        .image-input-placeholder {
-                                            background-image: url('../../../assets/media/svg/files/blank-image.svg');
-                                        }
+                                <div class="card-body pt-0">
+                                    <!--begin::Select2-->
+                                    <select class="form-select mb-2" name="is_active" data-hide-search="true"
+                                        data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                                        <option value="">---Select---</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
 
-                                        [data-bs-theme="dark"] .image-input-placeholder {
-                                            background-image: url('../../../assets/media/svg/files/blank-image-dark.svg');
-                                        }
-                                    </style>
-                                    <!--end::Image input placeholder-->
-
-                                    <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
-                                        <!--begin::Preview existing avatar-->
-                                        <div class="image-input-wrapper w-150px h-150px"></div>
-                                        <!--end::Preview existing avatar-->
-
-                                        <!--begin::Label-->
-                                        <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Input Icon" data-bs-original-title="Input Icon" data-kt-initialized="1">
-                                            <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
-                                            <!--begin::Inputs-->
-                                            <input type="file" name="icon" accept=".png, .jpg, .jpeg" required="">
-
-                                            <input type="hidden" name="avatar_remove">
-                                            <!--end::Inputs-->
-                                        </label>
-                                        <!--end::Label-->
-
-                                        
-                                    </div>
-                                    <!--end::Image input-->
+                                    </select>
+                                    <!--end::Select2-->
 
                                     <!--begin::Description-->
-                                                                        <!--end::Description-->
+                                    <div class="text-muted fs-7">Set the catlog status.</div>
+                                    <!--end::Description-->
+
+                                    <!--begin::Datepicker-->
+                                    <div class="d-none mt-10">
+                                        <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select
+                                            publishing date and time</label>
+                                        <input class="form-control flatpickr-input"
+                                            id="kt_ecommerce_add_product_status_datepicker"
+                                            placeholder="Pick date &amp; time" type="text" readonly="readonly">
+                                    </div>
+                                    <!--end::Datepicker-->
                                 </div>
+
+                                <div class="card-header">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2> Stock Status</h2>
+                                    </div>
+                                    <!--end::Card title-->
+
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <div class="rounded-circle bg-success w-15px h-15px"
+                                            id="kt_ecommerce_add_product_status"></div>
+                                    </div>
+                                    <!--begin::Card toolbar-->
+                                </div>
+                                <!--end::Card header-->
+
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Select2-->
+                                    <select class="form-select mb-2" name="in_stock" data-hide-search="true"
+                                        data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                                        <option value="">---Select---</option>
+                                        <option value="1">InStock</option>
+                                        <option value="0">OutOfStock</option>
+
+                                    </select>
+                                    <!--end::Select2-->
+
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set the catlog status.</div>
+                                    <!--end::Description-->
+
+                                    <!--begin::Datepicker-->
+                                    <div class="d-none mt-10">
+                                        <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select
+                                            publishing date and time</label>
+                                        <input class="form-control flatpickr-input"
+                                            id="kt_ecommerce_add_product_status_datepicker"
+                                            placeholder="Pick date &amp; time" type="text" readonly="readonly">
+                                    </div>
+
+                                    <!--end::Datepicker-->
+                                </div>
+
                                 <!--end::Card body-->
                             </div>
+                            <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+                                <!--begin::Thumbnail settings-->
+                                <div class="card card-flush py-4">
+                                    <!--begin::Card header-->
+                                    <div class="card-header">
+                                        <!--begin::Card title-->
+                                        <div class="card-title">
+                                            <h2>Icon</h2>
+                                        </div>
+                                        <!--end::Card title-->
+                                    </div>
+                                    <!--end::Card header-->
+
+                                    <!--begin::Card body-->
+                                    <div class="card-body text-center pt-0">
+                                        <!--begin::Image input-->
+                                        <!--begin::Image input placeholder-->
+                                        <style>
+                                            .image-input-placeholder {
+                                                background-image: url('../../../assets/media/svg/files/blank-image.svg');
+                                            }
+
+                                            [data-bs-theme="dark"] .image-input-placeholder {
+                                                background-image: url('../../../assets/media/svg/files/blank-image-dark.svg');
+                                            }
+                                        </style>
+                                        <!--end::Image input placeholder-->
+
+                                        <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
+                                            data-kt-image-input="true">
+                                            <!--begin::Preview existing avatar-->
+                                            <div class="image-input-wrapper w-150px h-150px"></div>
+                                            <!--end::Preview existing avatar-->
+
+                                            <!--begin::Label-->
+                                            <label
+                                                class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                data-kt-image-input-action="change" data-bs-toggle="tooltip"
+                                                aria-label="Input Icon" data-bs-original-title="Input Icon"
+                                                data-kt-initialized="1">
+                                                <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span
+                                                        class="path2"></span></i>
+                                                <!--begin::Inputs-->
+                                                <input type="file" name="image" accept=".png, .jpg, .jpeg"
+                                                    required="">
+
+                                                <input type="hidden" name="avatar_remove">
+                                                <!--end::Inputs-->
+                                            </label>
+                                            <!--end::Label-->
+
+
+                                        </div>
+                                        <!--end::Image input-->
+
+                                        <!--begin::Description-->
+                                        <!--end::Description-->
+                                    </div>
+                                    <!--end::Card body-->
+                                </div>
+                                <!--end::Thumbnail settings-->
+
+                                <!--end::Status-->
+
+                                <!--begin::Category & tags-->
+
+                                <!--end::Category & tags-->
+                                <!--begin::Weekly sales-->
+
+                                <!--end::Weekly sales-->
+                                <!--begin::Template settings-->
+
+                                <!--end::Template settings-->
+                            </div>
+
                             <!--end::Thumbnail settings-->
-
-                            <!--end::Status-->
-
-                            <!--begin::Category & tags-->
-
-                            <!--end::Category & tags-->
-                            <!--begin::Weekly sales-->
-
-                            <!--end::Weekly sales-->
-                            <!--begin::Template settings-->
-
-                            <!--end::Template settings-->
-                        </div>
-        
-                            <!--end::Thumbnail settings-->
- {{-- @error('icon')
+                            {{-- @error('icon')
                                         <div class="text-muted fs-7">
                                             {{ $message }}</div>
                                     @enderror --}}
@@ -251,21 +268,7 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
                                     <!--begin::Input group-->
-                                    <div class="mb-10 fv-row fv-plugins-icon-container">
-                                        <!--begin::Label-->
-                                        <label class="required form-label">UserID</label>
-                                        <!--end::Label-->
 
-                                        <!--begin::Input-->
-                                        <input type="number" name="product_name" class="form-control mb-2"
-                                            placeholder="UserId" value="">
-                                        <!--end::Input-->
-
-                                        <!--begin::Description-->
-                                        
-                                        <!--end::Description-->
-                                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                                    </div>
                                     <div class="mb-10 fv-row">
                                         <!--begin::Label-->
                                         <label class="required form-label">Product Name</label>
@@ -273,7 +276,7 @@
 
                                         <!--begin::Input-->
                                         <input type="text" name="name" class="form-control mb-2"
-                                            placeholder="Category name" value="" required />
+                                            placeholder="Product name" value="" required />
                                         <!--end::Input-->
                                         @error('name')
                                             <div class="text-muted fs-7">
@@ -283,7 +286,18 @@
 
                                         <!--end::Description-->
                                     </div>
+                                    <div class="mb-10 fv-row">
 
+                                        <label class="required form-label">Product Category </label>
+                                        <select class="form-select mb-2" name="catlog_category_id">
+                                            <option value="">---Select---</option>
+                                            @foreach ($product_categories as $categories)
+                                                <option value="{{ $categories->id }}">{{ $categories->name }}</option>
+                                            @endforeach
+
+
+                                        </select>
+                                    </div>
                                     @csrf
                                     <!--end::Input group-->
                                     <div class="mb-10 fv-row fv-plugins-icon-container">
@@ -292,12 +306,15 @@
                                         <!--end::Label-->
 
                                         <!--begin::Input-->
-                                        <input type="number" name="product_name" class="form-control mb-2"
+                                        <input type="number" name="quantity" class="form-control mb-2"
                                             placeholder="Quntatity" value="">
                                         <!--end::Input-->
-
+                                        @error('quantity')
+                                            <div class="text-muted fs-7">
+                                                {{ $message }}</div>
+                                        @enderror
                                         <!--begin::Description-->
-                                        
+
                                         <!--end::Description-->
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
@@ -310,7 +327,7 @@
 
                                         <div class="ql-toolbar ql-snow">
 
-                                            <textarea style="height: 147px;width: 775px; resize: none;" name="description" required=""> </textarea>
+                                            <textarea style="height: 147px;width: 775px; resize: none;" name="sort_description" required=""> </textarea>
 
 
 
@@ -348,18 +365,20 @@
                                         <!--end::Input group-->
                                     </div>
                                     <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">Price</label>
-            <!--end::Label-->
+                                        <!--begin::Label-->
+                                        <label class="required form-label">Price</label>
+                                        <!--end::Label-->
 
-            <!--begin::Input-->
-            <input type="number" name="price" class="form-control mb-2" placeholder="" value="">
-            <!--end::Input-->
+                                        <!--begin::Input-->
+                                        <input type="number" name="price" class="form-control mb-2" placeholder=""
+                                            value="">
+                                        <!--end::Input-->
 
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Price</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                        <!--begin::Description-->
+                                        <div class="text-muted fs-7">Price</div>
+                                        <!--end::Description-->
+                                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    </div>
                                     <!--begin::Input group-->
 
                                     <!--end::Input group-->
@@ -368,43 +387,47 @@
                             </div>
                             <!--end::General options-->
                             <div class="card card-flush py-4">
-    <!--begin::Card header-->
-    <div class="card-header">
-        <div class="card-title">
-            <h2>Media</h2>
-        </div>
-    </div>
-    <!--end::Card header-->
+                                <!--begin::Card header-->
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h2>Media</h2>
+                                    </div>
+                                </div>
+                                <!--end::Card header-->
 
-    <!--begin::Card body-->
-    <div class="card-body pt-0">
-        <!--begin::Input group-->
-        <div class="fv-row mb-2">
-            <!--begin::Dropzone-->
-            <div class="dropzone dz-clickable" id="kt_ecommerce_add_product_media">
-                <!--begin::Message-->
-                <div class="dz-message needsclick">
-                    <!--begin::Icon-->
-                    <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
-                    <!--begin::Info-->
-                    <div class="ms-4">
-                        <h3 class="fs-5 fw-bold text-gray-900 mb-1">click to upload.</h3>
-                        <input type="file" name="img1" accept=".png, .jpg, .jpeg" required="" multiple="multiple">
-                        <span class="fs-7 fw-semibold text-gray-400">Upload up to 10 files</span>
-                    </div>
-                    <!--end::Info-->
-                </div>
-            </div>
-            <!--end::Dropzone-->
-        </div>
-        <!--end::Input group-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Input group-->
+                                    <div class="fv-row mb-2">
+                                        <!--begin::Dropzone-->
+                                        <div class="dropzone dz-clickable" id="kt_ecommerce_add_product_media">
+                                            <!--begin::Message-->
+                                            <div class="dz-message needsclick">
+                                                <!--begin::Icon-->
+                                                <i class="ki-duotone ki-file-up text-primary fs-3x"><span
+                                                        class="path1"></span><span class="path2"></span></i>
+                                                <!--end::Icon-->
+                                                <!--begin::Info-->
+                                                <div class="ms-4">
+                                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">click to upload.</h3>
+                                                    <input type="file" name="multi_images" accept=".png, .jpg, .jpeg"
+                                                        required="" multiple="multiple">
+                                                    <span class="fs-7 fw-semibold text-gray-400">Upload up to 10
+                                                        files</span>
+                                                </div>
+                                                <!--end::Info-->
+                                            </div>
+                                        </div>
+                                        <!--end::Dropzone-->
+                                    </div>
+                                    <!--end::Input group-->
 
-        <!--begin::Description-->
-        <div class="text-muted fs-7">Set the product media gallery.</div>
-        <!--end::Description-->
-    </div>
-    <!--end::Card header-->
-</div>
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set the product media gallery.</div>
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Card header-->
+                            </div>
                             <!--begin::Meta options-->
 
                             <!--end::Meta options-->

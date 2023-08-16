@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use App\Models\ProductCategory;
 
 class ProductController extends Controller
 {
@@ -43,8 +44,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
-         return view('admin.add_product');
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $product_categories = ProductCategory::all();
+         return view('admin.add_product',['product_categories' => $product_categories]);
     }
 
     /**
@@ -55,7 +59,42 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'product_category_id' => 'required',
+            'sort_description' => 'required',
+            'quantity' => 'required',
+            'sort_description' => 'required',
+            'image' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'name' => 'required',
+        ]);
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('product_images/', $filename);
+            $validated['image'] =  $filename;
+        }
+
+
+
+
+
+        $validated['user_id'] =  Auth::user()->id;
+        // $validated['password'] =  bcrypt($request->password);
+        // $validated['type'] =  "user";
+        // $validated['gender'] =  'male';
+        // $validated['remarks'] =  'Added By Admin';
+
+
+        $product = Product::create($validated);
+
+
+        return redirect()->route('products.index')->with('success', 'Product added successfully.');
     }
 
     /**

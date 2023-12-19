@@ -22,4 +22,9 @@ class CatlogCategory extends Model
             get: fn ($value) => env('APP_URL').'/catlog_categories_icon/'.$value,
         );
     }
+
+    public function catlog()
+    {
+        return $this->hasMany(Catlog::class);
+    }
 }

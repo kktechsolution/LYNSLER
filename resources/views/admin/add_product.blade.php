@@ -289,7 +289,7 @@
                                     <div class="mb-10 fv-row">
 
                                         <label class="required form-label">Product Category </label>
-                                        <select class="form-select mb-2" name="catlog_category_id">
+                                        <select class="form-select mb-2" name="product_category_id">
                                             <option value="">---Select---</option>
                                             @foreach ($product_categories as $categories)
                                                 <option value="{{ $categories->id }}">{{ $categories->name }}</option>
@@ -434,7 +434,7 @@
                                     <!--end::Input group-->
 
                                     <!--begin::Description-->
-                                   
+
                                      @error('image')
                                         <div class="text-muted fs-7">
                                             {{ $message }}</div>

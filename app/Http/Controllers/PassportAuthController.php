@@ -24,7 +24,10 @@ class PassportAuthController extends Controller
         $rules = array(
             'name' => 'required|max:55',
             'email' => 'email|required|unique:users',
-            'password' => 'required'
+            'password' => 'required',
+            'phone' => 'required',
+            'type' => 'required',
+            'gender' => 'nullable'
         );
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) {

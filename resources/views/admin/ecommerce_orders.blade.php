@@ -94,7 +94,7 @@
                                     </div>
 
                                     <!--begin::Add product-->
-                                    <a href={{ route('products.create') }} type="button" class="btn btn-primary">
+                                    <a href={{ route('ecom_orders.create') }} type="button" class="btn btn-primary">
 
                                         Create
                                     </a>
@@ -140,7 +140,7 @@
                                                         colspan="1"
                                                         aria-label="Status: activate to sort column ascending"
                                                         style="width: 129.5px;"> Order Status</th>
-                                                  
+
                                                     <th class="text-end min-w-70px sorting_disabled" rowspan="1"
                                                         colspan="1" aria-label="Actions" style="width: 131.913px;">
                                                         Actions</th>
@@ -149,7 +149,7 @@
                                             <tbody class="fw-semibold text-gray-600">
 
 
-                                                @foreach ($products as $product)
+                                                @foreach ($ecom_orders as $order)
                                                     <tr class="odd">
                                                         <td>
                                                             <div
@@ -166,15 +166,15 @@
 
                                                                 <div class="ms-5">
                                                                     <!--begin::Title-->
-                                                                    <a href="{{ route('products.show', $product->id) }}"
+                                                                    <a href="{{ route('ecom_orders.create', $order->id) }}"
                                                                         class="text-gray-800 text-hover-primary fs-5 fw-bold"
-                                                                        data-kt-ecommerce-product-filter="product_name">{{ $product->name }}</a>
+                                                                        data-kt-ecommerce-product-filter="product_name">{{ $order->user->name }}</a>
                                                                     <!--end::Title-->
                                                                 </div>
                                                             </div>
                                                         </td>
                                                         <td class="text-end pe-0">
-                                                            <span class="fw-bold">{{ $product->amount }}</span>
+                                                            <span class="fw-bold">{{ $order->amount }}</span>
                                                         </td>
                                                         <td class="text-end pe-0">
                                                             <span class="fw-bold">01260008</span>
@@ -182,9 +182,9 @@
 
 
                                                        <td class="text-end pe-0">
-                                                            <span class="fw-bold">{{ $ecommerce_orders->order_status }}</span>
+                                                            <span class="fw-bold">{{ $order->order_status }}</span>
                                                         </td>
-                                                        
+
                                                         <td class="text-end">
                                                             <a href="#"
                                                                 class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
@@ -197,7 +197,7 @@
                                                                 data-kt-menu="true">
                                                                 <!--begin::Menu item-->
                                                                 <div class="menu-item px-3">
-                                                                    <a href={{ route('products.edit', $product->id) }}
+                                                                    <a href={{ route('ecom_orders.edit', $order->id) }}
                                                                         class="menu-link px-3">
                                                                         Edit
                                                                     </a>
@@ -231,7 +231,7 @@
                                     </div>
                                     <div
                                         class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
-                                        {{ $ecommerce_orders->links('admin.custom_pagination') }}
+                                        {{ $ecom_orders->links('admin.custom_pagination') }}
                                     </div>
                                 </div>
                             </div>

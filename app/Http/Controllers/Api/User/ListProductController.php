@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Extra;
+use App\Models\Fabric;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -12,13 +14,13 @@ class ListProductController extends Controller
 {
     public function index(Request $request)
     {
-        if (!$this->authorize(['user','designer'])) {
+        if (!$this->authorize(['user', 'designer'])) {
             return Res('Unauhorized Attempt.', [], 403);
         }
 
         $query = Product::query();
         $results = Search($request, $query, function ($query) {
-            return $query->with(['product_images','product_category']);
+            return $query->with(['product_images', 'product_category']);
         });
 
 
@@ -27,7 +29,7 @@ class ListProductController extends Controller
 
     public function product_categpry_list(Request $request)
     {
-        if (!$this->authorize(['user','designer'])) {
+        if (!$this->authorize(['user', 'designer'])) {
             return Res('Unauhorized Attempt.', [], 403);
         }
 
@@ -42,7 +44,7 @@ class ListProductController extends Controller
 
     public function getDesigners(Request $request)
     {
-        if (!$this->authorize(['user','designer'])) {
+        if (!$this->authorize(['user', 'designer'])) {
             return Res('Unauhorized Attempt.', [], 403);
         }
         $lng = $request->lng;
@@ -59,7 +61,18 @@ class ListProductController extends Controller
         ORDER BY distance;
 
     ');
-    return Res('Search Results', $designers, 200);
-}
+        return Res('Search Results', $designers, 200);
+    }
 
+    public function get_fabrics()
+    {
+        $fabrics = Fabric::all();
+        return response($fabrics);
+    }
+
+    public function get_extras()
+    {
+        $trims = Extra::all();
+        return response($trims);
+    }
 }

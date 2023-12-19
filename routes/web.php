@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CatlogCategoriesController;
 use App\Http\Controllers\Admin\CatlogController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DesignerController;
+use App\Http\Controllers\Admin\EcommerceOrderController;
 use App\Http\Controllers\Admin\ExtraController;
 use App\Http\Controllers\Admin\FabricController;
 
@@ -24,18 +25,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/manufacturecost', function () {
-    return view('admin.manufacturing_costs');
-});
-Route::get('/custom', function () {
-    return view('admin.edit_customer');
-});
-Route::get('/design', function () {
-    return view('admin.edit_designer');
-});
-Route::get('/edit', function () {
-    return view('admin.edit_product');
-});
+// Route::get('/student', function () {
+//     return view('welcome');
+// });
+// Route::get('/custom', function () {
+//     return view('admin.edit_customer');
+// });
+// Route::get('/design', function () {
+//     return view('admin.edit_designer');
+// });
+// Route::get('/edit', function () {
+//     return view('admin.edit_product');
+// });
 
 
 Auth::routes();
@@ -50,6 +51,9 @@ Route::resource('/designers', DesignerController::class);
 Route::resource('/customers', CustomerController::class);
 Route::resource('/product_categories', ProductCategoriesController::class);
 Route::resource('/products', ProductController::class);
+// Route::resource('/orders', ProductController::class);
+Route::resource('/ecom_orders', EcommerceOrderController::class);
+Route::get('/students', [App\Http\Controllers\Student2Controller::class, 'index'])->name('students');
 
 
 

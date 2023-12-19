@@ -15,6 +15,8 @@ use App\Http\Controllers\Api\User\AllBannerController;
 use App\Http\Controllers\Api\User\AllBlogsController;
 use App\Http\Controllers\Api\User\AllTeaMemberController;
 use App\Http\Controllers\Api\User\GetQuoteController;
+use App\Http\Controllers\Api\User\ListProductController;
+use App\Http\Controllers\Api\User\UserHomeController;
 use App\Http\Controllers\PassportAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +52,15 @@ Route::group(['prefix' => 'v1'], function () {
         Route::resource('product_images', ProductImagesController::class);
         Route::resource('order', OrderController::class);
         Route::resource('user', UserController::class);
+
+        /////////////////
+        Route::get('product_list', [ListProductController::class, 'index']);
+        Route::get('product_categpry_list', [ListProductController::class, 'product_categpry_list']);
+        Route::get('get_designers', [ListProductController::class, 'getDesigners']);
+        Route::get('extras', [ListProductController::class, 'get_extras']);
+        Route::get('fabrics', [ListProductController::class, 'get_fabrics']);
+        Route::resource('userHomeRoute', UserHomeController::class);
+
     });
 
     Route::get('all_blogs', [AllBlogsController::class, 'index']);

@@ -56,7 +56,10 @@ Route::group(['prefix' => 'v1'], function () {
         /////////////////
         Route::get('product_list', [ListProductController::class, 'index']);
         Route::get('product_categpry_list', [ListProductController::class, 'product_categpry_list']);
+        Route::get('catlogs', [ListProductController::class, 'catlogs']);
+        Route::get('catlog_categories', [ListProductController::class, 'catlog_categories']);
         Route::get('get_designers', [ListProductController::class, 'getDesigners']);
+        Route::get('get_designer/{id}', [ListProductController::class, 'get_designer']);
         Route::get('extras', [ListProductController::class, 'get_extras']);
         Route::get('fabrics', [ListProductController::class, 'get_fabrics']);
         Route::resource('userHomeRoute', UserHomeController::class);

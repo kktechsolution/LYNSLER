@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Catlog;
+use App\Models\CatlogCategory;
 use App\Models\Extra;
 use App\Models\Fabric;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -73,6 +76,27 @@ class ListProductController extends Controller
     public function get_extras()
     {
         $trims = Extra::all();
+        return response($trims);
+    }
+
+    public function catlog_categories()
+    {
+        $trims = CatlogCategory::all();
+        return response($trims);
+    }
+
+    public function catlogs()
+    {
+        $trims = Catlog::all();
+        return response($trims);
+    }
+
+    public function get_designer($id)
+    {
+        $trims = User::find($id);
+        $trims->designer_details;
+        $trims->catlogs;
+
         return response($trims);
     }
 }

@@ -430,6 +430,8 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Menu-->
                             <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu"
                                 data-kt-menu="true" data-kt-menu-expand="false">
+
+                                @if(Auth::user()->type == "master_admin")
                                 <!--begin:Menu item-->
                                 <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
                                     <!--begin:Menu link-->
@@ -846,7 +848,7 @@ License: For each use you must have a valid license purchased only from above li
                                     </div>
                                 </div>
                                 {{-- finish --}}
-
+@endif
                                 <!--end:Menu item-->
                             </div>
                             <!--end::Menu-->

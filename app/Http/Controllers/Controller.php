@@ -27,6 +27,14 @@ class Controller extends BaseController
 
     public function demo()
     {
-        return view('admin.demo');
+        if(Auth::user()->type == "master_admin")
+        {
+            return redirect()->route('catlog_categories.index');
+        }
+        elseif(Auth::user()->type == "manufacturer")
+        {
+            return redirect()->route('manufacturer_home.create');
+        }
+
     }
 }

@@ -37,7 +37,7 @@ class HomeController extends Controller
             $total_active_bookings  = Booking::where('is_compeleted', false)->count();
             $total_compeleted_bookings  = Booking::where('is_compeleted', true)->count();
 
-
+            exit();
             $data = [
                 'total_users' => $total_users,
                 'total_emloyeees' => $total_emloyeees,

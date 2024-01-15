@@ -53,7 +53,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::resource('order', OrderController::class);
         Route::resource('user', UserController::class);
 
-        /////////////////
+        /////////////////user
         Route::get('product_list', [ListProductController::class, 'index']);
         Route::get('product_categpry_list', [ListProductController::class, 'product_categpry_list']);
         Route::get('catlogs', [ListProductController::class, 'catlogs']);
@@ -63,6 +63,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('extras', [ListProductController::class, 'get_extras']);
         Route::get('fabrics', [ListProductController::class, 'get_fabrics']);
         Route::resource('userHomeRoute', UserHomeController::class);
+        /////////////////Designer
 
     });
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\FabricController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ManufacturerController;
 use App\Http\Controllers\Admin\ProductCategoriesController;
+use App\Http\Controllers\Manufacturer\ManufacturerHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+Route::middleware(['auth'])->group(function () {
 
 Route::get('/', [App\Http\Controllers\Controller::class, 'demo'])->name('demo');
 Route::resource('/catlog_categories', CatlogCategoriesController::class);
@@ -53,8 +55,13 @@ Route::resource('/product_categories', ProductCategoriesController::class);
 Route::resource('/products', ProductController::class);
 // Route::resource('/orders', ProductController::class);
 Route::resource('/ecom_orders', EcommerceOrderController::class);
-Route::get('/students', [App\Http\Controllers\Student2Controller::class, 'index'])->name('students');
+// Route::get('/students', [App\Http\Controllers\Student2Controller::class, 'index'])->name('students');
 
+//manufacturer
+Route::resource('/manufacturer_home', ManufacturerHomeController::class);
+
+
+});
 
 
 

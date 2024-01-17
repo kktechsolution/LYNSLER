@@ -199,7 +199,7 @@ class ManufacturerHomeController extends Controller
             ->where('manufacturer_id', Auth::user()->id)
             ->paginate(3);
 
-        return view('manufacturer.orderList', ['orders' => $orders]);
+        return view('Manufacturer.orderList', ['orders' => $orders]);
     }
 
     public function transactions()

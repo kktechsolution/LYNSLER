@@ -22,7 +22,7 @@
 <div  class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
     <!--begin::Title-->
     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-       Manufacture Form
+       Order Details
             </h1>
     <!--end::Title-->
 
@@ -31,8 +31,8 @@
         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    <a href={{route('manufacturer_home.index')}} class="text-muted text-hover-primary">
-                                                        Manufacturers                            </a>
+                                                    <a href={{route('manufacturer.order')}} class="text-muted text-hover-primary">
+                                                        Order List                            </a>
                                             </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
@@ -43,7 +43,7 @@
 
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    Edit Manufacturers                                           </li>
+                                                    Order Details                                         </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
 
@@ -177,73 +177,7 @@
 <div id="kt_app_content" class="app-content  flex-column-fluid " >
 
 
-        <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container  container-xxl ">
-            <!--begin::Form-->
-<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('manufacturer_home.store')}}" method="POST" enctype="multipart/form-data">
-    <!--begin::Aside column-->
-    @csrf
-    <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
-        <!--begin::Thumbnail settings-->
-<div class="card card-flush py-4">
-    <!--begin::Card header-->
-    <div class="card-header">
-        <!--begin::Card title-->
-        <div class="card-title">
-            <h2>Avatar Photo</h2>
-        </div>
-        <!--end::Card title-->
-    </div>
-    <!--end::Card header-->
 
-    <!--begin::Card body-->
-    <div class="card-body text-center pt-0">
-        <!--begin::Image input-->
-                    <!--begin::Image input placeholder-->
-            <style>
-                .image-input-placeholder {
-                    background-image: url({{$manufacturer->avatar}});
-                }
-
-                [data-bs-theme="dark"] .image-input-placeholder {
-                    background-image: url({{$manufacturer->avatar}});
-                }
-            </style>
-            <!--end::Image input placeholder-->
-
-        <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
-            <!--begin::Preview existing avatar-->
-                            <div class="image-input-wrapper w-150px h-150px"><img src="{{$manufacturer->avatar}}" class="image-input-wrapper w-150px h-150px"></div>
-                        <!--end::Preview existing avatar-->
-
-            <!--begin::Label-->
-            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change Photo">
-                <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
-                <!--begin::Inputs-->
-                <input type="file" name="avatar" accept=".png, .jpg, .jpeg"  />
-                <input type="hidden" name="avatar_remove" />
-                <!--end::Inputs-->
-            </label>
-            <!--end::Label-->
-
-            <!--begin::Cancel-->
-            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-                <i class="ki-duotone ki-cross fs-2"><span class="path1"></span><span class="path2"></span></i>            </span>
-            <!--end::Cancel-->
-
-            <!--begin::Remove-->
-            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-                <i class="ki-duotone ki-cross fs-2"><span class="path1"></span><span class="path2"></span></i>            </span>
-            <!--end::Remove-->
-        </div>
-        <!--end::Image input-->
-
-        <!--begin::Description-->
-        <div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
-        <!--end::Description-->
-    </div>
-    <!--end::Card body-->
-</div>
 <!--end::Thumbnail settings-->
         <!--begin::Status-->
 
@@ -261,7 +195,6 @@
     <!--end::Aside column-->
 
     <!--begin::Main column-->
-    <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
         <!--begin:::Tabs-->
 <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
     <!--begin:::Tab item-->
@@ -285,7 +218,7 @@
     <!--begin::Card header-->
     <div class="card-header">
         <div class="card-title">
-            <h2>Edit Manufacturer</h2>
+            <h2>Edit Manufacture</h2>
         </div>
     </div>
     <!--end::Card header-->
@@ -293,64 +226,83 @@
     <!--begin::Card body-->
     <div class="card-body pt-0">
         <!--begin::Input group-->
-        <div class="mb-10 fv-row fv-plugins-icon-container">
+        <div class="mb-5 fv-col fv-plugins-icon-container">
             <!--begin::Label-->
-            <label class="required form-label">Name</label>
+            <label class="form-label">Customer Name</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="text" name="name" class="form-control mb-2" placeholder="Name" value="{{$manufacturer->name}}">
+                        <input type="text" name="product_name" class="form-control mb-8" placeholder="Name" value="{{$order->user->name}}" disabled>
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
             <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--end::Input group-->
 
         <!--begin::Input group-->
-        <div class="mb-10 fv-row fv-plugins-icon-container">
+        <div class="mb-5 fv-col fv-plugins-icon-container">
             <!--begin::Label-->
-            <label class="required form-label">Email</label>
+            <label class=" form-label">Desginer Name</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="email" name="email" class="form-control mb-2" placeholder="Email" value="{{$manufacturer->email}}">
+            <input type="text" name="product_name" class="form-control mb-8" placeholder="Name" value="{{$order->designer->name}}" disabled>
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">Email.</div>
             <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <div class="mb-10 fv-row fv-plugins-icon-container">
             <!--begin::Label-->
-            <label class="required form-label">Phone Number</label>
+            <label class=" form-label">Customer Address</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="number" name="phone" class="form-control mb-2" placeholder="Phone Number" value="{{$manufacturer->phone}}">
+                        <input type="text" name="product_name" class="form-control mb-2" placeholder="Phone Number" value="{{$order->address->address_line_1}} {{$order->address->address_line_2}} {{$order->address->address_line_3}} {{$order->address->pincode}}" disabled>
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">Email.</div>
             <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
+       </div>
         <!--end::Input group-->
         <div class="mb-10 fv-row fv-plugins-icon-container">
             <!--begin::Label-->
-            <label class="required form-label">Password</label>
+            <label class="form-label">Amount</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="password" name="password" class="form-control mb-2" placeholder="Password" value="">
+            <input type="text" name="product_name" class="form-control mb-8" placeholder="Name" value="{{$order->amount}}" disabled>
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">Password.</div>
             <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-    </div>
+        </div>
     <!--end::Card header-->
+
+    <div class="mb-10 fv-row fv-plugins-icon-container">
+        <!--begin::Label-->
+        <label class="form-label">Payment Status</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <input type="text" name="product_name" class="form-control mb-8" placeholder="Name" value="{{$order->payment_status}}" disabled>
+        <!--end::Input-->
+
+        <!--begin::Description-->
+        <!--end::Description-->
+    </div>
+
+    <div class="mb-10 fv-row fv-plugins-icon-container">
+        <!--begin::Label-->
+        <label class="form-label">Order Status</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <input type="text" name="product_name" class="form-control mb-8" placeholder="Name" value="{{$order->order_status}}" disabled>
+        <!--end::Input-->
+
+        <!--begin::Description-->
+        <!--end::Description-->
+    </div>
 </div>
 <!--end::General options-->
 <!--begin::Media-->
@@ -358,7 +310,7 @@
     <!--begin::Card header-->
     <div class="card-header">
         <div class="card-title">
-            <h2>Manufactures Details</h2>
+            <h2>Order Details</h2>
         </div>
     </div>
     <!--end::Card header-->
@@ -367,21 +319,20 @@
     <div class="card-body pt-0">
         <div class="mb-10 fv-row fv-plugins-icon-container">
             <!--begin::Label-->
-            <label class="required form-label">Adhar Number</label>
+            <label class=" form-label">Main Fabric</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="text" name="adhar_no" class="form-control mb-2" placeholder="Adhar Number" value="{{$manufacturer->manufacturer_details->adhar_no}}">
+                        <input type="text" name="product_name" class="form-control mb-2" placeholder="Adhar Number" value="{{$main_fabric->name}}" disabled>
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--begin::Input group-->
         <div class="fv-row mb-2">
             <!--begin::Dropzone-->
-            <label class="required form-label">Adhar Photo</label>
+            <label class=" form-label">Designer Photo</label>
             <div class="dropzone dz-clickable" id="kt_ecommerce_add_product_media">
                 <!--begin::Message-->
                 <div class="dz-message needsclick">
@@ -389,8 +340,6 @@
                     <i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>                    <!--end::Icon-->
                     <!--begin::Info-->
                     <div class="ms-4">
-                        <input type="file" name="adhar_pic" accept=".png, .jpg, .jpeg" >
-                        <span class="fs-7 fw-semibold text-gray-400">Upload  Adhar Photo</span>
                     </div>
                     <!--end::Info-->
                 </div>
@@ -400,19 +349,17 @@
         <!--end::Input group-->
 
         <!--begin::Description-->
-        <div class="text-muted fs-7">Set the product media gallery.</div>
         <br>
         <div class="mb-10 fv-row fv-plugins-icon-container">
             <!--begin::Label-->
-            <label class="required form-label">Percentage</label>
+            <label class=" form-label">No Of Peice</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-                        <input type="number" name="percentage" class="form-control mb-2" placeholder="Percentage" value="{{$manufacturer->manufacturer_details->percentage}}">
+                        <input type="number" name="product_name" class="form-control mb-2" placeholder="Percentage" value="{{$order->order_details->no_of_piece}}" disabled>
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--end::Description-->
@@ -427,84 +374,73 @@
     <!--begin::Card header-->
     <div class="card-header">
         <div class="card-title">
-            <h2>Bank Details</h2>
+            <h2>Extra Fabrics</h2>
         </div>
     </div>
     <!--end::Card header-->
 
     <!--begin::Card body-->
-    <div class="card-body pt-0">
-        <!--begin::Input group-->
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">Account Number</label>
-            <!--end::Label-->
+        <table class="table  dataTable no-footer" id="kt_ecommerce_products_table">
+            <thead>
+                <tr class="text-start  fw-bold fs-7 text-uppercase gs-0">
+                    <th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 116.5px;">Fabric Name</th>
+                    <th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">Used FOr</th>
+                </tr>
+            </thead>
+            <tbody class="fw-semibold text-gray-600">
+        @foreach ($fabrics as $fabric )
+        <tr>
+            <td class="text-end pe-0">
+                <span class="fw-bold">{{$fabric->name}}</span>
+            </td>
+            <td class="text-end pe-0">
+                <span class="fw-bold">{{$fabric->used_for}}</span>
+            </td>
+        </tr>
 
-            <!--begin::Input-->
-            <input type="text" name="account_no" class="form-control mb-2" placeholder="" value="{{$manufacturer->get_bank_details->account_no}}">
-            <!--end::Input-->
+        @endforeach
+            </tbody>
+        </table>
+    </div>
+    <!--end::Card header-->
+</div>
 
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Account Number</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-        <!--end::Input group-->
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">Bank Name</label>
-            <!--end::Label-->
+<div class="card card-flush py-4">
+    <!--begin::Card header-->
+    <div class="card-header">
+        <div class="card-title">
+            <h2>Extra Trims</h2>
+        </div>
+    </div>
+    <!--end::Card header-->
 
-            <!--begin::Input-->
-            <input type="text" name="bank_name" class="form-control mb-2" placeholder="" value="{{$manufacturer->get_bank_details->bank_name}}">
-            <!--end::Input-->
+    <!--begin::Card body-->
+        <table class="table  dataTable no-footer" id="kt_ecommerce_products_table">
+            <thead>
+                <tr class="text-start  fw-bold fs-7 text-uppercase gs-0">
+                    <th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 116.5px;">Fabric Name</th>
+                    <th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">Quantity</th>
+                    <th class="text-end min-w-70px sorting" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">Total Amount</th>
+                </tr>
+            </thead>
+            <tbody class="fw-semibold text-gray-600">
+        @foreach ($extras as $extra )
+        <tr>
+            <td class="text-end pe-0">
+                <span class="fw-bold">{{$extra->name}}</span>
+            </td>
+            <td class="text-end pe-0">
+                <span class="fw-bold">{{$extra->quantity}}</span>
+            </td>
 
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Bank Name</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
+            <td class="text-end pe-0">
+                <span class="fw-bold">{{$extra->total_amount}}</span>
+            </td>
+        </tr>
 
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">Branch Name</label>
-            <!--end::Label-->
-
-            <!--begin::Input-->
-            <input type="text" name="branch_name" class="form-control mb-2" placeholder="" value="{{$manufacturer->get_bank_details->branch_name}}">
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Branch Name</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-        <!--begin::Input group-->
-        <div class="mb-10 fv-row fv-plugins-icon-container">
-            <!--begin::Label-->
-            <label class="required form-label">IFSC Code</label>
-            <!--end::Label-->
-
-            <!--begin::Input-->
-            <input type="text" name="ifsc_code" class="form-control mb-2" placeholder="" value="{{$manufacturer->get_bank_details->ifsc_code}}">
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">IFSC Code</div>
-            <!--end::Description-->
-        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-            <!--begin::Label-->
-
-        <!--end::Input group-->
-
-        <!--begin::Input group-->
-
-        <!--end::Input group-->
-
-        <!--begin::Input group-->
-
-        <!--end::Input group-->
-
-        <!--begin::Tax-->
-
-        <!--end:Tax-->
+        @endforeach
+            </tbody>
+        </table>
     </div>
     <!--end::Card header-->
 </div>
@@ -851,7 +787,6 @@
         </div>
     </div>
     <!--end::Main column-->
-</form>
 <!--end::Form-->        </div>
         <!--end::Content container-->
     </div>

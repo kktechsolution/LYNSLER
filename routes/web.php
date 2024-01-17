@@ -59,6 +59,8 @@ Route::resource('/ecom_orders', EcommerceOrderController::class);
 
 //manufacturer
 Route::resource('/manufacturer_home', ManufacturerHomeController::class);
+Route::get('/manufacturer_order', [ManufacturerHomeController::class, 'myOrders'])->name('manufacturer.order');
+Route::get('/manufacturer_transactions', [ManufacturerHomeController::class, 'transactions'])->name('manufacturer.trans');
 
 
 });

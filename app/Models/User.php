@@ -75,4 +75,10 @@ class User extends Authenticatable
       {
           return env('APP_URL') . '/avatar/' . $value;
       }
+
+      public function get_bank_details()
+      {
+        return $this->hasOne(BankDetail::class,'user_id');
+
+      }
 }

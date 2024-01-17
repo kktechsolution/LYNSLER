@@ -240,7 +240,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
                                     data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
-                                    <img src="{{ asset('theme/assets/media/avatars/300-1.jpg')}}" alt="user" />
+                                    <img src="{{Auth::user()->avatar }}" alt="user" />
                                 </div>
 
                                 <!--begin::User account menu-->
@@ -251,19 +251,19 @@ License: For each use you must have a valid license purchased only from above li
                                         <div class="menu-content d-flex align-items-center px-3">
                                             <!--begin::Avatar-->
                                             <div class="symbol symbol-50px me-5">
-                                                <img alt="Logo" src="{{ asset('theme/assets/media/avatars/300-1.jpg')}}" />
+                                                <img alt="Logo" src="{{Auth::user()->avatar }}" />
                                             </div>
                                             <!--end::Avatar-->
 
                                             <!--begin::Username-->
                                             <div class="d-flex flex-column">
                                                 <div class="fw-bold d-flex align-items-center fs-5">
-                                                    Max Smith <span
+                                                   {{Auth::user()->name}} <span
                                                         class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span>
                                                 </div>
 
                                                 <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">
-                                                    max@kt.com </a>
+                                                    {{Auth::user()->email}} </a>
                                             </div>
                                             <!--end::Username-->
                                         </div>
@@ -850,6 +850,97 @@ License: For each use you must have a valid license purchased only from above li
                                 {{-- finish --}}
 @endif
                                 <!--end:Menu item-->
+
+                                @if(Auth::user()->type == "manufacturer")
+                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-element-11 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span></i>
+                                        </span>
+                                        <span class="menu-title">My Profile </span>
+                                        <span class="menu-arrow"></span></span>
+
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href= {{route('manufacturer_home.create')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Settings</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-element-11 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span></i>
+                                        </span>
+                                        <span class="menu-title">My Orders </span>
+                                        <span class="menu-arrow"></span></span>
+
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href= {{route('manufacturer.order')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Order List</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-element-11 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span></i>
+                                        </span>
+                                        <span class="menu-title">My Transactions </span>
+                                        <span class="menu-arrow"></span></span>
+
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href= {{route('manufacturer.trans')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Transactions List</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                @endif
+
                             </div>
                             <!--end::Menu-->
 

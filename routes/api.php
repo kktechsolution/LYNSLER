@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\User\AllTeaMemberController;
 use App\Http\Controllers\Api\User\EcomOrdersController;
 use App\Http\Controllers\Api\User\GetQuoteController;
 use App\Http\Controllers\Api\User\ListProductController;
+use App\Http\Controllers\Api\User\UserAddressController;
 use App\Http\Controllers\Api\User\UserHomeController;
 use App\Http\Controllers\Api\User\UserOrderController;
 use App\Http\Controllers\PassportAuthController;
@@ -67,6 +68,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::resource('userHomeRoute', UserHomeController::class);
         Route::resource('user_orders', UserOrderController::class);
         Route::resource('user_ecom_orders', EcomOrdersController::class);
+        Route::resource('user_address', UserAddressController::class);
         /////////////////Designer
 
 

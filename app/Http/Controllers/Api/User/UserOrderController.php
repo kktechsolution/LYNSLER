@@ -53,6 +53,7 @@ class UserOrderController extends Controller
         $order->no_of_piece = $request->no_of_piece;
         $order->fabric_id = $request->fabric_id;
         $order->amount = $request->amount;
+        $order->user_address_id = $request->user_address_id;
         $order->order_status = "in_designing";
         $order->save();
 

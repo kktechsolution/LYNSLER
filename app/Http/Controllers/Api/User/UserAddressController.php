@@ -16,7 +16,7 @@ class UserAddressController extends Controller
      */
     public function index()
     {
-        if (!$this->authorize(['user', 'designer'])) {
+        if (!$this->authorize(['user'])) {
             return Res('Unauhorized Attempt.', [], 403);
         }
 
@@ -43,7 +43,17 @@ class UserAddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (!$this->authorize(['user'])) {
+            return Res('Unauhorized Attempt.', [], 403);
+        }
+        $address = new UserAddress();
+        $address->user_id = Auth::user()->id;
+        $address->address_line_1 = $request->address_line_1;
+        $address->address_line_2 = $request->address_line_2;
+        $address->address_line_3 = $request->address_line_3;
+        $address->pincode = $request->pincode;
+        $address->save();
+        return Res('address stored',$address,200);
     }
 
     /**
@@ -77,7 +87,16 @@ class UserAddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (!$this->authorize(['user'])) {
+            return Res('Unauhorized Attempt.', [], 403);
+        }
+        $address =  UserAddress::find($id);
+        $address->address_line_1 = $request->address_line_1;
+        $address->address_line_2 = $request->address_line_2;
+        $address->address_line_3 = $request->address_line_3;
+        $address->pincode = $request->pincode;
+        $address->update();
+        return Res('address updated',$address,200);
     }
 
     /**
@@ -88,6 +107,12 @@ class UserAddressController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!$this->authorize(['user'])) {
+            return Res('Unauhorized Attempt.', [], 403);
+        }
+        $address =  UserAddress::find($id);
+
+        $address->delete();
+        return Res('address deleted',$address,200);
     }
 }

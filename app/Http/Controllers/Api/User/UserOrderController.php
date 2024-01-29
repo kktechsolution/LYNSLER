@@ -21,7 +21,7 @@ class UserOrderController extends Controller
     public function index()
     {
         $orders=Order::all();
-        return response($orders);
+        return Res("all orders",$orders,200);
     }
 
     /**
@@ -42,24 +42,25 @@ class UserOrderController extends Controller
      */
     public function store(Request $request)
     {
-        if (Auth() && Auth::user()->role_id != 4) {
-            return response('unauthorized', 401);
+        if (!$this->authorize(['user', 'designer'])) {
+            return Res('Unauhorized Attempt.', [], 403);
         }
+
         $order = new Order;
         $order->razorpay_id = $request->razorpay_id;
         $order->user_id = Auth::user()->id;
         $order->designer_id = $request->designer_id;
-        $order->no_of_peice = $request->no_of_peice;
+        $order->no_of_piece = $request->no_of_piece;
         $order->fabric_id = $request->fabric_id;
         $order->amount = $request->amount;
-        $order->order_status = "In Designing";
+        $order->order_status = "in_designing";
         $order->save();
 
         $order_details = new OrderDetail;
         $order_details->order_id = $order->id;
         $order_details->fabric_id = $request->fabric_id;
         $order_details->manufacturing_cost_id = $request->manufacturing_cost_id;
-        $order_details->no_of_peice = $request->no_of_peice;
+        $order_details->no_of_piece = $request->no_of_piece;
         $order_details->save();
 
         if ($request->fabric_orders) {

@@ -13,4 +13,15 @@ class EcommerceOrder extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+
+    public function user_address()
+    {
+        return $this->belongsTo(UserAddress::class,'user_address_id');
+    }
+
+    public function order_details()
+    {
+        return $this->hasMany(EcommerceOrderDetail::class,'order_id')->with('products');
+    }
+
 }

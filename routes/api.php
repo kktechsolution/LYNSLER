@@ -14,9 +14,11 @@ use App\Http\Controllers\Api\CheckAuthController;
 use App\Http\Controllers\Api\User\AllBannerController;
 use App\Http\Controllers\Api\User\AllBlogsController;
 use App\Http\Controllers\Api\User\AllTeaMemberController;
+use App\Http\Controllers\Api\User\EcomOrdersController;
 use App\Http\Controllers\Api\User\GetQuoteController;
 use App\Http\Controllers\Api\User\ListProductController;
 use App\Http\Controllers\Api\User\UserHomeController;
+use App\Http\Controllers\Api\User\UserOrderController;
 use App\Http\Controllers\PassportAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,7 +65,10 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('extras', [ListProductController::class, 'get_extras']);
         Route::get('fabrics', [ListProductController::class, 'get_fabrics']);
         Route::resource('userHomeRoute', UserHomeController::class);
+        Route::resource('user_orders', UserOrderController::class);
+        Route::resource('user_ecom_orders', EcomOrdersController::class);
         /////////////////Designer
+
 
     });
 

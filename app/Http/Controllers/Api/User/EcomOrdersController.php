@@ -8,8 +8,10 @@ use App\Product;
 use App\Deliverystatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EcommerceOrder;
+use App\Models\EcommerceOrderDetail;
 use App\ProductSizes;
-use auth;
+use Illuminate\Support\Facades\Auth;
 
 class EcomOrdersController extends Controller
 {
@@ -20,17 +22,13 @@ class EcomOrdersController extends Controller
      */
     public function index()
     {
-        if (!Auth()) {
-            return response('unauthorized', 401);
+        if (!$this->authorize(['user'])) {
+            return Res('Unauhorized Attempt.', [], 403);
         }
 
-        $orders = EcomOrders::where('buyer_id', auth::user()->id)
-            ->with('orderItems')
-            ->with('orderBuyer')
-            ->with('orderItems.sizesData')
-            ->get();
 
-        return response(['my_orders' => $orders]);
+        $orders = EcommerceOrder::where('user_id', Auth::user()->id)->with(['user_address','order_details'])->get();
+        return Res('my ecom orders',$orders,200);
     }
 
     /**
@@ -52,85 +50,34 @@ class EcomOrdersController extends Controller
     public function store(Request $request)
     {
 
-        if (!Auth()) {
-            return response('unauthorized', 401);
+        if (!$this->authorize(['user', 'designer'])) {
+            return Res('Unauhorized Attempt.', [], 403);
         }
 
-        $newitemqty = 0;
-
-        $trackingid = $this->generateTrackingId();
-
-        $ecom_order = new EcomOrders;
-        $ecom_order->buyer_id = Auth::user()->id;
-        $ecom_order->tracking_id = $trackingid;
+        $ecom_order = new EcommerceOrder();
+        $ecom_order->user_id = Auth::user()->id;
+        $ecom_order->user_address_id = $request->user_address_id;
+        $ecom_order->payment_type = $request->payment_type;
         $ecom_order->save();
+        $amount = 0;
+        foreach ($request->products as $product) {
+            $order_details = new EcommerceOrderDetail();
+            $order_details->order_id = $ecom_order->id;
+            $order_details->product_id = $product['id'];
+            $order_details->quantity = $product['quantity'];
+            $order_details->amount = $product['quantity']*$product['amount'];
+            $order_details->save();
+            $amount += $order_details->amount;
 
-
-        $itemsarray = array();
-        $itemsarray = $request->product_id;
-
-        // return $request->order_item;
-
-        //inserting order items to orders_items table
-        foreach ($request->order_item as $itemsdata) {
-
-            //managing quantities stock
-            /*
-            $productid = $itemsdata['product_id'];
-            $currentItem = Product::find($productid);
-            $newitemqty = $currentItem->p_qty-$itemsdata['selected_qty'];
-
-            if($newitemqty >= 0){
-            $currentItem->p_qty = $newitemqty;
-            $currentItem->update();
-            }else{
-            EcomOrders::find($ecom_order->id)->delete();
-            return response(['order' => $ecom_order,'msg' => "You don't have enough quantity for ".$currentItem->name]);
-            } */
-            //ending managing quantities stock
-            //manage stock new
-
-            $current_size = ProductSizes::where('size_name', $itemsdata['selected_size'])
-                ->where('product_id', $itemsdata['product_id'])
-                ->first();
-            $new_qty = $current_size->size_qty - $itemsdata['selected_qty'];
-            if ($new_qty < 0) {
-                return response(['order' => $ecom_order, 'msg' => "You don't have enough quantity for " . $currentItem->name]);
-            }
-
-            $current_size->size_qty = $new_qty;
-            $current_size->update();
-
-            //ending manage stock new
-
-            $ecomorderitems = new EcomOrderItems;
-            $ecomorderitems->product_id = $itemsdata['product_id'];
-            $ecomorderitems->selected_qty = $itemsdata['selected_qty'];
-            $ecomorderitems->selected_size = $itemsdata['selected_size'];
-            $ecomorderitems->price = $itemsdata['item_price'];
-            $ecomorderitems->ecom_order_id = $ecom_order->id;
-            $ecomorderitems->save();
         }
-        //ending inserting items
 
-        //add order delivery status
+        $ecom_order->amount =$amount;
+        $ecom_order->update();
 
-        $deliverystatus = new Deliverystatus;
-        $deliverystatus->status = "Ordered";
-        $deliverystatus->comment = "Order has been placed";
-        $deliverystatus->ecom_order_id = $ecom_order->id;
-        $deliverystatus->save();
-
-        //ending order derlivery status
-
-        return response(['order' => $ecom_order, 'msg' => "Order Placed"]);
+        return Res("Order Placed",$ecom_order,200);
     }
 
-    public function fetchDeliveryStatus($id)
-    {
-        $deliverystatus = DeliveryStatus::where('ecom_order_id', $id)->get();
-        return response(['deliverystatuses' => $deliverystatus]);
-    }-
+
 
     /**
      * Display the specified resource.
@@ -161,9 +108,13 @@ class EcomOrdersController extends Controller
      * @param  \App\EcomOrders  $ecomOrders
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EcomOrders $ecomOrders)
+    public function update(Request $request, $id)
     {
-        //
+        if (!$this->authorize(['user'])) {
+            return Res('Unauhorized Attempt.', [], 403);
+        }
+        $ecom_order = new EcommerceOrder();
+
     }
 
     /**

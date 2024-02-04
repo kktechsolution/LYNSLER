@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\CatlogCategory;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 
-class CatlogCategoriesController extends Controller
+class BannersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,13 +25,13 @@ class CatlogCategoriesController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        $catlog_categories = CatlogCategory::orderBy('name'); // Default sorting
+        $catlog_categories = Banner::orderBy('name'); // Default sorting
         // Check if request has a sort parameter
         if ($request->has('sort')) {
             $sortField = $request->get('sort');
             $sortDirection = $request->get('direction', 'asc');
 
-            $catlog_categories = CatlogCategory::orderBy($sortField, $sortDirection);
+            $catlog_categories = Banner::orderBy($sortField, $sortDirection);
         }
 
         $catlog_categories = $catlog_categories->paginate(5);
@@ -65,19 +64,23 @@ class CatlogCategoriesController extends Controller
         }
         // dd($request->all());
         $validated = $request->validate([
-            'name' => 'required|unique:catlog_categories',
-            'icon' => 'required',
+            'name' => 'required|unique:banners',
+            'banner' => 'required',
+            'title_1' => 'nullable',
+            'title_2' => 'nullable',
+            'title_3' => 'nullable',
+            'url' => 'nullable',
 
         ]);
-        if ($request->hasfile('icon')) {
-            $file = $request->file('icon');
+        if ($request->hasfile('banner')) {
+            $file = $request->file('banner');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename = time() . '.' . $extension;
             $file->move('catlog_categories_icon/', $filename);
-            $validated['icon'] =  $filename;
+            $validated['banner'] =  $filename;
             // dd($filename);
         }
-        CatlogCategory::create($validated);
+        Banner::create($validated);
         return redirect()->route('catlog_categories.index')->with('success', 'Catlog Category added successfully.');
     }
 
@@ -92,7 +95,7 @@ class CatlogCategoriesController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        $catlog_category = CatlogCategory::find($id);
+        $catlog_category = Banner::find($id);
         if (empty($catlog_category)) {
             return redirect()->back();
         }
@@ -111,7 +114,7 @@ class CatlogCategoriesController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        $catlog_category = CatlogCategory::find($id);
+        $catlog_category = Banner::find($id);
         if (empty($catlog_category)) {
             return redirect()->back();
         }
@@ -133,23 +136,23 @@ class CatlogCategoriesController extends Controller
         }
         $validated = $request->validate([
             'name' => 'nullable||unique:catlog_categories,name,' . $id,
-            'icon' => 'nullable',
+            'banner' => 'nullable',
         ]);
 
 
-        $catlog_category = CatlogCategory::find($id);
+        $catlog_category = Banner::find($id);
 
         if (empty($catlog_category)) {
             return redirect()->back();
         }
 
-        if ($request->hasfile('icon')) {
-            $file = $request->file('icon');
+        if ($request->hasfile('banner')) {
+            $file = $request->file('banner');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename = time() . '.' . $extension;
             $file->move('catlog_categories_icon/', $filename);
-            File::delete('catlog_categories_icon/' . $catlog_category->getRawOriginal('icon'));
-            $validated['icon'] =  $filename;
+            File::delete('catlog_categories_icon/' . $catlog_category->getRawOriginal('banner'));
+            $validated['banner'] =  $filename;
         }
 
         $catlog_category->update($validated);
@@ -168,7 +171,7 @@ class CatlogCategoriesController extends Controller
         //     return Res('Unauhorized Attempt.', [], 403);
         // }
 
-        // $catlog_category = CatlogCategory::find($id);
+        // $catlog_category = Banner::find($id);
         // if (empty($catlog_category)) {
         //     $message = 'Catlog Catehory Not Found.';
         //     $data = [];
@@ -176,7 +179,7 @@ class CatlogCategoriesController extends Controller
         //     return Res($message, $data, $code);
         // }
 
-        // File::delete('catlog_categories_icon/' . $catlog_category->getRawOriginal('icon'));
+        // File::delete('catlog_categories_icon/' . $catlog_category->getRawOriginal('banner'));
 
         // $catlog_category->delete();
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannersController;
 use App\Http\Controllers\Admin\CatlogCategoriesController;
 use App\Http\Controllers\Admin\CatlogController;
 use App\Http\Controllers\Admin\CustomerController;
@@ -45,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/', [App\Http\Controllers\Controller::class, 'demo'])->name('demo');
 Route::resource('/catlog_categories', CatlogCategoriesController::class);
+Route::resource('/banners', BannersController::class);
 Route::resource('/catlogs', CatlogController::class);
 Route::resource('/fabrics', FabricController::class);
 Route::resource('/extras', ExtraController::class);

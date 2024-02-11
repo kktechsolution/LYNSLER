@@ -11,15 +11,19 @@ use App\Http\Controllers\Api\Admin\QueryListController;
 use App\Http\Controllers\Api\Admin\TeamController;
 use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\CheckAuthController;
+use App\Http\Controllers\Api\Designer\HomeController as DesignerHomeController;
 use App\Http\Controllers\Api\User\AllBannerController;
 use App\Http\Controllers\Api\User\AllBlogsController;
 use App\Http\Controllers\Api\User\AllTeaMemberController;
+use App\Http\Controllers\Api\User\DesignerReviewController;
 use App\Http\Controllers\Api\User\EcomOrdersController;
 use App\Http\Controllers\Api\User\GetQuoteController;
 use App\Http\Controllers\Api\User\ListProductController;
+use App\Http\Controllers\Api\User\ProductReviewController;
 use App\Http\Controllers\Api\User\UserAddressController;
 use App\Http\Controllers\Api\User\UserHomeController;
 use App\Http\Controllers\Api\User\UserOrderController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PassportAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -69,7 +73,12 @@ Route::group(['prefix' => 'v1'], function () {
         Route::resource('user_orders', UserOrderController::class);
         Route::resource('user_ecom_orders', EcomOrdersController::class);
         Route::resource('user_address', UserAddressController::class);
+        Route::resource('user_desginer_review', DesignerReviewController::class);
+        Route::resource('user_product_review', ProductReviewController::class);
         /////////////////Designer
+
+        Route::resource('desginer_home', DesignerHomeController::class);
+        Route::get('pre_order', [DesignerHomeController::class, 'preOrderData']);
 
 
     });

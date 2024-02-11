@@ -81,4 +81,8 @@ class User extends Authenticatable
         return $this->hasOne(BankDetail::class,'user_id');
 
       }
+      public function designer_reviews()
+    {
+        return $this->hasMany(DesignerReview::class,'designer_id');
+    }
 }

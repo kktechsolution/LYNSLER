@@ -70,13 +70,12 @@ class BannersController extends Controller
             'title_2' => 'nullable',
             'title_3' => 'nullable',
             'url' => 'nullable',
-
         ]);
         if ($request->hasfile('banner')) {
             $file = $request->file('banner');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename = time() . '.' . $extension;
-            $file->move('catlog_categories_icon/', $filename);
+            $file->move('banner_image/', $filename);
             $validated['banner'] =  $filename;
             // dd($filename);
         }
@@ -150,8 +149,8 @@ class BannersController extends Controller
             $file = $request->file('banner');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename = time() . '.' . $extension;
-            $file->move('catlog_categories_icon/', $filename);
-            File::delete('catlog_categories_icon/' . $catlog_category->getRawOriginal('banner'));
+            $file->move('banner_image/', $filename);
+            File::delete('banner_image/' . $catlog_category->getRawOriginal('banner'));
             $validated['banner'] =  $filename;
         }
 
@@ -179,7 +178,7 @@ class BannersController extends Controller
         //     return Res($message, $data, $code);
         // }
 
-        // File::delete('catlog_categories_icon/' . $catlog_category->getRawOriginal('banner'));
+        // File::delete('banner_image/' . $catlog_category->getRawOriginal('banner'));
 
         // $catlog_category->delete();
 

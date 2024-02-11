@@ -6,6 +6,7 @@ use App\Models\Banner;
 use App\Models\Catlog;
 use App\Models\CatlogCategory;
 use App\Http\Controllers\Controller;
+use App\Models\DesignerReview;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -69,6 +70,28 @@ class UserHomeController extends Controller
         ORDER BY distance;
 
     ');
+    foreach ($designers as $item) {
+        $review = DesignerReview::where('designer_id',$item->user_id)->get();
+        $item->reviews = $review;
+        $x = 0;
+            $r = 0;
+            foreach($review as $reviews)
+            {
+                $user = User::find($reviews->user_id);
+                $reviews->user = $user;
+                $r += $reviews->ratings;
+                $x++;
+
+            }
+            if($x!=0)
+            {
+            $item->avg_rate = $r/$x;
+            }
+            else
+            {
+                $item->avg_rate=5;
+            }
+    }
         return response($designers);
     }
 

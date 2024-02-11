@@ -23,9 +23,30 @@ class ListProductController extends Controller
 
         $query = Product::query();
         $results = Search($request, $query, function ($query) {
-            return $query->with(['product_images', 'product_category']);
+            return $query->with(['product_images', 'product_category','product_reviews']);
         });
 
+        foreach($results as $item){
+            $x = 0;
+            $r = 0;
+            foreach($item->product_reviews as $reviews)
+            {
+                $user = User::find($reviews->user_id);
+                $reviews->user = $user;
+                $r += $reviews->ratings;
+                $x++;
+
+            }
+            if($x!=0)
+            {
+            $item->avg_rate = $r/$x;
+            }
+            else
+            {
+                $item->avg_rate=5;
+            }
+
+        }
 
         return Res('Search Results', $results, 200);
     }

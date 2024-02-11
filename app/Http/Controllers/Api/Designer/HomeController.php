@@ -8,6 +8,9 @@ use App\Models\Banner;
 use App\Models\Catlog;
 use App\Models\CatlogCategory;
 use App\Models\DesignerDetail;
+use App\Models\Extra;
+use App\Models\Fabric;
+use App\Models\ManufacturingCost;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,9 +32,9 @@ class HomeController extends Controller
         $bank_details = BankDetail::where('user_id', auth::user()->id)->get()->first();
         $banners = Banner::all();
         $catlog_categories = CatlogCategory::all();
-        $catlog_details = Catlog::all();
+        $catlog_details = Catlog::where('user_id',Auth::user()->id)->get();
 
-        return response(['designer_details' => $designer, 'banners' => $banners, 'bank_details' => $bank_details, 'catlog_categories' => $catlog_categories, 'catlogs' => $catlog_details]);
+        return response(['designer_details' => $designer, 'banners' => $banners, 'bank_details' => $bank_details, 'catlog_categories' => $catlog_categories, 'my_catlogs' => $catlog_details]);
 
     }
 
@@ -87,6 +90,9 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!$this->authorize(['user', 'designer'])) {
+            return Res('Unauhorized Attempt.', [], 403);
+        }
         $input = $request->all();
         $rules = array(
             'name' => 'required|max:55',
@@ -156,5 +162,16 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function preOrderData()
+    {
+        if (!$this->authorize(['user', 'designer'])) {
+            return Res('Unauhorized Attempt.', [], 403);
+        }
+        $trims = Extra::all();
+        $fabrics = Fabric::all();
+        $styles = ManufacturingCost::all();
+        return response(['trims' => $trims, 'fabrics' => $fabrics, 'styles' => $styles]);
     }
 }

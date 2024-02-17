@@ -417,7 +417,7 @@
                                                 <!--begin::Info-->
                                                 <div class="ms-4">
                                                     <h3 class="fs-5 fw-bold text-gray-900 mb-1">click to upload.</h3>
-                                                    <input type="file" name="image" accept=".png, .jpg, .jpeg"
+                                                    <input type="file" name="images[]" accept=".png, .jpg, .jpeg"
                                                         required="" multiple="multiple">
                                                     <span class="fs-7 fw-semibold text-gray-400">Upload up to 10
                                                         files</span>

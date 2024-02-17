@@ -34,10 +34,8 @@ class UserHomeController extends Controller
         $catlog_categories = CatlogCategory::with(['catlog'])->get();
         $products = Product::all();
 
-        $query = Product::query();
-        $results = Search($request, $query, function ($query) {
-            return $query->with(['product_images', 'product_category','product_reviews']);
-        });
+        $results = Product::with(['product_images', 'product_category','product_reviews'])->get();
+
 
         foreach($results as $item){
             $x = 0;

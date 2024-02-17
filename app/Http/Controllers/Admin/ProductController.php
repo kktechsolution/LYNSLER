@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductImages;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -62,6 +64,8 @@ class ProductController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
+        // dd($request->all());
+
         $validated = $request->validate([
             'product_category_id' => 'required',
             'sort_description' => 'required',
@@ -79,7 +83,34 @@ class ProductController extends Controller
             $file->move('product_images/', $filename);
             $validated['image'] =  $filename;
         }
+        // dd($request->file('images'));
 
+        $images = $request->file('images');
+
+        if (!empty($images) && is_array($images)) {
+            foreach ($images as $image) {
+                // Check if the file is valid
+                if ($image->isValid()) {
+                    $extension = $image->getClientOriginalExtension();
+                    $filename = time() . '.' . $extension;
+
+                    // Store the file in the storage disk
+                    $path = $image->storeAs('product_images', $filename, 'public');
+
+                    // Check if the file was successfully stored
+                    if ($path) {
+                        ProductImages::create(['product_id' => 1, 'image' => $filename]);
+
+                    } else {
+                        // Handle the case where the file couldn't be stored
+                    }
+                } else {
+                    // Handle the case where the file is not valid
+                }
+            }
+        }
+
+        exit();
 
 
 

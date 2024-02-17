@@ -9,7 +9,7 @@ class Extra extends Model
 {
     use HasFactory;
 
-    public function getIconImageAttribute($value)
+    public function getImageAttribute($value)
     {
         return env('APP_URL') . '/extra_images/' . $value;
     }

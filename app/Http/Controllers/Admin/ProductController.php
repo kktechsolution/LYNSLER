@@ -85,6 +85,20 @@ class ProductController extends Controller
         }
         // dd($request->file('images'));
 
+
+
+
+
+
+        $validated['user_id'] =  Auth::user()->id;
+        // $validated['password'] =  bcrypt($request->password);
+        // $validated['type'] =  "user";
+        // $validated['gender'] =  'male';
+        // $validated['remarks'] =  'Added By Admin';
+
+
+        $product = Product::create($validated);
+
         $images = $request->file('images');
 
         if (!empty($images) && is_array($images)) {
@@ -99,7 +113,7 @@ class ProductController extends Controller
 
                     // Check if the file was successfully stored
                     if ($path) {
-                        ProductImages::create(['product_id' => 1, 'image' => $filename]);
+                        ProductImages::create(['product_id' => $product->id, 'image' => $filename]);
 
                     } else {
                         // Handle the case where the file couldn't be stored
@@ -109,21 +123,6 @@ class ProductController extends Controller
                 }
             }
         }
-
-        exit();
-
-
-
-
-        $validated['user_id'] =  Auth::user()->id;
-        // $validated['password'] =  bcrypt($request->password);
-        // $validated['type'] =  "user";
-        // $validated['gender'] =  'male';
-        // $validated['remarks'] =  'Added By Admin';
-
-
-        $product = Product::create($validated);
-
 
         return redirect()->route('products.index')->with('success', 'Product added successfully.');
     }

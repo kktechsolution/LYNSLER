@@ -7,6 +7,7 @@ use App\Models\Catlog;
 use App\Models\CatlogCategory;
 use App\Http\Controllers\Controller;
 use App\Models\DesignerReview;
+
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class UserHomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if (!$this->authorize(['user', 'designer'])) {
             return Res('Unauhorized Attempt.', [], 403);
@@ -32,7 +33,35 @@ class UserHomeController extends Controller
         $banners = Banner::all();
         $catlog_categories = CatlogCategory::with(['catlog'])->get();
         $products = Product::all();
-        return response(['user' => $user, 'banners' => $banners, 'catlog_categories' => $catlog_categories,'products' => $products]);
+
+        $query = Product::query();
+        $results = Search($request, $query, function ($query) {
+            return $query->with(['product_images', 'product_category','product_reviews']);
+        });
+
+        foreach($results as $item){
+            $x = 0;
+            $r = 0;
+            foreach($item->product_reviews as $reviews)
+            {
+                $user = User::find($reviews->user_id);
+                $reviews->user = $user;
+                $r += $reviews->ratings;
+                $x++;
+
+            }
+            if($x!=0)
+            {
+            $item->avg_rate = $r/$x;
+            }
+            else
+            {
+                $item->avg_rate=5;
+            }
+
+        }
+
+        return response(['user' => $user, 'banners' => $banners, 'catlog_categories' => $catlog_categories,'products' => $results]);
     }
 
     /**

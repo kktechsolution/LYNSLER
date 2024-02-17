@@ -235,4 +235,41 @@ class PassportAuthController extends Controller
 
         return response(['message' => 'Profile Updated', 'user' => $user], 200);
     }
+
+    public function LoginMobile(Request  $request)
+    {
+        $user = User::find(Auth::guard('api')->user()->id);
+        $input = $request->all();
+        $rules = array(
+            'phone' => "required",
+            'appToken' => "required",
+        );
+
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            $arr = array("status" => 400, "message" => $validator->errors()->first(), "data" => array(), 400);
+            return \Response::json($arr);
+        }
+
+        if($request->appToken == "bcryumtaska09123")
+        {
+            $user = User::where("phone",$request->phone)->get()->first();
+            if(!empty($user))
+            {
+                $token = $user->createToken('newToken')->accessToken;
+                $message = 'Login Done.';
+                $data = ['user' => $user, 'access_token' => $token];
+                $code = 200;
+                return Res($message, $data, $code);
+            }
+            else
+            {
+                return Res("This No doesnot exsit in database.",[],200);
+            }
+        }
+        else
+        {
+            return Res("Invalid Token.",[],200);
+        }
+    }
 }

@@ -14,10 +14,7 @@ class ProductReviewResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'user' => $this->when($this->user, $this->user->name),
-            'review' => $this->review,
-            'ratings' => $this->ratings,
-        ];
+        
+        return parent::toArray($request);
     }
 }

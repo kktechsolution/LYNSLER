@@ -17,14 +17,14 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-        public function index(Request $request)
+    public function index(Request $request)
     {
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
 
 
-       $products =product::orderBy('name');
+        $products = product::orderBy('name');
         // Default sorting
         // Check if request has a sort parameter
         if ($request->has('sort')) {
@@ -50,7 +50,7 @@ class ProductController extends Controller
             return redirect()->back();
         }
         $product_categories = ProductCategory::all();
-         return view('admin.add_product',['product_categories' => $product_categories]);
+        return view('admin.add_product', ['product_categories' => $product_categories]);
     }
 
     /**
@@ -64,56 +64,48 @@ class ProductController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        // dd($request->all());
 
         $validated = $request->validate([
             'product_category_id' => 'required',
             'sort_description' => 'required',
             'quantity' => 'required',
             'sort_description' => 'required',
-            'image' => 'required',
             'description' => 'required',
             'price' => 'required',
             'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
         ]);
-        if ($request->hasfile('image')) {
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension(); // getting image extension
-            $filename = time() . '.' . $extension;
-            $file->move('product_images/', $filename);
-            $validated['image'] =  $filename;
+
+        // Handle single image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('product_images/', $imageFileName);
+            $validated['user_id'] = 1;
+            $validated['image'] = $imageFileName;
         }
-        // dd($request->file('images'));
-
-
-
-
-
-
-        $validated['user_id'] =  Auth::user()->id;
-        // $validated['password'] =  bcrypt($request->password);
-        // $validated['type'] =  "user";
-        // $validated['gender'] =  'male';
-        // $validated['remarks'] =  'Added By Admin';
-
-
         $product = Product::create($validated);
 
+        // Handle multiple images upload
+        // Handle multiple images upload
         $images = $request->file('images');
+        $validated['images'] = [];
 
         if (!empty($images) && is_array($images)) {
-            foreach ($images as $image1) {
-                // Check if the file is valid
-                if ($image1->isValid()) {
-                    $extension = $image1->getClientOriginalExtension();
-                    $filename = time() . '.' . $extension;
-                    // Store the file in the storage disk
-                    $path = $image1->storeAs('product_images', $filename, 'public');
-                    // Check if the file was successfully stored
+            foreach ($images as $image) {
+                if ($image->isValid()) {
+                    $extension = $image->getClientOriginalExtension();
+                    $filename = time() . '_' . uniqid() . '.' . $extension;
+                    $path = $image->move('product_images', $filename);
+
+                    // Check if the file was successfully moved
                     if ($path) {
+                        // Store the filename in the array
+                        // $validated['images'][] = $filename;
                         ProductImages::create(['product_id' => $product->id, 'image' => $filename]);
                     } else {
-                        // Handle the case where the file couldn't be stored
+                        // Handle the case where the file couldn't be moved
                     }
                 } else {
                     // Handle the case where the file is not valid
@@ -121,8 +113,14 @@ class ProductController extends Controller
             }
         }
 
+        // Now you can use $validated['images'] to save the filenames in your database or perform any other necessary actions
+
+        // ...
+
+
         return redirect()->route('products.index')->with('success', 'Product added successfully.');
     }
+
 
     /**
      * Display the specified resource.

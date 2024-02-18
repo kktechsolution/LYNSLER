@@ -102,19 +102,16 @@ class ProductController extends Controller
         $images = $request->file('images');
 
         if (!empty($images) && is_array($images)) {
-            foreach ($images as $image) {
+            foreach ($images as $image1) {
                 // Check if the file is valid
-                if ($image->isValid()) {
-                    $extension = $image->getClientOriginalExtension();
+                if ($image1->isValid()) {
+                    $extension = $image1->getClientOriginalExtension();
                     $filename = time() . '.' . $extension;
-
                     // Store the file in the storage disk
-                    $path = $image->storeAs('product_images', $filename, 'public');
-
+                    $path = $image1->storeAs('product_images', $filename, 'public');
                     // Check if the file was successfully stored
                     if ($path) {
                         ProductImages::create(['product_id' => $product->id, 'image' => $filename]);
-
                     } else {
                         // Handle the case where the file couldn't be stored
                     }

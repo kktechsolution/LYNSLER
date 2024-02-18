@@ -25,6 +25,6 @@ class CatlogCategory extends Model
 
     public function catlog()
     {
-        return $this->hasMany(Catlog::class);
+        return $this->hasMany(Catlog::class)->with('Designer');
     }
 }

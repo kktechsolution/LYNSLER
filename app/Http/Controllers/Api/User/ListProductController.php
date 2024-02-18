@@ -102,7 +102,7 @@ class ListProductController extends Controller
 
     public function catlog_categories()
     {
-        $trims = CatlogCategory::all();
+        $trims = CatlogCategory::with('catlog')->get();
         return response($trims);
     }
 

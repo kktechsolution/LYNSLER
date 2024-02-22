@@ -238,7 +238,7 @@ class PassportAuthController extends Controller
 
     public function LoginMobile(Request  $request)
     {
-        $user = User::find(Auth::guard('api')->user()->id);
+        // $user = User::find(Auth::guard('api')->user()->id);
         $input = $request->all();
         $rules = array(
             'phone' => "required",

@@ -43,6 +43,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('login', [PassportAuthController::class, 'login']);
     Route::post('forgot_password', [PassportAuthController::class, 'forgot_password']);
     Route::post('reset_password', [PassportAuthController::class, 'reset_password']);
+    Route::post('otp_login', [PassportAuthController::class, 'LoginMobile']);
 
     Route::middleware('auth:api')->group(function () {
 
@@ -62,6 +63,7 @@ Route::group(['prefix' => 'v1'], function () {
 
         /////////////////user
         Route::get('product_list', [ListProductController::class, 'index']);
+        Route::get('designer_list', [ListProductController::class, 'desigen_list']);
         Route::get('product_categpry_list', [ListProductController::class, 'product_categpry_list']);
         Route::get('catlogs', [ListProductController::class, 'catlogs']);
         Route::get('catlog_categories', [ListProductController::class, 'catlog_categories']);

@@ -98,20 +98,21 @@ class PassportAuthController extends Controller
             return Res($message, $data, $code);
         }
         $user = User::find(Auth::guard('api')->user()->id);
+        // return $user;
         //Changing the password only if is different of null
-        if (isset($data['oldPassword']) && !empty($data['oldPassword']) && $data['oldPassword'] !== "" && $data['oldPassword'] !== 'undefined') {
+        if (isset($data['old_password']) && !empty($data['old_password']) && $data['old_password'] !== "" && $data['old_password'] !== 'undefined') {
             //checking the old password first
             $check  = Auth::guard('web')->attempt([
                 'email' => $user->email,
-                'password' => $data['oldPassword']
+                'password' => $data['old_password']
             ]);
-            if ($check && isset($data['newPassword']) && !empty($data['newPassword']) && $data['newPassword'] !== "" && $data['newPassword'] !== 'undefined') {
-                $user->password = bcrypt($data['newPassword']);
-                $user->token()->revoke();
-                $token = $user->createToken('newToken')->accessToken;
+            if ($check && isset($data['new_password']) && !empty($data['new_password']) && $data['new_password'] !== "" && $data['new_password'] !== 'undefined') {
+                $user->password = bcrypt($data['new_password']);
+                // $user->token()->revoke();
+                // $token = $user->createToken('newToken')->accessToken;
                 $user->update();
-                $message = 'Password Change All Session Rest.';
-                $data = ['user' => $user, 'access_token' => $token];
+                $message = 'Password Change.';
+                $data = [];
                 $code = 200;
                 return Res($message, $data, $code);
             } else {
@@ -271,5 +272,24 @@ class PassportAuthController extends Controller
         {
             return Res("Invalid Token.",[],200);
         }
+    }
+
+    public function changePassOtp(Request $request)
+    {
+        $input = $request->all();
+        $rules = array(
+            'password' => "required",
+        );
+
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            $arr = array("status" => 400, "message" => $validator->errors()->first(), "data" => array(), 400);
+            return \Response::json($arr);
+        }
+
+        $user = User::find(Auth::user()->id);
+        $user->password = bcrypt($request->password);
+        $user->update();
+        return Res("Password Reset.",[$user],200);
     }
 }

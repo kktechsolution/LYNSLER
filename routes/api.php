@@ -46,8 +46,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('otp_login', [PassportAuthController::class, 'LoginMobile']);
 
     Route::middleware('auth:api')->group(function () {
+    Route::post('otp_reset_password', [PassportAuthController::class, 'changePassOtp']);
 
         Route::post('change_password', [PassportAuthController::class, 'changePassword']);
+        Route::post('rest_otp', [PassportAuthController::class, 'changePassword']);
         Route::get('query_list', [QueryListController::class, 'query_list']);
         Route::get('query_list/{id}', [QueryListController::class, 'query_read']);
         Route::get('newsletters', [QueryListController::class, 'all_newsletters']);

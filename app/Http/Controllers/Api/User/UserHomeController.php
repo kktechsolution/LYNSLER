@@ -100,6 +100,7 @@ class UserHomeController extends Controller
     foreach ($designers as $item) {
         $review = DesignerReview::where('designer_id',$item->user_id)->get();
         $item->reviews = $review;
+        $item->designer = User::find($item->user_id);
         $x = 0;
             $r = 0;
             foreach($review as $reviews)

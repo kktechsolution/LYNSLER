@@ -58,6 +58,12 @@ class EcomOrdersController extends Controller
         $ecom_order->user_id = Auth::user()->id;
         $ecom_order->user_address_id = $request->user_address_id;
         $ecom_order->payment_type = $request->payment_type;
+        if($request->payment_type == "ONLINE")
+        {
+            $ecom_order->razorpay_id = $request->razorpay_id;
+            $ecom_order->payment_status = "compeleted";
+
+        }
         $ecom_order->save();
         $amount = 0;
         foreach ($request->products as $product) {
@@ -65,6 +71,8 @@ class EcomOrdersController extends Controller
             $order_details->order_id = $ecom_order->id;
             $order_details->product_id = $product['id'];
             $order_details->quantity = $product['quantity'];
+            $order_details->color = $product['color'];
+            $order_details->size = $product['size'];
             $order_details->amount = $product['quantity']*$product['amount'];
             $order_details->save();
             $amount += $order_details->amount;
@@ -131,9 +139,9 @@ class EcomOrdersController extends Controller
     public function paymentProcess(Request $request)
     {
 
-        $order = EcomOrders::find($request->orderid);
-        $order->payment_status = "Paid";
-        $order->razorpayid = $request->razorpayid;
+        $order = EcommerceOrder::find($request->orderid);
+        $order->payment_status = "compeleted";
+        $order->razorpay_id = $request->razorpayid;
         $order->update();
 
 

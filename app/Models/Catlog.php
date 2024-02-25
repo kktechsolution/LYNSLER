@@ -28,6 +28,11 @@ class Catlog extends Model
         return $this->belongsTo(User::class,'user_id');
     }
 
+    public function catlog_category()
+    {
+        return $this->belongsTo(CatlogCategory::class);
+    }
+
     protected function img1(): Attribute
     {
         return Attribute::make(

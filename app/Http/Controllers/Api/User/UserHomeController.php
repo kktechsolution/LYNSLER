@@ -99,7 +99,9 @@ class UserHomeController extends Controller
     ');
     foreach ($designers as $item) {
         $review = DesignerReview::where('designer_id',$item->user_id)->get();
+        $catlog = Catlog::where("user_id",$item->user_id)->with('catlog_category')->get();
         $item->reviews = $review;
+        $item->catlogs=$catlog;
         $item->designer = User::find($item->user_id);
         $x = 0;
             $r = 0;

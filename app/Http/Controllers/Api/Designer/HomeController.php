@@ -121,7 +121,7 @@ class HomeController extends Controller
                 ]);
                 $image1 = $request->file('avatar');
                 $imageName1 = time() . $image1->getClientOriginalName();
-                $file->move('adhar_pic/', $imageName1);
+                $file->move('avatar/', $imageName1);
 
                 $user->avatar =  $imageName1;
             }

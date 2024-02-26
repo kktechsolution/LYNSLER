@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class PassportAuthController extends Controller
@@ -38,7 +39,19 @@ class PassportAuthController extends Controller
         }
         $input['password'] = bcrypt($request->password);
 
+
+
         $user = User::create($input);
+        $file = $request->file('image');
+        if ($file != '') {
+
+            $image1 = $request->file('image');
+            $imageName1 = time() . $image1->getClientOriginalName();
+            $file->move('avatar/', $imageName1);
+
+            $user->avatar =  $imageName1;
+            $user->update();
+        }
         $accessToken = $user->createToken('LaravelAuthApp')->accessToken;
         $message = 'Registration Done.';
         $data = ['user' => $user, 'access_token' => $accessToken];

@@ -177,19 +177,13 @@ class UserHomeController extends Controller
             $user = User::find(auth::user()->id);
             $file = $request->file('image');
             if ($file != '') {
-                $request->validate([
-                    'image' =>  'image'
-                ]);
+
                 $image1 = $request->file('image');
                 $imageName1 = time() . $image1->getClientOriginalName();
-                $filePath1 = 'images/avatar' . '/' . $imageName1;
-                Storage::disk('s3')->put($filePath1, file_get_contents($image1));
-                if ($user->avatar != null) {
-                    Storage::disk('s3')->delete(parse_url($user->avatar));
-                }
-                $user->avatar = "https://lynfashion.s3.ap-south-1.amazonaws.com/" . $filePath1;
-            }
+                $file->move('avatar/', $imageName1);
 
+                $user->avatar =  $imageName1;
+            }
             $user->name = $request->name;
             $user->email = $request->email;
             $user->phone = $request->phone;

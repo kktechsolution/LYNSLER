@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\Admin\QueryListController;
 use App\Http\Controllers\Api\Admin\TeamController;
 use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\CheckAuthController;
+use App\Http\Controllers\Api\Designer\CatlogController;
 use App\Http\Controllers\Api\Designer\HomeController as DesignerHomeController;
 use App\Http\Controllers\Api\User\AllBannerController;
 use App\Http\Controllers\Api\User\AllBlogsController;
@@ -82,6 +83,8 @@ Route::group(['prefix' => 'v1'], function () {
         /////////////////Designer
 
         Route::resource('desginer_home', DesignerHomeController::class);
+        Route::resource('designer_catlogs', CatlogController::class);
+
         Route::get('pre_order', [DesignerHomeController::class, 'preOrderData']);
 
 

@@ -32,10 +32,9 @@ class HomeController extends Controller
         $bank_details = BankDetail::where('user_id', auth::user()->id)->get()->first();
         $banners = Banner::all();
         $catlog_categories = CatlogCategory::all();
-        $catlog_details = Catlog::where('user_id',Auth::user()->id)->get();
+        $catlog_details = Catlog::where('user_id', Auth::user()->id)->get();
 
         return response(['designer_details' => $designer, 'banners' => $banners, 'bank_details' => $bank_details, 'catlog_categories' => $catlog_categories, 'my_catlogs' => $catlog_details]);
-
     }
 
     /**
@@ -56,7 +55,30 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (!$this->authorize(['designer'])) {
+            return Res('Unauhorized Attempt.', [], 403);
+        }
+        $input = $request->all();
+        $rules = array(
+            'account_no' => 'required',
+            'bank_name' => 'required',
+            'branch_name' => 'required',
+            'ifsc_code' => 'required',
+        );
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            $arr = array("status" => 400, "message" => $validator->errors()->first(), "data" => array());
+            return response($arr);
+        }
+        $input['user_id'] = Auth::user()->id;
+        $bank_details = BankDetail::where('user_id', Auth::user()->id)->get()->first();
+        if (!empty($bank_details)) {
+            $bank_details->update($input);
+        } else {
+            $bank_details = BankDetail::create($input);
+        }
+        $arr = array("status" => 200, "message" => "bank details updated", "data" => $bank_details);
+        return response($arr);
     }
 
     /**
@@ -90,7 +112,7 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (!$this->authorize(['user', 'designer'])) {
+        if (!$this->authorize(['designer'])) {
             return Res('Unauhorized Attempt.', [], 403);
         }
         $input = $request->all();

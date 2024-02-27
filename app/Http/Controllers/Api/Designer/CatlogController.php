@@ -167,7 +167,7 @@ class CatlogController extends Controller
             $filename = time() . '.' . $extension;
             $file->move('catlog_images/', $filename);
             File::delete('catlog_images/' . $catlog->getRawOriginal('img1'));
-            $validated['img1'] =  $filename;
+            $input['img1'] =  $filename;
         }
 
         if ($request->hasfile('img2')) {
@@ -176,7 +176,7 @@ class CatlogController extends Controller
             $filename = time() . '.' . $extension;
             $file->move('catlog_images/', $filename);
             File::delete('catlog_images/' . $catlog->getRawOriginal('img2'));
-            $validated['img2'] =  $filename;
+            $input['img2'] =  $filename;
         }
 
         if ($request->hasfile('img3')) {
@@ -185,11 +185,11 @@ class CatlogController extends Controller
             $filename = time() . '.' . $extension;
             $file->move('catlog_images/', $filename);
             File::delete('catlog_images/' . $catlog->getRawOriginal('img3'));
-            $validated['img3'] =  $filename;
+            $input['img3'] =  $filename;
         }
 
 
-        $new_cat = $catlog->update($validated);
+        $new_cat = $catlog->update($input);
 
         return Res('Catlog updated.', $new_cat, 200);
     }

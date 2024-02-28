@@ -196,4 +196,33 @@ class HomeController extends Controller
         $styles = ManufacturingCost::all();
         return response(['trims' => $trims, 'fabrics' => $fabrics, 'styles' => $styles]);
     }
+
+    public  function order(Request $request)
+    {
+        if (!$this->authorize(['user', 'designer'])) {
+            return Res('Unauhorized Attempt.', [], 403);
+        }
+        $input = $request->all();
+        $rules = array(
+            'name' => 'required|max:55',
+            'gender' => 'required',
+            'address' => 'required',
+            'title_tag' => 'required',
+            'description' => 'required',
+            'adhar_no' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
+
+        );
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            $arr = array("status" => 400, "message" => $validator->errors()->first(), "data" => array());
+        }
+
+    }
+
+    public function getOrders()
+    {
+
+    }
 }

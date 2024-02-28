@@ -41,9 +41,9 @@ public function address()
 }
 
 public function order_details()
-{
-    return $this->hasOne(OrderDetail::class,'order_id');
-}
+    {
+        return $this->hasOne(OrderDetail::class);
+    }
 
 }
 

@@ -11,6 +11,9 @@ use App\Models\DesignerDetail;
 use App\Models\Extra;
 use App\Models\Fabric;
 use App\Models\ManufacturingCost;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -121,7 +124,7 @@ class HomeController extends Controller
             'email' => 'email|required|unique:users,email,' . auth::user()->id,
             'phone' => 'required|unique:users,phone,' . auth::user()->id,
             'gender' => 'required',
-            'address' => 'required',
+            // 'address' => 'required',
             'title_tag' => 'required',
             'description' => 'required',
             'adhar_no' => 'required',
@@ -153,7 +156,7 @@ class HomeController extends Controller
                 ]);
                 $image2 = $request->file('adhar_pic');
                 $imageName2 = time() . $image2->getClientOriginalName();
-                $file->move('adhar_pic/', $imageName2);
+                $file2->move('adhar_pic/', $imageName2);
 
                 $designer_details->adhar_pic =  $imageName2;
             }
@@ -204,25 +207,64 @@ class HomeController extends Controller
         }
         $input = $request->all();
         $rules = array(
-            'name' => 'required|max:55',
-            'gender' => 'required',
-            'address' => 'required',
-            'title_tag' => 'required',
-            'description' => 'required',
-            'adhar_no' => 'required',
-            'lat' => 'required',
-            'lng' => 'required',
+            'design_image_1' => 'required',
+            'design_image_2' => 'required',
+            'design_image_4' => 'required',
+            'design_image_3' => 'required',
+            'order_id' => 'required',
+
 
         );
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) {
             $arr = array("status" => 400, "message" => $validator->errors()->first(), "data" => array());
+            return response($arr);
         }
 
+                $design_image_1 = $request->file('design_image_1');
+                $design_image_1_name = time() . $design_image_1->getClientOriginalName();
+                $design_image_1->move('order_image/', $design_image_1_name);
+
+                $design_image_2 = $request->file('design_image_2');
+                $design_image_2_name = time() . $design_image_2->getClientOriginalName();
+                $design_image_2->move('order_image/', $design_image_2_name);
+
+                $design_image_3 = $request->file('design_image_3');
+                $design_image_3_name = time() . $design_image_3->getClientOriginalName();
+                $design_image_3->move('order_image/', $design_image_3_name);
+
+                $design_image_4 = $request->file('design_image_4');
+                $design_image_4_name = time() . $design_image_4->getClientOriginalName();
+                $design_image_4->move('order_image/', $design_image_4_name);
+
+        $order = Order::find($request->order_id);
+        $order_details = OrderDetail::where('order_id',$order->id)->get()->first();
+        if(!empty($order_details)){
+            $order_details->design_image_1 = $design_image_1_name;
+            $order_details->design_image_2 = $design_image_2_name;
+            $order_details->design_image_3 = $design_image_3_name;
+            $order_details->design_image_4 = $design_image_4_name;
+            $order_details->update();
+            $order->order_status = "design_compelete";
+            $order->update();
+
+        }
+        return Res('Order Updated.', ['order'=>$order,'order_details'=>$order_details], 200);
     }
 
     public function getOrders()
     {
+       $orders = Order::where('designer_id', Auth::user()->id)->with('order_details')
+        ->orderBy('id', 'desc')
+        ->get();
+        return Res('My Order List.', $orders, 200);
+    }
 
+    public function getTransactions()
+    {
+       $orders = Transaction::where('user_id', Auth::user()->id)->with('order')
+        ->orderBy('id', 'desc')
+        ->get();
+        return Res('My Transactions List.', $orders, 200);
     }
 }

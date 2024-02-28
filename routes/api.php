@@ -86,6 +86,9 @@ Route::group(['prefix' => 'v1'], function () {
         Route::resource('designer_catlogs', CatlogController::class);
 
         Route::get('pre_order', [DesignerHomeController::class, 'preOrderData']);
+        Route::get('get_orders', [DesignerHomeController::class, 'getOrders']);
+        Route::get('get_transactions', [DesignerHomeController::class, 'getTransactions']);
+        Route::post('update_order', [DesignerHomeController::class, 'order']);
 
 
     });

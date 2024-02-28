@@ -26,7 +26,7 @@ class PassportAuthController extends Controller
             'name' => 'required|max:55',
             'email' => 'email|required|unique:users',
             'password' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|unique:users',
             'type' => 'required',
             'gender' => 'nullable'
         );

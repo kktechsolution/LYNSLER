@@ -181,7 +181,6 @@ class UserHomeController extends Controller
                 $image1 = $request->file('image');
                 $imageName1 = time() . $image1->getClientOriginalName();
                 $file->move('avatar/', $imageName1);
-
                 $user->avatar =  $imageName1;
             }
             $user->name = $request->name;

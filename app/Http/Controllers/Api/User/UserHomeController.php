@@ -166,6 +166,7 @@ class UserHomeController extends Controller
             'email' => 'email|required|unique:users,email,' . auth::user()->id,
             'phone' => 'required|unique:users,phone,' . auth::user()->id,
             'gender' => 'required',
+            'dob' => 'required',
 
 
         );
@@ -186,6 +187,7 @@ class UserHomeController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->phone = $request->phone;
+            $user->dob = $request->dob;
             $user->update();
 
 

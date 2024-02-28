@@ -38,6 +38,10 @@ class OrderDetail extends Model
         return $this->belongsTo(Fabric::class,'fabric_id');
     }
 
+    public function style()
+    {
+        return $this->belongsTo(ManufacturingCost::class,'manufacturing_cost_id');
+    }
 
 }
 

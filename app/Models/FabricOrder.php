@@ -11,6 +11,6 @@ class FabricOrder extends Model
 
     public function fabrics()
     {
-        return $this->hasMany(Fabric::class,'fabric_id');
+        return $this->belongsTo(Fabric::class,'fabric_id');
     }
 }

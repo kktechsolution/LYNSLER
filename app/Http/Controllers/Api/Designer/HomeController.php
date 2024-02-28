@@ -254,7 +254,7 @@ class HomeController extends Controller
 
     public function getOrders()
     {
-       $orders = Order::where('designer_id', Auth::user()->id)->with('order_details')
+       $orders = Order::where('designer_id', Auth::user()->id)->with(['order_details','main_fabric','extras_order','fabric_order',])
         ->orderBy('id', 'desc')
         ->get();
         return Res('My Order List.', $orders, 200);

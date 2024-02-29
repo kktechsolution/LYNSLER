@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DesignerDetail;
 use App\Models\PasswordReset;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -54,6 +55,12 @@ class PassportAuthController extends Controller
         }
         $accessToken = $user->createToken('LaravelAuthApp')->accessToken;
         $message = 'Registration Done.';
+        if($user->type == "designer")
+        {
+            $designer_details = new DesignerDetail();
+            $designer_details->user_id = $user->id;
+            $designer_details->save();
+        }
         $data = ['user' => $user, 'access_token' => $accessToken];
         $code = 201;
         return Res($message, $data, $code);

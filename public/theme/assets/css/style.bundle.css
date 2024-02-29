@@ -2304,6 +2304,12 @@ progress {
   font-size: 1.05rem;
   font-weight: 500;
   color: var(--bs-gray-800);
+  
+}
+
+.has_gap{
+  margin-top: 10px;
+    margin-right: 15px;
 }
 
 .col-form-label {
@@ -38869,6 +38875,7 @@ code:not([class*=language-]) {
   border-radius: 0.475rem;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
 }
 .image-input:not(.image-input-empty) {
   background-image: none !important;
@@ -38886,8 +38893,8 @@ code:not([class*=language-]) {
   transform: translate(-50%, -50%);
 }
 .image-input [data-kt-image-input-action=change] {
-  left: 100%;
-  top: 0;
+  left: 13%;
+  top: 20px;
 }
 .image-input [data-kt-image-input-action=change] input {
   width: 0 !important;

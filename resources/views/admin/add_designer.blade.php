@@ -240,7 +240,7 @@
         <!--end::Image input-->
 
         <!--begin::Description-->
-        <div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+
         <!--end::Description-->
     </div>
     <!--end::Card body-->
@@ -374,9 +374,14 @@
             <!--begin::Input-->
                         <input type="text" name="title_tag" class="form-control mb-2" placeholder="Title" value="">
             <!--end::Input-->
-
+                       
             <!--begin::Description-->
-            <div class="text-muted fs-7">A  .</div>
+            <div class="text-muted fs-7">Title Tag</div>
+              @error('title_tag')
+                        <div class="text-muted fs-7">
+                            {{$message}}</div>
+
+                        @enderror
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <div class="mb-10 fv-row fv-plugins-icon-container">
@@ -398,6 +403,10 @@
             <!--begin::Description-->
             <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
             <!--end::Description-->
+            @error('description')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
             <!--end::Input-->
 
@@ -415,7 +424,10 @@
             <!--end::Input-->
 
             <!--begin::Description-->
-            <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
+             @error('adhar_no')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--begin::Input group-->
@@ -434,6 +446,10 @@
                     </div>
                     <!--end::Info-->
                 </div>
+                 @error('adhar_pic')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
             </div>
             <!--end::Dropzone-->
         </div>
@@ -453,6 +469,10 @@
 
             <!--begin::Description-->
             <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
+             @error('percentage')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
         <!--end::Description-->

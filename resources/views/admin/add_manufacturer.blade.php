@@ -322,7 +322,7 @@
             <div class="text-muted fs-7">Email.</div>
             <!--end::Description-->
         <div class="fv-plugins-message-container invalid-feedback"></div></div>
-        <div class="mb-10 fv-row fv-plugins-icon-container">
+        <div class="mb-10 fv-row fv-plugins-icon-container"
             <!--begin::Label-->
             <label class="required form-label">Phone Number</label>
             <!--end::Label-->

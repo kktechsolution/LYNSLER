@@ -163,7 +163,7 @@
                                                 data-kt-menu="true">
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
-                                                    <a href="{{ route('manufacturer_home.edit', $order->id) }}"
+                                                    <a href="{{ route('manufacturer.order.details', $order->id) }}"
                                                         class="menu-link px-3">
                                                         Details
                                                     </a>

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\EcommerceOrder;
 use App\Models\EcommerceOrderDetail;
+use App\Models\ProductReview;
 use App\ProductSizes;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +29,21 @@ class EcomOrdersController extends Controller
 
 
         $orders = EcommerceOrder::where('user_id', Auth::user()->id)->with(['user_address','order_details'])->get();
+        foreach($orders as $order)
+        {
+            foreach ($order->order_details as $orderDetail) {
+
+            $product_review = ProductReview::where('user_id', Auth::user()->id)->where('product_id', $orderDetail->product_id)->get()->first();
+            if(!empty($product_review))
+            {
+                $order->is_reviewed  = '1';
+            }
+            else
+            {
+                $order->is_reviewed  = '0';
+            }
+        }
+        }
         return Res('my ecom orders',$orders,200);
     }
 

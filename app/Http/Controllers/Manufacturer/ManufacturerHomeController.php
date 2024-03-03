@@ -202,6 +202,20 @@ class ManufacturerHomeController extends Controller
         return view('Manufacturer.orderList', ['orders' => $orders]);
     }
 
+    public function order_details($id)
+    {
+        if (Auth::user()->type != 'manufacturer') {
+            return redirect()->back();
+        }
+
+        $order = Order::with(['designer','user','order_details','main_fabric','extras_order','fabric_order'])
+            ->where('id', $id)
+            ->get()->first();
+        // var_dump($order);
+        // exit();
+        return view('Manufacturer.orderDetails', ['order' => $order]);
+    }
+
     public function transactions()
     {
         if (Auth::user()->type != 'manufacturer') {

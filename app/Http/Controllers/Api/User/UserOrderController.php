@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\User;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\DesignerReview;
 use App\Models\ExtraOrder;
 use App\Models\FabricOrder;
 use App\Models\Order;
@@ -20,8 +21,8 @@ class UserOrderController extends Controller
      */
     public function index()
     {
-        $orders=Order::all();
-        return Res("all orders",$orders,200);
+        $orders = Order::where('user_id',Auth::user()->id)->get();
+        return Res("all orders", $orders, 200);
     }
 
     /**
@@ -53,7 +54,7 @@ class UserOrderController extends Controller
         $order->no_of_piece = $request->no_of_piece;
         $order->fabric_id = $request->fabric_id;
         $order->amount = $request->amount;
-        $order->manufacturing_cost_id = $request->manufacturing_cost_id;
+        // $order->manufacturing_cost_id = $request->manufacturing_cost_id;
         $order->user_address_id = $request->user_address_id;
         $order->order_status = "in_designing";
         $order->save();
@@ -95,9 +96,7 @@ class UserOrderController extends Controller
             }
         }
 
-        return response(['order' => $order,'msg' => "Order Placed"]);
-
-
+        return response(['order' => $order, 'msg' => "Order Placed"]);
     }
 
     /**
@@ -108,13 +107,18 @@ class UserOrderController extends Controller
      */
     public function show($id)
     {
-        $order=Order::find($id);
-        $order_details=OrderDetail::where('order_id',$id)->get();
-        $fabric_order=FabricOrder::where('order_id',$id)->get();
-        $extra_order=ExtraOrder::where('order_id',$id)->get();
+        $order = Order::find($id);
+        $order_details = OrderDetail::where('order_id', $id)->get();
+        $fabric_order = FabricOrder::where('order_id', $id)->get();
+        $extra_order = ExtraOrder::where('order_id', $id)->get();
+        $designer_review = DesignerReview::where('designer_id', $order->designer_id)->where('user_id', Auth::User()->id)->first();
+        if (!empty($designer_review)) {
+            $order->is_reviewed = "1";
+        } else {
 
-        return response(['order' => $order,'fabric_order' => $fabric_order,'extra_order' => $extra_order]);
-
+            $order->is_reviewed = "0";
+        }
+        return response(['order' => $order, 'fabric_order' => $fabric_order, 'extra_order' => $extra_order]);
     }
 
     /**

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\FabricController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ManufacturerController;
 use App\Http\Controllers\Admin\ProductCategoriesController;
+use App\Http\Controllers\Manufacturer\ManufacturerCostController;
 use App\Http\Controllers\Manufacturer\ManufacturerHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -61,6 +62,7 @@ Route::resource('/ecom_orders', EcommerceOrderController::class);
 
 //manufacturer
 Route::resource('/manufacturer_home', ManufacturerHomeController::class);
+Route::resource('/manufacturer_cost', ManufacturerCostController::class);
 Route::get('/manufacturer_order', [ManufacturerHomeController::class, 'myOrders'])->name('manufacturer.order');
 Route::get('/manufacturer_order/{id}', [ManufacturerHomeController::class, 'order_details'])->name('manufacturer.order.details');
 Route::get('/manufacturer_transactions', [ManufacturerHomeController::class, 'transactions'])->name('manufacturer.trans');

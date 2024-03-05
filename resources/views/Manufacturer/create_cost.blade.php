@@ -22,7 +22,7 @@
 <div  class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
     <!--begin::Title-->
     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-       Fabric Form
+       Price Form
             </h1>
     <!--end::Title-->
 
@@ -31,8 +31,8 @@
         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    <a href={{route('fabrics.index')}} class="text-muted text-hover-primary">
-                                                        Fabric                          </a>
+                                                    <a href={{route('manufacturer_cost.index')}} class="text-muted text-hover-primary">
+                                                        Cost list                          </a>
                                             </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
@@ -43,7 +43,7 @@
 
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    Add Fabric                                           </li>
+                                                    Add Cost                                          </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
 
@@ -180,105 +180,16 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container  container-xxl ">
             <!--begin::Form-->
-<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('fabrics.store')}}" method="POST" enctype="multipart/form-data">
+<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('manufacturer_cost.store')}}" method="POST" enctype="multipart/form-data">
     <!--begin::Aside column-->
     @csrf
-    <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
-        <!--begin::Thumbnail settings-->
-<div class="card card-flush py-4">
-    <!--begin::Card header-->
-    <div class="card-header">
-        <!--begin::Card title-->
-        <div class="card-title">
-            <h2>Fabric Photo</h2>
-        </div>
-        <!--end::Card title-->
-    </div>
-    <!--end::Card header-->
 
-    <!--begin::Card body-->
-    <div class="card-body text-center pt-0">
-        <!--begin::Image input-->
-                    <!--begin::Image input placeholder-->
-            <style>
-                .image-input-placeholder {
-                    background-image: url('../../../assets/media/svg/files/blank-image.svg');
-                }
-
-                [data-bs-theme="dark"] .image-input-placeholder {
-                    background-image: url('../../../assets/media/svg/files/blank-image-dark.svg');
-                }
-            </style>
-            <!--end::Image input placeholder-->
-
-        <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
-            <!--begin::Preview existing avatar-->
-                            <div class="image-input-wrapper w-150px h-150px"></div>
-                        <!--end::Preview existing avatar-->
-
-            <!--begin::Label-->
-            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change Photo">
-                <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
-                <!--begin::Inputs-->
-                <input type="file" name="icon_image" accept=".png, .jpg, .jpeg" required />
-                <input type="hidden" name="avatar_remove" />
-                <!--end::Inputs-->
-            </label>
-             @error('icon_image')
-                                        <div class="text-muted fs-7">
-                                            {{ $message }}</div>
-                                    @enderror
-            <!--end::Label-->
-
-            <!--begin::Cancel-->
-            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-                <i class="ki-duotone ki-cross fs-2"><span class="path1"></span><span class="path2"></span></i>            </span>
-            <!--end::Cancel-->
-
-            <!--begin::Remove-->
-            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-                <i class="ki-duotone ki-cross fs-2"><span class="path1"></span><span class="path2"></span></i>            </span>
-            <!--end::Remove-->
-        </div>
-        <!--end::Image input-->
-
-        <!--begin::Description-->
-
-        <!--end::Description-->
-    </div>
-    <!--end::Card body-->
-</div>
-<!--end::Thumbnail settings-->
-        <!--begin::Status-->
-
-<!--end::Status-->
-
-<!--begin::Category & tags-->
-
-<!--end::Category & tags-->
-        <!--begin::Weekly sales-->
-
-<!--end::Weekly sales-->
-        <!--begin::Template settings-->
-
-<!--end::Template settings-->    </div>
     <!--end::Aside column-->
 
     <!--begin::Main column-->
     <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
         <!--begin:::Tabs-->
-<ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
-    <!--begin:::Tab item-->
-    <li class="nav-item">
-        <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_add_product_general">General</a>
-    </li>
-    <!--end:::Tab item-->
 
-    <!--begin:::Tab item-->
-
-    <!--end:::Tab item-->
-
-    </ul>
 <!--end:::Tabs-->
         <!--begin::Tab content-->
         <div class="tab-content">
@@ -299,44 +210,49 @@
         <!--begin::Input group-->
         <div class="mb-10 fv-row">
             <!--begin::Label-->
-            <label class="required form-label">Name</label>
+            <label class="required form-label">Style Name</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input type="text" name="name" class="form-control mb-2"  value="" required />
+            <input type="text" name="style_name" class="form-control mb-2"  value="" required />
             <!--end::Input-->
 
             <!--begin::Description-->
- @error('name')
+ @error('style_name')
                                         <div class="text-muted fs-7">
                                             {{ $message }}</div>
                                     @enderror
 
             <!--end::Description-->
         </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+
         <!--end::Input group-->
 
         <!--begin::Input group-->
         <div class="mb-10 fv-row">
             <!--begin::Label-->
-            <label class="required form-label">Description </label>
+            <label class="required form-label">Size</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-            <textarea style="height: 147px;width: 775px; resize: none;" name="description" required> </textarea>
-            <!--end::Input-->
+            <div class="d-flex gap-3">
+                <input type="text" name="size" class="form-control mb-2"  value="" required />
 
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Enter your Description <address></address>.</div>
-             @error('description')
+            </div>
+             @error('size')
                                         <div class="text-muted fs-7">
                                             {{ $message }}</div>
                                     @enderror
+            <!--end::Input-->
+
+            <!--begin::Description-->
+
             <!--end::Description-->
         </div>
-        <!--end::Input group-->
 
-        <!--begin::Input group-->
         <div class="mb-10 fv-row">
             <!--begin::Label-->
             <label class="required form-label">Price</label>
@@ -344,10 +260,10 @@
 
             <!--begin::Input-->
             <div class="d-flex gap-3">
-                <input type="text" name="price" class="form-control mb-2"  value="" required />
+                <input type="text" name="manufacuturing_cost" class="form-control mb-2"  value="" required />
 
             </div>
-             @error('price')
+             @error('manufacuturing_cost')
                                         <div class="text-muted fs-7">
                                             {{ $message }}</div>
                                     @enderror

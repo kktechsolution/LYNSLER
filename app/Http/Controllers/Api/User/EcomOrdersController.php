@@ -36,11 +36,11 @@ class EcomOrdersController extends Controller
             $product_review = ProductReview::where('user_id', Auth::user()->id)->where('product_id', $orderDetail->product_id)->get()->first();
             if(!empty($product_review))
             {
-                $order->is_reviewed  = '1';
+                $orderDetail->is_reviewed  = '1';
             }
             else
             {
-                $order->is_reviewed  = '0';
+                $orderDetail->is_reviewed  = '0';
             }
         }
         }

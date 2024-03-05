@@ -97,7 +97,17 @@ class ManufacturerCostController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user()->type != 'manufacturer') {
+            return redirect()->back();
+        }
+
+        $manufacutering_cost =  ManufacturerCost::find($id);
+        if(empty($manufacutering_cost))
+        {
+            return redirect()->back();
+        }
+
+         return view('Manufacturer.edit_cost',['cost'=>$manufacutering_cost]);
     }
 
     /**
@@ -109,7 +119,29 @@ class ManufacturerCostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Auth::user()->type != 'manufacturer') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+
+            'style_name' => 'required',
+            'size' => 'required',
+            'manufacuturing_cost' => 'required',
+
+        ]);
+
+        $manufacutering_cost =  ManufacturerCost::find($id);
+        if(empty($manufacutering_cost))
+        {
+            return redirect()->back();
+        }
+        $manufacutering_cost->manufacturer_id = Auth::user()->id;
+        $manufacutering_cost->style_name = $request->style_name;
+        $manufacutering_cost->size = $request->size;
+        $manufacutering_cost->manufacuturing_cost = $request->manufacuturing_cost;
+        $manufacutering_cost->update();
+
+        return redirect()->route('manufacturer_cost.index')->with('success', 'cost updated successfully.');
     }
 
     /**

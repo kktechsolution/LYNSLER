@@ -31,7 +31,7 @@ class EcommerceOrderController extends Controller
             $ecom_orders = EcommerceOrder::orderBy($sortField, $sortDirection);
         }
 
-        $ecom_orders = $ecom_orders->paginate(3);
+        $ecom_orders = $ecom_orders->paginate(5);
         // dd($catlogs);
         return view('admin.ecommerce_orders', ['ecom_orders' => $ecom_orders]);
     }
@@ -76,7 +76,13 @@ class EcommerceOrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+
+
+       $ecom_orders =EcommerceOrder::with(['user','order_details','user_address'])->findOrFail($id);
+       return view('admin.edit_ecommerce_order', ['ecom_orders' => $ecom_orders]);
     }
 
     /**

@@ -37,7 +37,7 @@ class ManufacturerController extends Controller
             $users = User::orderBy($sortField, $sortDirection);
         }
 
-        $users = $users->paginate(3);
+        $users = $users->paginate(5);
         return view('admin.manufacturers', ['manufacturers' => $users]);
     }
 

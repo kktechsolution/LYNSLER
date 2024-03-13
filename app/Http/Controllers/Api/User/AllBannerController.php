@@ -10,6 +10,7 @@ use Google\Client;
 use Google\Service\MyBusinessAccountManagement;
 use Google\Service\MyBusinessAccountManagement\Account;
 use Google\Service\MyBusinessAccountManagement\ListAccountsResponse as ListAccounts;
+use Illuminate\Support\Env;
 
 class AllBannerController extends Controller
 {
@@ -27,5 +28,18 @@ class AllBannerController extends Controller
         // $x = new MyBusinessAccountManagement($client);
         // dd($x->accounts->listAccounts());
         return Res('Banner List.', $results, 200);
+    }
+
+    public function upload(Request $request)
+    {
+        $file = $request->file('image');
+        if ($file != '') {
+
+            $image1 = $request->file('image');
+            $imageName1 = time() . $image1->getClientOriginalName();
+            $file->move('demo/', $imageName1);
+            $img = env('APP_URL') . '/demo/' . $imageName1;
+            return response(['$imageName'=> $img]);
+        }
     }
 }

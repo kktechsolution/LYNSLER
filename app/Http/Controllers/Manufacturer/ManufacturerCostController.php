@@ -63,6 +63,7 @@ class ManufacturerCostController extends Controller
             'style_name' => 'required',
             'size' => 'required',
             'manufacuturing_cost' => 'required',
+            'actual_cost' => 'required',
 
         ]);
 
@@ -71,6 +72,7 @@ class ManufacturerCostController extends Controller
         $manufacutering_cost->style_name = $request->style_name;
         $manufacutering_cost->size = $request->size;
         $manufacutering_cost->manufacuturing_cost = $request->manufacuturing_cost;
+        $manufacutering_cost->actual_cost = $request->actual_cost;
         $manufacutering_cost->save();
 
         return redirect()->route('manufacturer_cost.index')->with('success', 'cost added successfully.');
@@ -126,6 +128,7 @@ class ManufacturerCostController extends Controller
 
             'style_name' => 'required',
             'size' => 'required',
+            'actual_cost' => 'required',
             'manufacuturing_cost' => 'required',
 
         ]);
@@ -139,6 +142,7 @@ class ManufacturerCostController extends Controller
         $manufacutering_cost->style_name = $request->style_name;
         $manufacutering_cost->size = $request->size;
         $manufacutering_cost->manufacuturing_cost = $request->manufacuturing_cost;
+        $manufacutering_cost->actual_cost = $request->actual_cost;
         $manufacutering_cost->update();
 
         return redirect()->route('manufacturer_cost.index')->with('success', 'cost updated successfully.');

@@ -255,7 +255,7 @@
 
         <div class="mb-10 fv-row">
             <!--begin::Label-->
-            <label class="required form-label">Price</label>
+            <label class="required form-label">Manufacturing Price</label>
             <!--end::Label-->
 
             <!--begin::Input-->
@@ -264,6 +264,27 @@
 
             </div>
              @error('manufacuturing_cost')
+                                        <div class="text-muted fs-7">
+                                            {{ $message }}</div>
+                                    @enderror
+            <!--end::Input-->
+
+            <!--begin::Description-->
+
+            <!--end::Description-->
+        </div>
+
+        <div class="mb-10 fv-row">
+            <!--begin::Label-->
+            <label class="required form-label">Actual Price</label>
+            <!--end::Label-->
+
+            <!--begin::Input-->
+            <div class="d-flex gap-3">
+                <input type="text" name="actual_cost" class="form-control mb-2"  value="" required />
+
+            </div>
+             @error('actual_cost')
                                         <div class="text-muted fs-7">
                                             {{ $message }}</div>
                                     @enderror

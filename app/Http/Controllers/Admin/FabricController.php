@@ -31,7 +31,7 @@ class FabricController extends Controller
             $fabrics = Fabric::orderBy($sortField, $sortDirection);
         }
 
-        $fabrics = $fabrics->paginate(3);
+        $fabrics = $fabrics->paginate(5);
         // dd($fabrics);
         return view('admin.fabrics', ['fabrics' => $fabrics]);
     }

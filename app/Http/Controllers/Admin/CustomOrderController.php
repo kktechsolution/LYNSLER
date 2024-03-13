@@ -3,40 +3,37 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CustomerController extends Controller
+class CustomOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-     {
-         $this->middleware('auth');
-     }
-
-
     public function index(Request $request)
     {
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        $users = User::where('type','user')->orderBy('name');
+
+
+       $ecom_orders =Order::orderBy('id')->with(['user']);
         // Default sorting
         // Check if request has a sort parameter
         if ($request->has('sort')) {
             $sortField = $request->get('sort');
             $sortDirection = $request->get('direction', 'asc');
 
-            $users = User::orderBy($sortField, $sortDirection);
+            $ecom_orders = Order::orderBy($sortField, $sortDirection);
         }
 
-        $users = $users->paginate(5);
-        return view('admin.customers', ['users' => $users]);
+        $ecom_orders = $ecom_orders->paginate(5);
+        // dd($catlogs);
+        return view('admin.custom_orders', ['ecom_orders' => $ecom_orders]);
     }
 
     /**
@@ -46,11 +43,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->type != 'master_admin') {
-            return redirect()->back();
-        }
-
-        return view('admin.add_customer');
+        //
     }
 
     /**
@@ -61,41 +54,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        if (Auth::user()->type != 'master_admin') {
-            return redirect()->back();
-        }
-        $validated = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'password' => 'required',
-            'avatar' => 'required',
-
-
-        ]);
-        if ($request->hasfile('avatar')) {
-            $file = $request->file('avatar');
-            $extension = $file->getClientOriginalExtension(); // getting image extension
-            $filename = time() . '.' . $extension;
-            $file->move('avatar/', $filename);
-            $validated['avatar'] =  $filename;
-        }
-
-
-
-
-
-        $validated['user_id'] =  Auth::user()->id;
-        $validated['password'] =  bcrypt($request->password);
-        $validated['type'] =  "user";
-        $validated['gender'] =  'male';
-        $validated['remarks'] =  'Added By Admin';
-
-
-        $user = User::create($validated);
-
-
-        return redirect()->route('customers.index')->with('success', 'User added successfully.');
+        //
     }
 
     /**
@@ -120,12 +79,12 @@ class CustomerController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        $user = User::find($id);
-        if (empty($user)) {
-            return redirect()->back();
-        }
 
-        return view('admin.edit_customer', ['user' => $user]);
+
+        $order = Order::with(['designer','manufacturer','user','order_details','main_fabric','extras_order','fabric_order'])
+        ->where('id', $id)
+        ->get()->first();
+        return view('admin.edit_custom_order', ['order' => $order]);
     }
 
     /**

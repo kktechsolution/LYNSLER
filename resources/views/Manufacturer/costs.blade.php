@@ -128,6 +128,11 @@
                                         aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">
                                         Manufacturer Cost</th>
 
+                                        <th class="text-end min-w-70px sorting" tabindex="0"
+                                        aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
+                                        aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">
+                                        Actual Cost</th>
+
                                     <th class="text-end min-w-70px sorting_disabled" rowspan="1" colspan="1"
                                         aria-label="Actions" style="width: 131.913px;">Actions</th>
                                 </tr>
@@ -146,6 +151,10 @@
                                         </td>
                                         <td class="text-end pe-0" data-item="12">
                                             <span class="fw-bold ms-3">{{ $item->manufacuturing_cost}}</span>
+                                        </td>
+
+                                        <td class="text-end pe-0" data-item="12">
+                                            <span class="fw-bold ms-3">{{ $item->actual_cost}}</span>
                                         </td>
 
                                         <td class="text-end">

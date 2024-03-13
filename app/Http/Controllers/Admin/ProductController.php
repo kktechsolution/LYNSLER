@@ -34,7 +34,7 @@ class ProductController extends Controller
             $products = Product::orderBy($sortField, $sortDirection);
         }
 
-        $products = $products->paginate(3);
+        $products = $products->paginate(5);
         // dd($catlogs);
         return view('admin.products', ['products' => $products]);
     }
@@ -73,6 +73,8 @@ class ProductController extends Controller
             'description' => 'required',
             'price' => 'required',
             'name' => 'required',
+            'attributes' => 'required',
+            'is_featured' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
         ]);
@@ -141,7 +143,14 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $product = Product::find($id);
+        $product->product_images;
+        $product_categories = ProductCategory::all();
+        return view('admin.edit_product', ['product' => $product,'product_categories' => $product_categories]);
+
     }
 
     /**
@@ -153,8 +162,70 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+
+        $validated = $request->validate([
+            'product_category_id' => 'nullable',
+            'sort_description' => 'nullable',
+            'quantity' => 'nullable',
+            'sort_description' => 'nullable',
+            'description' => 'nullable',
+            'price' => 'nullable',
+            'name' => 'nullable',
+            'attributes' => 'nullable',
+            'featured' => 'nullable',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
+        ]);
+
+        print_r($validated);
+
+        // Handle single image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('product_images/', $imageFileName);
+            $validated['user_id'] = 1;
+            $validated['image'] = $imageFileName;
+        }
+        $product = Product::find($id);
+        $product->update($validated);
+
+        // Handle multiple images upload
+        // Handle multiple images upload
+        $images = $request->file('images');
+        $validated['images'] = [];
+
+        if (!empty($images) && is_array($images)) {
+
+            foreach ($images as $image) {
+                if ($image->isValid()) {
+                    $extension = $image->getClientOriginalExtension();
+                    $filename = time() . '_' . uniqid() . '.' . $extension;
+                    $path = $image->move('product_images', $filename);
+
+                    // Check if the file was successfully moved
+                    if ($path) {
+                        // Store the filename in the array
+                        // $validated['images'][] = $filename;
+                        ProductImages::create(['product_id' => $product->id, 'image' => $filename]);
+                    } else {
+                        // Handle the case where the file couldn't be moved
+                    }
+                } else {
+                    // Handle the case where the file is not valid
+                }
+            }
+        }
+
+        // Now you can use $validated['images'] to save the filenames in your database or perform any other necessary actions
+
+        // ...
+
+
+        return redirect()->route('products.index')->with('success', 'Product updated successfully.');    }
 
     /**
      * Remove the specified resource from storage.

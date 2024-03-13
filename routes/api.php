@@ -101,5 +101,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('subscribe_newsletter', [GetQuoteController::class, 'subscribe_newsletter'])->name('subscribe_newsletter');
     Route::get('all_categories', [AllBlogsController::class, 'categories']);
     Route::get('all_products', [AllBlogsController::class, 'product']);
+    Route::post('upload_image', [AllBannerController::class, 'upload']);
 });
 Route::get('checkAuth', [CheckAuthController::class, 'checkAuthUser'])->name('checkAuth');

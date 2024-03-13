@@ -18,7 +18,7 @@
                         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                             <!--begin::Title-->
                             <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                                Ecommerce Order List
+                                Custom Order List
                             </h1>
                             <!--end::Title-->
 
@@ -28,7 +28,7 @@
                                 <!--begin::Item-->
                                 <li class="breadcrumb-item text-muted">
                                     <a href="../../../index.html" class="text-muted text-hover-primary">
-                                        Ecommerce </a>
+                                        Custom Order </a>
                                 </li>
                                 <!--end::Item-->
                                 <!--begin::Item-->
@@ -39,7 +39,7 @@
 
                                 <!--begin::Item-->
                                 <li class="breadcrumb-item text-muted">
-                                    Ecommerce Order List </li>
+                                    Custom Order List </li>
                                 <!--end::Item-->
                                 <!--begin::Item-->
 
@@ -85,21 +85,7 @@
                                 <!--end::Card title-->
 
                                 <!--begin::Card toolbar-->
-                                <div class="card-toolbar flex-row-fluid justify-content-end gap-5"
-                                    data-select2-id="select2-data-122-3o0w">
-                                    <div class="w-100 mw-150px">
-                                        <!--begin::Select2-->
 
-                                        <!--end::Select2-->
-                                    </div>
-
-                                    <!--begin::Add product-->
-                                    <a href={{ route('ecom_orders.create') }} type="button" class="btn btn-primary">
-
-                                        Create
-                                    </a>
-                                    <!--end::Add product-->
-                                </div>
                                 <!--end::Card toolbar-->
                             </div>
                             <!--end::Card header-->
@@ -161,16 +147,26 @@
                                                                     value="1">
                                                             </div>
                                                         </td> --}}
-                                                        <td >
-                                                            <span class="fw-bold">  {{ $order->user->name }}</span>
-                                                                    <!--end::Title-->
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <!--begin::Thumbnail-->
 
+                                                                <!--end::Thumbnail-->
+
+                                                                <div class="ms-5">
+                                                                    <!--begin::Title-->
+                                                                    <a href="{{ route('ecom_orders.create', $order->id) }}"
+                                                                        class="text-gray-800 text-hover-primary fs-5 fw-bold"
+                                                                        data-kt-ecommerce-product-filter="product_name">{{ $order->user->name }}</a>
+                                                                    <!--end::Title-->
+                                                                </div>
+                                                            </div>
                                                         </td>
                                                         <td >
                                                             <span class="fw-bold">{{ $order->payment_type }}</span>
                                                         </td>
 
-                                                        <td >
+                                                        <td>
                                                             <span class="fw-bold">{{ $order->payment_status }}</span>
                                                         </td>
 
@@ -179,9 +175,7 @@
                                                         </td>
 
 
-
-
-                                                       <td>
+                                                       <td >
                                                             <span class="fw-bold">{{ $order->order_status }}</span>
                                                         </td>
 
@@ -197,7 +191,7 @@
                                                                 data-kt-menu="true">
                                                                 <!--begin::Menu item-->
                                                                 <div class="menu-item px-3">
-                                                                    <a href={{ route('ecom_orders.edit', $order->id) }}
+                                                                    <a href={{ route('custom_orders.edit', $order->id) }}
                                                                         class="menu-link px-3">
                                                                         Edit
                                                                     </a>

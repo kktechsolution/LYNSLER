@@ -50,7 +50,7 @@
                         <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page title-->
-                    
+
                 </div>
                 <!--end::Toolbar container-->
             </div>
@@ -123,7 +123,7 @@
                                         </label>
                                         <!--end::Label-->
 
-                                        
+
                                     </div>
                                     <!--end::Image input-->
 

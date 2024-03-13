@@ -2304,7 +2304,7 @@ progress {
   font-size: 1.05rem;
   font-weight: 500;
   color: var(--bs-gray-800);
-  
+
 }
 
 .has_gap{
@@ -18903,7 +18903,7 @@ textarea.form-control-lg {
     width: 275px !important;
   }
   .w-lg-300px {
-    width: 300px !important;
+    width: 320px !important;
   }
   .w-lg-325px {
     width: 325px !important;
@@ -50070,4 +50070,11 @@ body,
   [data-kt-app-layout=dark-header] .app-header .page-heading {
     color: #ffffff !important;
   }
+}
+
+
+.colur_picker_container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
 }

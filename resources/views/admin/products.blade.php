@@ -153,7 +153,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-end pe-0">
-                                                    <span class="fw-bold">{{$product->description}}</span>
+                                                    <span class="fw-bold">{{Str::limit($product->description, 25)}}</span>
                                                 </td>
                                                 <td class="text-end pe-0">
                                                     <span class="fw-bold">01260008</span>
@@ -162,7 +162,8 @@
 
                                                 <td class="text-end pe-0" data-order="Scheduled">
                                                     <!--begin::Badges-->
-                                                    <div class="badge badge-light-primary">@if($product->is_active == 0)
+                                                    <div class="badge badge-light-primary">
+                                                        @if($product->is_active == 0)
                                                         Inactive
                                                         @else
                                                         Active

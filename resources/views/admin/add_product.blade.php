@@ -158,6 +158,52 @@
                                 </div>
 
                                 <!--end::Card body-->
+                                <div class="card-header">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2>Is Featured</h2>
+                                    </div>
+                                    <!--end::Card title-->
+
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <div class="rounded-circle bg-success w-15px h-15px"
+                                            id="kt_ecommerce_add_product_status"></div>
+                                    </div>
+                                    <!--begin::Card toolbar-->
+                                </div>
+                                <!--end::Card header-->
+
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Select2-->
+                                    <select class="form-select mb-2" name="featured" data-hide-search="true"
+                                        data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                                        <option value="">---Select---</option>
+                                        <option value="1">
+                                            Featured</option>
+                                        <option value="0">Normal
+                                        </option>
+
+                                    </select>
+                                    <!--end::Select2-->
+
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set the catlog status.</div>
+                                    <!--end::Description-->
+
+                                    <!--begin::Datepicker-->
+                                    <div class="d-none mt-10">
+                                        <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select
+                                            publishing date and time</label>
+                                        <input class="form-control flatpickr-input"
+                                            id="kt_ecommerce_add_product_status_datepicker"
+                                            placeholder="Pick date &amp; time" type="text" readonly="readonly">
+                                    </div>
+
+                                    <!--end::Datepicker-->
+                                </div>
+                                <!--end::Card body-->
                             </div>
                             <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                                 <!--begin::Thumbnail settings-->
@@ -230,7 +276,55 @@
 
                                 <!--end::Weekly sales-->
                                 <!--begin::Template settings-->
+                                <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10 m-2">
+                                    <!--begin::Thumbnail settings-->
+                                    <div class="card card-flush py-4">
+                                        <div class="main_container p-3">
 
+                                            <div class="colur_picker_container" style="margin-top: 10px">
+                                                <div class="colur_picker row">
+                                                    <div class="col-12" style="display: flex; align-items: center;">
+                                                        <label style="margin-right: 5px; font-weight: 500"
+                                                            for="favcolor">Color:</label>
+                                                        <input type="color" class="colorPicker" name="favcolor"
+                                                            onchange="updateColor(this)">
+
+
+                                                        <b style="margin-left: 5px;width:185px">Color code: <code
+                                                                class="colorCodeValue">#000000</code></b>
+                                                        <button style="border: none; background-color: #fff !important;"
+                                                            onclick="removeColorPicker(this)">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="30"
+                                                                height="30" fill="currentColor"
+                                                                class="bi bi-file-minus" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5" />
+                                                                <path
+                                                                    d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-12"
+                                                        style="display: flex; align-items: center; margin-top: 5px;">
+                                                        <label for="favcolor"
+                                                            style="margin-right: 5px; font-weight: 500">Size:</label>
+                                                        <input style="width: 100px;" type="text" class="favsize"
+                                                            name="favsize">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="add_but mt-5" style="margin-left: 5px">
+                                            <button class="btn btn-primary" onclick="addColorPicker(event)">Add</button>
+                                        </div>
+                                        <!-- Additional hidden input for storing color and size data -->
+                                        <input type="hidden" id="colorSizeData" name="attributes" value="">
+
+                                        {{-- <div id="jsonDisplay"></div> --}}
+
+                                    </div>
+                                </div>
                                 <!--end::Template settings-->
                             </div>
 
@@ -335,10 +429,10 @@
                                             <!--end::Editor-->
 
                                             <!--begin::Description-->
-                                           @error('sort_description')
-                                        <div class="text-muted fs-7">
-                                            {{ $message }}</div>
-                                    @enderror
+                                            @error('sort_description')
+                                                <div class="text-muted fs-7">
+                                                    {{ $message }}</div>
+                                            @enderror
                                             <!--end::Description-->
                                         </div>
                                         <!--end::Input group-->
@@ -360,10 +454,10 @@
                                             <!--end::Editor-->
 
                                             <!--begin::Description-->
-                                             @error('description')
-                                        <div class="text-muted fs-7">
-                                            {{ $message }}</div>
-                                    @enderror
+                                            @error('description')
+                                                <div class="text-muted fs-7">
+                                                    {{ $message }}</div>
+                                            @enderror
                                             <!--end::Description-->
                                         </div>
                                         <!--end::Input group-->
@@ -379,10 +473,10 @@
                                         <!--end::Input-->
 
                                         <!--begin::Description-->
-                                         @error('price')
-                                        <div class="text-muted fs-7">
-                                            {{ $message }}</div>
-                                    @enderror
+                                        @error('price')
+                                            <div class="text-muted fs-7">
+                                                {{ $message }}</div>
+                                        @enderror
                                         <!--end::Description-->
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
@@ -417,14 +511,15 @@
                                                 <!--begin::Info-->
                                                 <div class="ms-4">
                                                     <h3 class="fs-5 fw-bold text-gray-900 mb-1">click to upload.</h3>
-                                                    <input type="file" name="images[]" accept=".png, .jpg, .jpeg" required="" multiple="multiple">
+                                                    <input type="file" name="images[]" accept=".png, .jpg, .jpeg"
+                                                        required="" multiple="multiple">
 
                                                     <span class="fs-7 fw-semibold text-gray-400">Upload up to 10
                                                         files</span>
-                                                         @error('image')
-                                        <div class="text-muted fs-7">
-                                            {{ $message }}</div>
-                                    @enderror
+                                                    @error('image')
+                                                        <div class="text-muted fs-7">
+                                                            {{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                                 <!--end::Info-->
                                             </div>
@@ -435,7 +530,7 @@
 
                                     <!--begin::Description-->
 
-                                     @error('image')
+                                    @error('image')
                                         <div class="text-muted fs-7">
                                             {{ $message }}</div>
                                     @enderror
@@ -456,7 +551,7 @@
                                 <!--end::Button-->
 
                                 <!--begin::Button-->
-                                <input type="submit" id="" value=" Save Changes" class="btn btn-primary">
+                                <input type="submit" id="" onclick="submitForm()" value=" Save Changes" class="btn btn-primary">
                                 <span class="indicator-label">
 
                                 </span>
@@ -481,6 +576,95 @@
         <!--begin::Footer-->
     </div>
     <!--end:::Main-->
+
+    <script>
+        function addColorPicker(e) {
+            e.preventDefault();
+            // Clone the existing color picker row
+            var clone = document.querySelector('.colur_picker').cloneNode(true);
+
+            // Set default color code to #000000 in the cloned row
+            var colorPickerInput = clone.querySelector('.colorPicker');
+            colorPickerInput.value = '#000000';
+
+            // Clear input values in the cloned row
+            var inputs = clone.querySelectorAll('input');
+            inputs.forEach(function(input) {
+                input.value = '';
+            });
+
+            // Create a new container for the cloned row
+            var newContainer = document.createElement('div');
+            newContainer.classList.add('colur_picker_container');
+            newContainer.appendChild(clone);
+            newContainer.style.marginTop = '10px';
+
+            // Append the new container next to the existing container
+            document.querySelector('.main_container').appendChild(newContainer);
+        }
+
+        function removeColorPicker(button) {
+            // Get the parent container of the button and remove it
+            var container = button.closest('.colur_picker_container'); // Assuming the button is inside two divs
+            container.parentNode.removeChild(container);
+        }
+
+        // function updateColor(input, colorCode) {
+        //     // Update the color code display in the same row
+        //     input.closest('.colur_picker').querySelector('.colorCodeValue').textContent = colorCode;
+        // }
+    </script>
+    <script>
+        function updateColor(colorPicker, colorCode) {
+            // Find the parent container of the color picker
+            var container = colorPicker.closest('.colur_picker');
+
+            // Find the color code display element within the same row
+            var colorCodeDisplay = container.querySelector('.colorCodeValue');
+
+            // Get the color code from the colorPicker value
+            var colorCode = colorPicker.value;
+
+            // Update the color code display in the same row
+            colorCodeDisplay.textContent = colorCode;
+            console.log(colorCode);
+            console.log("color update");
+        }
+    </script>
+    <script>
+        function submitForm() {
+            // Create an object to store color codes and sizes
+            var colorSizeObject = {};
+
+            // Get all color pickers and sizes
+            var colorPickers = document.querySelectorAll('.colorPicker');
+            var sizeInputs = document.querySelectorAll('.favsize');
+
+            // Iterate through each color picker
+            colorPickers.forEach(function(colorPicker, index) {
+                // Get the color code and sizes for each column
+                var colorCode = colorPicker.value.substr(1); // Exclude the '#' from the color code
+                var sizes = sizeInputs[index].value.split(',');
+
+                // Store the color code and sizes in the object
+                colorSizeObject[colorCode] = sizes;
+            });
+
+            // Convert the object to JSON string
+            var jsonString = JSON.stringify(colorSizeObject);
+
+            // Add the JSON string to a hidden input in the form
+            document.getElementById('colorSizeData').value = jsonString;
+            console.log(jsonString);
+
+            // Display the JSON string in the div
+            document.getElementById('jsonDisplay').innerText = JSON.stringify(jsonString, null, 2);
+
+            // Submit the form
+            // document.getElementById('kt_ecommerce_add_product_form').submit();
+        }
+    </script>
+
 
 
     </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BannersController;
 use App\Http\Controllers\Admin\CatlogCategoriesController;
 use App\Http\Controllers\Admin\CatlogController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\CustomOrderController;
 use App\Http\Controllers\Admin\DesignerController;
 use App\Http\Controllers\Admin\EcommerceOrderController;
 use App\Http\Controllers\Admin\ExtraController;
@@ -58,6 +59,7 @@ Route::resource('/product_categories', ProductCategoriesController::class);
 Route::resource('/products', ProductController::class);
 // Route::resource('/orders', ProductController::class);
 Route::resource('/ecom_orders', EcommerceOrderController::class);
+Route::resource('/custom_orders', CustomOrderController::class);
 // Route::get('/students', [App\Http\Controllers\Student2Controller::class, 'index'])->name('students');
 
 //manufacturer

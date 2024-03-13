@@ -21,6 +21,8 @@ class Product extends Model
         'description',
         'price',
         'in_stock',
+        'attributes',
+        'featured',
         'is_active',
 
     ];

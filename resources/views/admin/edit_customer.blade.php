@@ -321,13 +321,12 @@
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="text" name="product_name" class="form-control mb-2"
-                                                        placeholder="Name" value="">
+                                                    <input type="text" name="name" class="form-control mb-2"
+                                                        placeholder="Name" value="{{$user->name}}">
                                                     <!--end::Input-->
 
                                                     <!--begin::Description-->
-                                                    <div class="text-muted fs-7">A product name is required and recommended
-                                                        to be unique.</div>
+                                                    <div class="text-muted fs-7"></div>
                                                     <!--end::Description-->
                                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                                 </div>

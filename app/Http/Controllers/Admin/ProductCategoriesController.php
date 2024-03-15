@@ -66,7 +66,7 @@ class ProductCategoriesController extends Controller
         // dd($request->all());
         $validated = $request->validate([
             'name' => 'required|unique:product_categories',
-            'icon' => 'required',
+            '   ' => 'required',
 
         ]);
         if ($request->hasfile('icon')) {

@@ -104,3 +104,4 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('upload_image', [AllBannerController::class, 'upload']);
 });
 Route::get('checkAuth', [CheckAuthController::class, 'checkAuthUser'])->name('checkAuth');
+//u279533499_lynsler

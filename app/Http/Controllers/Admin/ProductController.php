@@ -176,8 +176,8 @@ class ProductController extends Controller
             'name' => 'nullable',
             'attributes' => 'nullable',
             'featured' => 'nullable',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg', // Adjust this as per your image validation requirements
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg', // Adjust this as per your image validation requirements
         ]);
 
         print_r($validated);

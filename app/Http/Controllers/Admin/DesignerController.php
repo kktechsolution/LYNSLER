@@ -144,6 +144,7 @@ class DesignerController extends Controller
             return redirect()->back();
         }
         $user->designer_details;
+        $user->get_bank_details;
 
         return view('admin.edit_designer', ['user' => $user]);
     }
@@ -157,7 +158,24 @@ class DesignerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+
+            'percentage' => 'required',
+
+        ]);
+        $user = User::find($id);
+        if (empty($user)) {
+            return redirect()->back();
+        }
+
+        $designer_details = DesignerDetail::where('user_id',$id)->get()->first();
+        $designer_details->percentage=$request->percentage;
+        $designer_details->update();
+        return redirect()->route('designers.index')->with('success', 'Designer  Updated successfully.');
+
     }
 
     /**

@@ -137,7 +137,49 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'password' => 'nullable',
+            'avatar' => 'nullable',
+
+
+        ]);
+        if ($request->hasfile('avatar')) {
+            $file = $request->file('avatar');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('avatar/', $filename);
+            $validated['avatar'] =  $filename;
+        }
+
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        if($request->has('passwrod'))
+        {
+            $user->password = bcrypt($request->password);
+        }
+        $user->phone = $request->phone;
+
+        if ($request->hasfile('avatar')) {
+            $file = $request->file('avatar');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('avatar/', $filename);
+            $user->avatar =  $filename;
+        }
+
+        $user->update();
+
+
+        return redirect()->route('customers.index')->with('success', 'User updated successfully.');
     }
 
     /**

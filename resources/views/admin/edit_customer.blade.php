@@ -185,9 +185,10 @@
                 <div id="kt_app_content_container" class="app-container  container-xxl ">
                     <!--begin::Form-->
                     <form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
-                        action="{{ route('customers.store') }}" method="POST" enctype="multipart/form-data">
+                        action="{{ route('customers.update',$user->id) }}" method="POST" enctype="multipart/form-data">
                         <!--begin::Aside column-->
                         @csrf
+                        @method('patch')
                         <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                             <!--begin::Thumbnail settings-->
                             <div class="card card-flush py-4">
@@ -218,9 +219,9 @@
 
                                     <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                         data-kt-image-input="true">
-                                        <!--begin::Preview existing avatar-->
-                                        <div class="image-input-wrapper w-150px h-150px"></div>
-                                        <!--end::Preview existing avatar-->
+                                        <div class="image-input-wrapper w-170px h-170px"><img
+                                            style="height: 115px; width:115px" src="{{ $user->avatar }}"></img>
+                                    </div>                                         <!--end::Preview existing avatar-->
 
                                         <!--begin::Label-->
                                         <label
@@ -339,8 +340,8 @@
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="email" name="product_name" class="form-control mb-2"
-                                                        placeholder="Email" value="">
+                                                    <input type="email" name="email" class="form-control mb-2"
+                                                        placeholder="Email" value="{{$user->email}}">
                                                     <!--end::Input-->
 
                                                     <!--begin::Description-->
@@ -354,12 +355,12 @@
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="number" name="product_name" class="form-control mb-2"
-                                                        placeholder="Phone Number" value="">
+                                                    <input type="number" name="phone" class="form-control mb-2"
+                                                        placeholder="Phone Number" value="{{$user->phone}}">
                                                     <!--end::Input-->
 
                                                     <!--begin::Description-->
-                                                    <div class="text-muted fs-7">Email.</div>
+                                                    <div class="text-muted fs-7">Phone.</div>
                                                     <!--end::Description-->
                                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                                 </div>
@@ -370,7 +371,7 @@
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="password" name="product_name" class="form-control mb-2"
+                                                    <input type="password" name="password" class="form-control mb-2"
                                                         placeholder="Password" value="">
                                                     <!--end::Input-->
 
@@ -864,13 +865,11 @@
 
                             <div class="d-flex justify-content-end">
                                 <!--begin::Button-->
-                                <a href="products.html" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">
-                                    Cancel
-                                </a>
+
                                 <!--end::Button-->
 
                                 <!--begin::Button-->
-                                <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
+                                <button type="button" id="kt_ecommerce_add_product_submit" class="btn btn-primary" onclick="submit()">
                                     <span class="indicator-label">
                                         Save Changes
                                     </span>

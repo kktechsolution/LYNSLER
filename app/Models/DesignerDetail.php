@@ -20,4 +20,9 @@ class DesignerDetail extends Model
         'lng',
 
     ];
+
+    public function getAdharPicAttribute($value)
+      {
+          return env('APP_URL') . '/adhar_pic/' . $value;
+      }
 }

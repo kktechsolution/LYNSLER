@@ -74,11 +74,13 @@ class ProductController extends Controller
             'price' => 'required',
             'name' => 'required',
             'attributes' => 'required',
-            'is_featured' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust this as per your image validation requirements
+            'featured' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg', // Adjust this as per your image validation requirements
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg', // Adjust this as per your image validation requirements
         ]);
 
+        // print_r($validated);
+        // exit();
         // Handle single image upload
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -180,7 +182,6 @@ class ProductController extends Controller
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg', // Adjust this as per your image validation requirements
         ]);
 
-        print_r($validated);
 
         // Handle single image upload
         if ($request->hasFile('image')) {
@@ -200,6 +201,7 @@ class ProductController extends Controller
 
         if (!empty($images) && is_array($images)) {
 
+            $oldImg = ProductImages::where('product_id', $id)->delete();
             foreach ($images as $image) {
                 if ($image->isValid()) {
                     $extension = $image->getClientOriginalExtension();

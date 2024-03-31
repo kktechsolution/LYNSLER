@@ -64,6 +64,8 @@ Route::resource('/ecom_orders', EcommerceOrderController::class);
 Route::resource('/custom_orders', CustomOrderController::class);
 Route::resource('/style', StyleController::class);
 Route::get('/transactions', [TransactionController::class, 'manu_transactions'])->name('transactions.index');
+Route::get('/edit_a_profile', [TransactionController::class, 'edit_profile'])->name('aprofile.edit');
+Route::post('/edit_a_profile', [TransactionController::class, 'update_profile'])->name('aprofile.update');
 Route::patch('/transactions/{id}', [TransactionController::class, 'update'])->name('transactions.update');
 
 // Route::get('/students', [App\Http\Controllers\Student2Controller::class, 'index'])->name('students');

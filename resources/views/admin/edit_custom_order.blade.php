@@ -180,9 +180,10 @@
                 <div id="kt_app_content_container" class="app-container  container-xxl ">
                     <!--begin::Form-->
                     <form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
-                        action="{{ route('manufacturers.store') }}" method="POST" enctype="multipart/form-data">
+                        action="{{ route('custom_orders.update',$order->id) }}" method="POST" enctype="multipart/form-data">
                         <!--begin::Aside column-->
                         @csrf
+                        @method('patch')
                         {{-- <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10"> --}}
                         <!--begin::Thumbnail settings-->
                         {{-- <div class="card card-flush py-4">
@@ -359,21 +360,42 @@
 
                                             <!--end::Description-->
                                         </div>
-                                        <div class="d-flex">
-                                            <label class="required form-label has_gap">Custom Order</label>
+
+
+                                        <div class="mb-10 fv-row fv-plugins-icon-container" style="display:flex">
+                                            <label class="required form-label has_gap">Assign Manufacturer</label>
                                             <select class="form-select" aria-label="Default select example"
-                                                style="width: 250px;margin-left:30px">
-                                                <option selected>Custom Order1</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                                style="width: 250px;margin-left:30px" name="manufacturer_id">
+                                                <option value="">--Select Manufacturer--</option>
+                                                @foreach ($manufacturer as $manufacturer)
+                                                <option value="{{$manufacturer->id}}" {{ $order->manufacturer_id == $manufacturer->id ? 'selected' : '' }}>{{$manufacturer->name}}</option>
+
+                                                @endforeach
+
                                             </select>
                                         </div>
+                                        <div class="d-flex">
+                                            <label class="required form-label has_gap">Order Status</label>
+                                            <select class="form-select" aria-label="Default select example"
+                                                style="width: 250px;margin-left:30px" name="order_status">
+                                                <option value="pending" {{ $order->order_status == "pending" ? 'selected' : '' }} > pending</option>
+                                                <option value="in_designing" {{ $order->order_status == "in_designing" ? 'selected' : '' }} > in_designing</option>
+                                                <option value="design_compelete" {{ $order->order_status == "design_compelete" ? 'selected' : '' }} > design_compelete</option>
+                                                <option value="in_manufacturing" {{ $order->order_status == "in_manufacturing" ? 'selected' : '' }} > in_manufacturing</option>
+                                                <option value="manufacturing_compelete" {{ $order->order_status == "manufacturing_compelete" ? 'selected' : '' }} > manufacturing_compelete</option>
+                                                <option value="on_the_way"  {{ $order->order_status == "on_the_way" ? 'selected' : '' }}>on the way</option>
+                                                <option value="delivered" {{ $order->order_status == "delivered" ? 'selected' : '' }}>delivered</option>
+                                                <option value="canceled" {{ $order->order_status == "canceled" ? 'selected' : '' }}>canceled</option>
+                                                <option value="in_return" {{ $order->order_status == "in_return" ? 'selected' : '' }}>in return</option>
+                                                <option value="returned" {{ $order->order_status == "returned" ? 'selected' : '' }}>returned</option>
 
+
+                                            </select>
+                                        </div>
                                         <div class="d-flex justify-content-start mt-5">
 
                                             <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary mt-5">
-                                                <span class="indicator-label">
+                                                <span class="indicator-label" onclick="submit()">
                                                     Save Changes
                                                 </span>
                                                 <span class="indicator-progress">

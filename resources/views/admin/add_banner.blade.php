@@ -17,7 +17,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            Catalog Category Form
+                            Banner Form
                         </h1>
                         <!--end::Title-->
 
@@ -27,7 +27,7 @@
                             <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
                                 <a href="../../../index.html" class="text-muted text-hover-primary">
-                                    Catalog Category </a>
+                                    Banner </a>
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
@@ -38,7 +38,7 @@
 
                             <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
-                                Edit Catalog Category </li>
+                                Create Banner </li>
                             <!--end::Item-->
                             <!--begin::Item-->
 
@@ -64,11 +64,10 @@
                 <div id="kt_app_content_container" class="app-container  container-xxl ">
                     <!--begin::Form-->
                     <form id="kt_ecommerce_add_product_form"
-                        action="{{ route('catlog_categories.update', $catlog_category->id) }}" method="post"
+                        action="{{ route('banners.store') }}" method="post"
                         enctype="multipart/form-data" class="form d-flex flex-column flex-lg-row"
                         data-kt-redirect="products.html">
                         <!--begin::Aside column-->
-                        @method('PUT')
                         <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                             <!--begin::Thumbnail settings-->
                             <div class="card card-flush py-4" style="height: 420px;">
@@ -100,8 +99,7 @@
                                     <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                         data-kt-image-input="true">
                                         <!--begin::Preview existing avatar-->
-                                        <div class="image-input-wrapper w-170px h-170px"><img
-                                            style="height: 115px; width:115px" src="{{ $catlog_category->icon }}"></img>
+                                        <div class="image-input-wrapper w-170px h-170px">
                                     </div>                                        <!--end::Preview existing avatar-->
 
                                         <!--begin::Label-->
@@ -111,8 +109,8 @@
                                             <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span
                                                     class="path2"></span></i>
                                             <!--begin::Inputs-->
-                                            <input type="file" name="icon" accept=".png, .jpg, .jpeg" required />
-                                            @error('icon')
+                                            <input type="file" name="banner" accept=".png, .jpg, .jpeg"  />
+                                            @error('banner')
                                                 <div class="text-muted fs-7">
                                                     {{ $message }}</div>
                                             @enderror
@@ -135,9 +133,9 @@
 
                             <!--end::Status-->
 
-                            <!--begin::Category & tags-->
+                            <!--begin::Banner & tags-->
 
-                            <!--end::Category & tags-->
+                            <!--end::Banner & tags-->
                             <!--begin::Weekly sales-->
 
                             <!--end::Weekly sales-->
@@ -154,7 +152,7 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2> Edit Category</h2>
+                                        <h2> Create Banner</h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->
@@ -164,12 +162,12 @@
                                     <!--begin::Input group-->
                                     <div class="mb-10 fv-row">
                                         <!--begin::Label-->
-                                        <label class="required form-label">Category Name</label>
+                                        <label class="required form-label">Banner Name</label>
                                         <!--end::Label-->
 
                                         <!--begin::Input-->
                                         <input type="text" name="name" class="form-control mb-2"
-                                            placeholder="Category name" value="{{ $catlog_category->name }}" required />
+                                            placeholder="Banner name" value="" required />
                                         <!--end::Input-->
 
                                         <!--begin::Description-->

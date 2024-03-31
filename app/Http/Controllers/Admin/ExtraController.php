@@ -63,7 +63,27 @@ class ExtraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'name' => 'required',
+            'image' => 'required',
+            'price' => 'required',
+
+
+        ]);
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('extra_images/', $filename);
+            $validated['image'] =  $filename;
+        }
+
+        Extra::create($validated);
+        return redirect()->route('extras.index')->with('success', 'Extra  added successfully.');
+
     }
 
     /**
@@ -85,8 +105,14 @@ class ExtraController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+
+        $extra = Extra::find($id);
+
+        return view('admin.edit_extra',['extra' => $extra]);
+     }
 
     /**
      * Update the specified resource in storage.
@@ -97,7 +123,28 @@ class ExtraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'name' => 'required',
+            'image' => 'nullable',
+            'price' => 'required',
+
+
+        ]);
+        $extra = Extra::find($id);
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('extra_images/', $filename);
+            $validated['image'] =  $filename;
+        }
+
+        $extra->update($validated);
+        return redirect()->route('extras.index')->with('success', 'Extra updated successfully.');
+
     }
 
     /**

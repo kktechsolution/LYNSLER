@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class BannersController extends Controller
 {
@@ -25,17 +26,10 @@ class BannersController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-        $catlog_categories = Banner::orderBy('name'); // Default sorting
+        $catlog_categories = Banner::paginate(5); // Default sorting
         // Check if request has a sort parameter
-        if ($request->has('sort')) {
-            $sortField = $request->get('sort');
-            $sortDirection = $request->get('direction', 'asc');
 
-            $catlog_categories = Banner::orderBy($sortField, $sortDirection);
-        }
-
-        $catlog_categories = $catlog_categories->paginate(5);
-        return view('admin.catlog_categories', ['catlog_categories' => $catlog_categories]);
+        return view('admin.banners', ['catlog_categories' => $catlog_categories]);
     }
     /**
      * Show the form for creating a new resource.
@@ -48,7 +42,7 @@ class BannersController extends Controller
             return redirect()->back();
         }
 
-        return view('admin.add_catlog_category');
+        return view('admin.add_banner');
     }
 
     /**
@@ -80,7 +74,7 @@ class BannersController extends Controller
             // dd($filename);
         }
         Banner::create($validated);
-        return redirect()->route('catlog_categories.index')->with('success', 'Catlog Category added successfully.');
+        return redirect()->route('banners.index')->with('success', 'Banner added successfully.');
     }
 
     /**
@@ -118,7 +112,7 @@ class BannersController extends Controller
             return redirect()->back();
         }
 
-        return view('admin.edit_catlog_category', ['catlog_category' => $catlog_category]);
+        return view('admin.edit_banner', ['banner' => $catlog_category]);
     }
 
     /**
@@ -134,7 +128,7 @@ class BannersController extends Controller
             return redirect()->back();
         }
         $validated = $request->validate([
-            'name' => 'nullable||unique:catlog_categories,name,' . $id,
+            'name' => 'nullable',
             'banner' => 'nullable',
         ]);
 
@@ -155,7 +149,7 @@ class BannersController extends Controller
         }
 
         $catlog_category->update($validated);
-        return redirect()->route('catlog_categories.index')->with('success', 'Catlog Category updated successfully.');
+        return redirect()->route('banners.index')->with('success', 'Banner updated successfully.');
     }
 
     /**

@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\FabricController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ManufacturerController;
 use App\Http\Controllers\Admin\ProductCategoriesController;
+use App\Http\Controllers\Admin\StyleController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Manufacturer\ManufacturerCostController;
 use App\Http\Controllers\Manufacturer\ManufacturerHomeController;
 use Illuminate\Support\Facades\Auth;
@@ -60,6 +62,10 @@ Route::resource('/products', ProductController::class);
 // Route::resource('/orders', ProductController::class);
 Route::resource('/ecom_orders', EcommerceOrderController::class);
 Route::resource('/custom_orders', CustomOrderController::class);
+Route::resource('/style', StyleController::class);
+Route::get('/transactions', [TransactionController::class, 'manu_transactions'])->name('transactions.index');
+Route::patch('/transactions/{id}', [TransactionController::class, 'update'])->name('transactions.update');
+
 // Route::get('/students', [App\Http\Controllers\Student2Controller::class, 'index'])->name('students');
 
 //manufacturer

@@ -121,17 +121,14 @@
                                         Style</th>
                                     <th class="text-end min-w-100px sorting" tabindex="0"
                                         aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
-                                        aria-label="SKU: activate to sort column ascending" style="width: 129.5px;">Size
+                                        aria-label="SKU: activate to sort column ascending" style="width: 129.5px;">Style No
                                     </th>
                                     <th class="text-end min-w-70px sorting" tabindex="0"
                                         aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
                                         aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">
-                                        Manufacturer Cost</th>
+                                        Manufacturing Cost</th>
 
-                                        <th class="text-end min-w-70px sorting" tabindex="0"
-                                        aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
-                                        aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">
-                                        Actual Cost</th>
+
 
                                     <th class="text-end min-w-70px sorting_disabled" rowspan="1" colspan="1"
                                         aria-label="Actions" style="width: 131.913px;">Actions</th>
@@ -147,14 +144,12 @@
 
                                         </td>
                                         <td class="text-end pe-0">
-                                            <span class="fw-bold">{{ $item->size }}</span>
-                                        </td>
-                                        <td class="text-end pe-0" data-item="12">
-                                            <span class="fw-bold ms-3">{{ $item->manufacuturing_cost}}</span>
+                                            <span class="fw-bold">{{ $item->style_no }}</span>
                                         </td>
 
+
                                         <td class="text-end pe-0" data-item="12">
-                                            <span class="fw-bold ms-3">{{ $item->actual_cost}}</span>
+                                            <span class="fw-bold ms-3">{{ $item->manufacuturing_cost}}</span>
                                         </td>
 
                                         <td class="text-end">
@@ -168,7 +163,7 @@
                                                 data-kt-menu="true">
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
-                                                    <a href="{{ route('manufacturer_cost.edit', $item->id) }}"
+                                                    <a href="{{ route('style.edit', $item->id) }}"
                                                         class="menu-link px-3">
                                                         Edit
                                                     </a>

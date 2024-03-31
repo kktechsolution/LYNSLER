@@ -78,11 +78,7 @@ class FabricController extends Controller
             $validated['icon_image'] =  $filename;
         }
 
-
-
         Fabric::create($validated);
-
-
         return redirect()->route('fabrics.index')->with('success', 'Fabric  added successfully.');
     }
 
@@ -123,7 +119,29 @@ class FabricController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'icon_image' => 'nullable',
+            'price' => 'required',
+
+
+        ]);
+        $fabric = Fabric::find($id);
+        if ($request->hasfile('icon_image')) {
+            $file = $request->file('icon_image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('fabric_images/', $filename);
+            $validated['icon_image'] =  $filename;
+        }
+
+        $fabric->update($validated);
+        return redirect()->route('fabrics.index')->with('success', 'Fabric updated successfully.');
+
     }
 
     /**

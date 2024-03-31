@@ -153,6 +153,7 @@ class ManufacturerController extends Controller
             return redirect()->back();
         }
         $user->manufacturer_details;
+        $user->get_bank_details;
 
         return view('admin.edit_manufacturer', ['user' => $user]);
     }
@@ -182,23 +183,23 @@ class ManufacturerController extends Controller
 
         ]);
         $user = User::find($id);
-        if ($request->hasfile('avatar')) {
-            $file = $request->file('avatar');
-            $extension = $file->getClientOriginalExtension(); // getting image extension
-            $filename = time() . '.' . $extension;
-            $file->move('avatar/', $filename);
-            $validated['avatar'] =  $filename;
-        }
+        // if ($request->hasfile('avatar')) {
+        //     $file = $request->file('avatar');
+        //     $extension = $file->getClientOriginalExtension(); // getting image extension
+        //     $filename = time() . '.' . $extension;
+        //     $file->move('avatar/', $filename);
+        //     $validated['avatar'] =  $filename;
+        // }
 
 
 
-        $validated['user_id'] =  Auth::user()->id;
+        // $validated['user_id'] =  Auth::user()->id;
         $validated['password'] =  bcrypt($request->password);
         $validated['type'] =  "manufacturer";
 
 
-        $user->update($validated);
-        $validated['user_id'] =  $user->id;
+        // $user->update($validated);
+        // $validated['user_id'] =  $user->id;
 
         $manufacturer_details = ManufacturerDetail::where('user_id',$user->id)->get()->first();
         $manufacturer_details->update($validated);

@@ -88,7 +88,12 @@ class ManufacturerCostController extends Controller
      */
     public function show($id)
     {
-        //
+
+
+        $orders = ManufacturerCost::where('manufacturer_id',$id)
+        ->paginate(5);
+
+        return view('admin.manufacturing_costs', ['items' => $orders]);
     }
 
     /**
@@ -121,7 +126,7 @@ class ManufacturerCostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (Auth::user()->type != 'manufacturer') {
+        if (Auth::user()->type != ['manufacturer','master_admin']) {
             return redirect()->back();
         }
         $validated = $request->validate([

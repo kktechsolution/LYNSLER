@@ -11,7 +11,7 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Cost
+                    Extra
                 </h1>
                 <!--end::Title-->
 
@@ -32,7 +32,7 @@
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
                         <a href="../../../index.html" class="text-muted text-hover-primary">
-                            Cost </a>
+                            Extra </a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -43,7 +43,7 @@
 
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        Cost List </li>
+                        Extras List </li>
                     <!--end::Item-->
                     <!--begin::Item-->
 
@@ -90,15 +90,15 @@
                 <!--end::Card title-->
 
                 <!--begin::Card toolbar-->
-                {{-- <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
 
 
                     <!--begin::Add product-->
-                    <a href={{ route('manufacturer_home.edit',$item->id) }} class="btn btn-primary">
+                    <a href={{ route('extras.create') }} class="btn btn-primary">
                         Create
                     </a>
                     <!--end::Add product-->
-                </div> --}}
+                </div>
                 <!--end::Card toolbar-->
             </div>
             <!--end::Card header-->
@@ -115,47 +115,44 @@
                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
 
 
+                                    <th class="min-w-200px sorting" tabindex="0"
+                                        aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
+                                        aria-label="Product: activate to sort column ascending" style="width: 256.375px;">
+                                        Extra</th>
                                     <th class="text-end min-w-100px sorting" tabindex="0"
                                         aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
-                                        aria-label="Product: activate to sort column ascending" style="width: 129.5px;">
-                                        Style</th>
-                                    <th class="text-end min-w-100px sorting" tabindex="0"
-                                        aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
-                                        aria-label="SKU: activate to sort column ascending" style="width: 129.5px;">Size
+                                        aria-label="SKU: activate to sort column ascending" style="width: 129.5px;">Name
                                     </th>
-                                    <th class="text-end min-w-70px sorting" tabindex="0"
-                                        aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
-                                        aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">
-                                        Manufacturer Cost</th>
 
-                                        <th class="text-end min-w-70px sorting" tabindex="0"
+                                    <th class="text-end min-w-100px sorting" tabindex="0"
                                         aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1"
-                                        aria-label="Qty: activate to sort column ascending" style="width: 116.762px;">
-                                        Actual Cost</th>
-
+                                        aria-label="Price: activate to sort column ascending" style="width: 129.5px;">Price
+                                    </th>
                                     <th class="text-end min-w-70px sorting_disabled" rowspan="1" colspan="1"
                                         aria-label="Actions" style="width: 131.913px;">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
 
-                                @foreach ($items as $item)
+                                @foreach ($extras as $extra)
                                     <tr class="odd">
 
-                                        <td class="text-end pe-0">
-                                            <span class="fw-bold">{{ $item->style_name }}</span>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <!--begin::Thumbnail-->
+                                                <a href="edit-product.html" class="symbol symbol-50px">
+                                                    <img src="{{ $extra->image }}" alt="Emma Smith" class="w-100" />
+                                                </a>
+                                                <!--end::Thumbnail-->
 
+
+                                            </div>
                                         </td>
                                         <td class="text-end pe-0">
-                                            <span class="fw-bold">{{ $item->size }}</span>
-                                        </td>
-                                        <td class="text-end pe-0" data-item="12">
-                                            <span class="fw-bold ms-3">{{ $item->manufacuturing_cost}}</span>
+                                            <span class="fw-bold">{{ $extra->name }}</span>
                                         </td>
 
-                                        <td class="text-end pe-0" data-item="12">
-                                            <span class="fw-bold ms-3">{{ $item->actual_cost}}</span>
-                                        </td>
+                                        <td class="text-end pe-0">{{ $extra->price }}</td>
 
                                         <td class="text-end">
                                             <a href="#"
@@ -168,7 +165,7 @@
                                                 data-kt-menu="true">
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
-                                                    <a href="{{ route('manufacturer_cost.edit', $item->id) }}"
+                                                    <a href="{{ route('extras.edit', $extra->id) }}"
                                                         class="menu-link px-3">
                                                         Edit
                                                     </a>
@@ -202,7 +199,7 @@
 
                     </div>
                     <div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
-                                {{ $items->links('admin.custom_pagination') }}
+                                {{ $extras->links('admin.custom_pagination') }}
                                 </div>
                 </div>
             </div>

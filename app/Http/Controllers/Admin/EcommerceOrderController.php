@@ -94,7 +94,22 @@ class EcommerceOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //order_status
+
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+            'order_status' => 'requried',
+
+        ]);
+
+        $ecom_order = EcommerceOrder::find($id);
+        $ecom_order->order_status = $request->order_status;
+        $ecom_order->update();
+
+        return redirect()->route('ecom_orders.index')->with('success', 'Order Status updated successfully.');
+
     }
 
     /**

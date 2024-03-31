@@ -3,38 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
-use App\Models\User;
+use App\Models\ManufacturingCost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CustomOrderController extends Controller
+class StyleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
 
-
-       $ecom_orders =Order::orderBy('id')->with(['user']);
-        // Default sorting
-        // Check if request has a sort parameter
-        if ($request->has('sort')) {
-            $sortField = $request->get('sort');
-            $sortDirection = $request->get('direction', 'asc');
-
-            $ecom_orders = Order::orderBy($sortField, $sortDirection);
-        }
-
-        $ecom_orders = $ecom_orders->paginate(5);
-        // dd($catlogs);
-        return view('admin.custom_orders', ['ecom_orders' => $ecom_orders]);
+        $transactions = ManufacturingCost::paginate(3);        ;
+        return view('admin.styles', ['items' => $transactions]);
     }
 
     /**
@@ -44,7 +31,10 @@ class CustomOrderController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::user()->type != 'master_admin') {
+            return redirect()->back();
+        }
+        return view('admin.addStyle');
     }
 
     /**
@@ -55,7 +45,20 @@ class CustomOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::user()->type !='master_admin') {
+            return redirect()->back();
+        }
+        $validated = $request->validate([
+
+            'style_name' => 'required',
+            'style_no' => 'required',
+            'manufacuturing_cost' => 'required',
+
+        ]);
+
+        ManufacturingCost::create($validated);
+        return redirect()->route('style.index')->with('success', 'cost added successfully.');
+
     }
 
     /**
@@ -80,13 +83,8 @@ class CustomOrderController extends Controller
         if (Auth::user()->type != 'master_admin') {
             return redirect()->back();
         }
-
-
-        $order = Order::with(['designer','manufacturer','user','order_details','main_fabric','extras_order','fabric_order'])
-        ->where('id', $id)
-        ->get()->first();
-        $manufactuers = User::where('type','manufacturer')->get();
-        return view('admin.edit_custom_order', ['order' => $order,'manufacturer' => $manufactuers]);
+        $style=ManufacturingCost::find($id);
+        return view('admin.edit_style',['style' => $style]);
     }
 
     /**
@@ -98,24 +96,21 @@ class CustomOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (Auth::user()->type != 'master_admin') {
+        if (Auth::user()->type !='master_admin') {
             return redirect()->back();
         }
         $validated = $request->validate([
-            'order_status' => 'required',
-            'manufacturer_id' => 'nullable',
+
+            'style_name' => 'required',
+            'style_no' => 'required',
+            'manufacuturing_cost' => 'required',
 
         ]);
 
-        $ecom_order = Order::find($id);
-        $ecom_order->order_status = $request->order_status;
-        if(!empty ($request->manufacturer_id))
-        {
-            $ecom_order->manufacturer_id = $request->manufacturer_id;
-        }
-        $ecom_order->update();
+        $cost=ManufacturingCost::find($id);
+        $cost->update($validated);
+        return redirect()->route('style.index')->with('success', 'cost update successfully.');
 
-        return redirect()->route('custom_orders.index')->with('success', 'Order Status updated successfully.');
     }
 
     /**

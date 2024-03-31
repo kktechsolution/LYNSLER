@@ -22,7 +22,7 @@
 <div  class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
     <!--begin::Title-->
     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-       Fabric Form
+       Extras Form
             </h1>
     <!--end::Title-->
 
@@ -31,8 +31,8 @@
         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    <a href={{route('fabrics.index')}} class="text-muted text-hover-primary">
-                                                        Fabric                          </a>
+                                                    <a href={{route('extras.index')}} class="text-muted text-hover-primary">
+                                                        Extras                          </a>
                                             </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
@@ -43,7 +43,7 @@
 
                             <!--begin::Item-->
                                     <li class="breadcrumb-item text-muted">
-                                                    Edit Fabric                                           </li>
+                                                    Edit Extra                                           </li>
                                 <!--end::Item-->
                                     <!--begin::Item-->
 
@@ -180,7 +180,7 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container  container-xxl ">
             <!--begin::Form-->
-<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('fabrics.update',$fabrics->id)}}" method="POST" enctype="multipart/form-data">
+<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"  action="{{route('extras.update',$extra->id)}}" method="POST" enctype="multipart/form-data">
     <!--begin::Aside column-->
     @csrf
     @method('PUT')
@@ -191,7 +191,7 @@
     <div class="card-header">
         <!--begin::Card title-->
         <div class="card-title">
-            <h2>Fabric Photo</h2>
+            <h2>Extra Photo</h2>
         </div>
         <!--end::Card title-->
     </div>
@@ -215,14 +215,14 @@
             <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
             data-kt-image-input="true">
             <div class="image-input-wrapper w-170px h-170px"><img
-                style="height: 115px; width:115px" src="{{ $fabrics->icon_image }}"></img>
+                style="height: 115px; width:115px" src="{{ $extra->image }}"></img>
         </div>
 
             <!--begin::Label-->
             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change Photo">
                 <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
                 <!--begin::Inputs-->
-                <input type="file" name="icon_image" accept=".png, .jpg, .jpeg"  />
+                <input type="file" name="image" accept=".png, .jpg, .jpeg"  />
                 <input type="hidden" name="i" />
                 <!--end::Inputs-->
             </label>
@@ -292,7 +292,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input type="text" name="name" class="form-control mb-2"  value="{{$fabrics->name}}"  />
+            <input type="text" name="name" class="form-control mb-2"  value="{{$extra->name}}"  />
             <!--end::Input-->
 
             <!--begin::Description-->
@@ -303,19 +303,7 @@
         <!--end::Input group-->
 
         <!--begin::Input group-->
-        <div class="mb-10 fv-row">
-            <!--begin::Label-->
-            <label class="required form-label">Description </label>
-            <!--end::Label-->
 
-            <!--begin::Input-->
-            <textarea style="height: 147px;width: 775px; resize: none;" name="description" >{{$fabrics->description}} </textarea>
-            <!--end::Input-->
-
-            <!--begin::Description-->
-            <div class="text-muted fs-7">Enter your Description <address></address>.</div>
-            <!--end::Description-->
-        </div>
         <!--end::Input group-->
 
         <!--begin::Input group-->
@@ -326,7 +314,7 @@
 
             <!--begin::Input-->
             <div class="d-flex gap-3">
-                <input type="text" name="price" class="form-control mb-2"  value="{{$fabrics->price}}"  />
+                <input type="text" name="price" class="form-control mb-2"  value="{{$extra->price}}"  />
 
             </div>
             <!--end::Input-->

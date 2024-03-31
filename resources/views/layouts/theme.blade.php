@@ -443,6 +443,55 @@ License: For each use you must have a valid license purchased only from above li
                                                 <span class="path3"></span>
                                                 <span class="path4"></span></i>
                                         </span>
+                                        <span class="menu-title">Banners</span>
+                                        <span class="menu-arrow"></span></span>
+
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href= {{route('banners.index')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Banner List</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href= {{route('banners.create')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Add Banner</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                    </div>
+                                    <!--end:Menu sub-->
+                                </div>
+
+                                <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-element-11 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span></i>
+                                        </span>
                                         <span class="menu-title">Catlog Categories</span>
                                         <span class="menu-arrow"></span></span>
 
@@ -532,7 +581,6 @@ License: For each use you must have a valid license purchased only from above li
 
                                     <!--end:Menu sub-->
                                 </div>
-
                                 {{-- 3rd --}}
                                 <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
                                     <span class="menu-link">
@@ -580,6 +628,102 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end:Menu item-->
                                     </div>
                                 </div>
+                                <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-element-11 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span></i>
+                                        </span>
+                                        <span class="menu-title">Extras </span>
+                                        <span class="menu-arrow"></span></span>
+
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href= {{route('extras.index')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Extras List</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href= {{route('extras.create')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Add Extras </span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                    </div>
+                                </div>
+
+
+                                <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-element-11 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span></i>
+                                        </span>
+                                        <span class="menu-title">Style </span>
+                                        <span class="menu-arrow"></span></span>
+
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href= {{route('style.index')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Style List</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href= {{route('style.create')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Add Style </span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                    </div>
+                                </div>
+
+
                                 {{-- 4 --}}
                                 <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <span class="menu-link">
@@ -675,7 +819,6 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end:Menu item-->
                                     </div>
                                 </div>
-
                                 {{-- 6 --}}
                                 <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <span class="menu-link">
@@ -723,7 +866,6 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end:Menu item-->
                                     </div>
                                 </div>
-
                                 <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -770,56 +912,6 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end:Menu item-->
                                     </div>
                                 </div>
-
-                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
-                                    <span class="menu-link">
-                                        <span class="menu-icon">
-                                            <i class="ki-duotone ki-element-11 fs-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                                <span class="path4"></span></i>
-                                        </span>
-                                        <span class="menu-title">Product </span>
-                                        <span class="menu-arrow"></span></span>
-
-                                    <!--end:Menu link-->
-                                    <!--begin:Menu sub-->
-                                    <div class="menu-sub menu-sub-accordion">
-                                        <!--begin:Menu item-->
-                                        <div class="menu-item">
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link active" href= {{route('products.index')}}>
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span></span>
-                                                <span class="menu-title">Product List</span></a>
-                                            <!--end:Menu link-->
-                                        </div>
-                                        <!--end:Menu item-->
-                                        <!--begin:Menu item-->
-                                        <div class="menu-item">
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link" href= {{route('products.create')}}>
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span></span>
-                                                <span class="menu-title">Add Product </span></a>
-                                            <!--end:Menu link-->
-                                        </div>
-
-
-                                        <!--end:Menu item-->
-                                        <!--begin:Menu item-->
-
-                                        <!--end:Menu item-->
-                                        <!--begin:Menu item-->
-
-                                        <!--end:Menu item-->
-                                        <!--begin:Menu item-->
-
-                                        <!--end:Menu item-->
-                                    </div>
-                                </div>
-
                                 <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -847,7 +939,6 @@ License: For each use you must have a valid license purchased only from above li
 
                                     </div>
                                 </div>
-
                                 <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -870,6 +961,33 @@ License: For each use you must have a valid license purchased only from above li
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span></span>
                                                 <span class="menu-title">Custom Order List</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-element-11 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span></i>
+                                        </span>
+                                        <span class="menu-title">Transactions </span>
+                                        <span class="menu-arrow"></span></span>
+
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href= {{route('transactions.index')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Transaction List</span></a>
                                             <!--end:Menu link-->
                                         </div>
 

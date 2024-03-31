@@ -90,9 +90,10 @@
                 <div id="kt_app_content_container" class="app-container  container-xxl ">
                     <!--begin::Form-->
                     <form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
-                        action="{{ route('designers.store') }}" method="POST" enctype="multipart/form-data">
+                        action="{{ route('ecom_orders.update',$ecom_orders->id) }}" method="POST" enctype="multipart/form-data">
                         <!--begin::Aside column-->
                         @csrf
+                        @method('patch')
                         {{-- <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
         <!--begin::Thumbnail settings-->
 <div class="card card-flush py-4">
@@ -330,7 +331,7 @@
 
                                             <!--begin::Button-->
                                             <button type="submit" id="kt_ecommerce_add_product_submit"
-                                                class="btn btn-primary " style="margin-left:30px">
+                                                class="btn btn-primary " style="margin-left:30px" onclick="submit()">
                                                 <span class="indicator-label">
                                                     Save Changes
                                                 </span>

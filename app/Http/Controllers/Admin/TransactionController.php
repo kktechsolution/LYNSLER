@@ -3,6 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Catlog;
+use App\Models\CatlogCategory;
+use App\Models\EcommerceOrder;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -96,5 +102,30 @@ class TransactionController extends Controller
 
 
         return redirect()->route('aprofile.edit')->with('success', 'Profile updated successfully.');
+    }
+
+    public function dashboard()
+    {
+        $total_products = count(Product::all());
+        $total_product_categories = count(ProductCategory::all());
+        $total_catlog_categories = count(CatlogCategory::all());
+        $total_catlog = count(Catlog::all());
+        $total_ecom_orders = count(EcommerceOrder::all());
+        $total_custom_orders = count(Order::all());
+        $total_transactions = count(Transaction::all());
+        $total_user = count(User::all());
+        $transactions = Transaction::latest()->with('user')->take(5)->get();
+        return view('admin.dashboard',
+        [
+            'total_products'=>$total_products,
+            'total_product_categories'=>$total_product_categories,
+            'total_catlog_categories'=>$total_catlog_categories,
+            'total_catlog'=>$total_catlog,
+            'total_ecom_orders'=>$total_ecom_orders,
+            'total_custom_orders'=>$total_custom_orders,
+            'total_transactions'=>$total_transactions,
+            'transactions'=>$transactions,
+            'total_user'=>$total_user
+    ]);
     }
 }

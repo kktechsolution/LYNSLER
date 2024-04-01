@@ -65,6 +65,8 @@ Route::resource('/custom_orders', CustomOrderController::class);
 Route::resource('/style', StyleController::class);
 Route::get('/transactions', [TransactionController::class, 'manu_transactions'])->name('transactions.index');
 Route::get('/edit_a_profile', [TransactionController::class, 'edit_profile'])->name('aprofile.edit');
+Route::get('/edit_a_profile', [TransactionController::class, 'edit_profile'])->name('aprofile.edit');
+Route::get('/admin_dashboard', [TransactionController::class, 'dashboard'])->name('dashboard.admin');
 Route::post('/edit_a_profile', [TransactionController::class, 'update_profile'])->name('aprofile.update');
 Route::patch('/transactions/{id}', [TransactionController::class, 'update'])->name('transactions.update');
 

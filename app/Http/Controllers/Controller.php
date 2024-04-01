@@ -29,7 +29,7 @@ class Controller extends BaseController
         {
             if(Auth::user()->type == "master_admin")
             {
-                return redirect()->route('catlog_categories.index');
+                return redirect()->route('dashboard.admin');
             }
             elseif(Auth::user()->type == "manufacturer")
             {

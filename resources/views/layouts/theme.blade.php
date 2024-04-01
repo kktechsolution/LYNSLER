@@ -276,9 +276,15 @@ License: For each use you must have a valid license purchased only from above li
 
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <a href="account/overview.html" class="menu-link px-5">
+                                        @if(Auth::user()->type == 'manufacturer')
+                                        <a href="{{route('manufacturer_home.create')}}" class="menu-link px-5">
                                             My Profile
                                         </a>
+                                        @else
+                                        <a href="{{route('aprofile.edit')}}" class="menu-link px-5">
+                                            My Profile
+                                        </a>
+                                        @endif
                                     </div>
                                     <!--end::Menu item-->
 
@@ -433,6 +439,47 @@ License: For each use you must have a valid license purchased only from above li
 
                                 @if(Auth::user()->type == "master_admin")
                                 <!--begin:Menu item-->
+                                <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-element-11 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span></i>
+                                        </span>
+                                        <span class="menu-title">Dashboard</span>
+                                        <span class="menu-arrow"></span></span>
+
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href= {{route('dashboard.admin')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Dashboard</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                    </div>
+                                    <!--end:Menu sub-->
+                                </div>
                                 <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
@@ -4705,21 +4752,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--end::Copyright-->
 
                             <!--begin::Menu-->
-                            <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-                                <li class="menu-item">
-                                    <a href="https://keenthemes.com/" target="_blank" class="menu-link px-2">About</a>
-                                </li>
 
-                                <li class="menu-item">
-                                    <a href="https://devs.keenthemes.com/" target="_blank"
-                                        class="menu-link px-2">Support</a>
-                                </li>
-
-                                <li class="menu-item">
-                                    <a href="https://1.envato.market/EA4JP" target="_blank"
-                                        class="menu-link px-2">Purchase</a>
-                                </li>
-                            </ul>
                             <!--end::Menu-->
 
                         </div>

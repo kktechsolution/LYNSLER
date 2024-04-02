@@ -959,6 +959,53 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end:Menu item-->
                                     </div>
                                 </div>
+
+                                <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-element-11 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span></i>
+                                        </span>
+                                        <span class="menu-title">Products </span>
+                                        <span class="menu-arrow"></span></span>
+
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href= {{route('products.index')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Product List</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href= {{route('products.create')}}>
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Add Product </span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+
+                                        <!--end:Menu item-->
+                                    </div>
+                                </div>
                                 <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
                                     <span class="menu-link">
                                         <span class="menu-icon">

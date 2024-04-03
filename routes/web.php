@@ -78,6 +78,7 @@ Route::resource('/manufacturer_cost', ManufacturerCostController::class);
 Route::get('/manufacturer_order', [ManufacturerHomeController::class, 'myOrders'])->name('manufacturer.order');
 Route::get('/manufacturer_order/{id}', [ManufacturerHomeController::class, 'order_details'])->name('manufacturer.order.details');
 Route::get('/manufacturer_transactions', [ManufacturerHomeController::class, 'transactions'])->name('manufacturer.trans');
+Route::get('/manufacturer_dashboard', [ManufacturerHomeController::class, 'dashboard'])->name('dashboard.manufacturer');
 
 
 });

@@ -33,7 +33,7 @@ class Controller extends BaseController
             }
             elseif(Auth::user()->type == "manufacturer")
             {
-                return redirect()->route('manufacturer_home.create');
+                return redirect()->route('dashboard.manufacturer');
             }
 
         }

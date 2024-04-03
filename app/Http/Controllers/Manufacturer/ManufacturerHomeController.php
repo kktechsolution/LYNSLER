@@ -20,7 +20,7 @@ class ManufacturerHomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
+
 
 
     public function index(Request $request)
@@ -222,5 +222,20 @@ class ManufacturerHomeController extends Controller
         $transactions = Transaction::where('user_id',Auth::user()->id)->paginate(3);        ;
         return view('Manufacturer.trans', ['transactions' => $transactions]);
 
+    }
+
+    public function dashboard()
+    {
+        $my_orders = count(Order::where('manufacturer_id',Auth::user()->id)->get());
+        $comepleted_orders = count(Order::where('manufacturer_id',Auth::user()->id)->where('order_status','compeleted')->get());
+        $design_orders = count(Order::where('manufacturer_id',Auth::user()->id)->where('order_status','in_designing')->get());
+        $transactions = Transaction::where('user_id',Auth::user()->id)->latest()->with('user')->take(5)->get();
+        return view('Manufacturer.dashboard',
+        [
+            'my_orders'=>$my_orders,
+            'comepleted_orders'=>$comepleted_orders,
+            'design_orders'=>$design_orders,
+            'transactions'=>$transactions
+        ]);
     }
 }

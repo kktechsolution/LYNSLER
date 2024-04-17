@@ -40,6 +40,7 @@ class TransactionController extends Controller
         $transactions = Transaction::find($id);
 
         $transactions->payment_mode = $request->payment_mode;
+        $transactions->payment_status = "paid";
         $transactions->update();
 
         return redirect()->route('transactions.index')->with('success', 'Transaction updated successfully.');
@@ -113,7 +114,7 @@ class TransactionController extends Controller
         $total_ecom_orders = count(EcommerceOrder::all());
         $total_custom_orders = count(Order::all());
         $total_transactions = count(Transaction::all());
-        $total_user = count(User::all());
+        $total_user = count(User::where('type','user')->get());
         $transactions = Transaction::latest()->with('user')->take(5)->get();
         return view('admin.dashboard',
         [
